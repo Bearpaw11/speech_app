@@ -1,0 +1,16 @@
+.navbar a {
+    color: rgb(17, 86, 155);
+    padding: 10px 10px;
+    word-wrap: normal;
+    display: inline-block;
+    font-size: 15px;
+}
+
+
+.footer {
+    position: relative;
+    height: 2.5rem;
+    font-size: 15px;
+    color: rgb(17, 86, 155);
+    text-align: center;
+}
