@@ -1,0 +1,58 @@
+
+
+
+/*HEADER COMPONENT CSS*/
+@keyframes spin {
+    from {
+      transform: rotateY(0);
+    }
+    to {
+      transform: rotateY(1turn);
+    }
+  }
+  
+  .card {
+    animation: spin 8s ease;
+    animation-iteration-count: default;
+    color: blue;
+    font-family: 'Georgia';
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .container {
+    perspective: 1000px;
+  }
+
+  .clip-text {
+    background: url(https://media.giphy.com/media/Xlk4JrwQE7XEs/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    
+    background-clip: text;
+    color: transparent;
+
+    width: 1000px;
+    height: 100px;
+    box-sizing: border-box;
+    font-size: 58px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100px;
+    flex-shrink: 0;
+  }
+
+p:first-child::first-letter{
+  font-size: 26px;
+  font-weight: bold;
+  font-style: italic;
+}
+body{
+  width: 75%;
+  margin: auto;
+  font-family:cormorant infant;
+}
+
+.vision {
+    text-align: center;
+}
