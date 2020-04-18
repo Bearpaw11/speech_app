@@ -13,3 +13,38 @@
     color: rgb(17, 86, 155);
     text-align: center;
 }	
+
+
+.modal-content {
+    background-color: black;
+    border: solid 1px #c15911;
+    color: #c15911;
+    
+    }
+    
+    .close {
+      color: #c15911;
+    }
+    
+    .modal-header, .modal-footer {
+      border: none;
+    }
+    
+    .modal-title {
+      font-family:'Shadows Into Light', cursive;
+      font-size: 30px;
+    }
+    
+    .loginBtn {
+      font-size: .9em;
+      color: #fff;
+      background: blue;
+      outline: none;
+      border: 1px solid;
+      cursor: pointer;
+      padding: 0.9em;
+      -webkit-appearance: none;
+      width: 100%;
+      margin: 0;
+      letter-spacing: 4px;
+    }
