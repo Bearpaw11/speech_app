@@ -3,9 +3,9 @@ const session = require("express-session");
 // const nodemailer = require('nodemailer');
 
 const passport = require("./config/passport");
-require('dotenv').config();
-console.log(process.env.APIKEY);
-console.log(process.env.APIKEY2);
+// require('dotenv').config();
+// console.log(process.env.APIKEY);
+// console.log(process.env.APIKEY2);
 
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
@@ -20,8 +20,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use(express.static("public"));
+app.use(express.static("client/build"));
 
+require("./routes")(app);
+// require("./routes/post-api-routes")(app);
 
 db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
