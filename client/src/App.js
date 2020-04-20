@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import About from './components/pages/About.js';
-import Home from './components/pages/Home.js';
+import About from './pages/About';
+import Home from './pages/Home.js';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Contact from "./components/pages/Contact.js";
-import SignUp from "./components/pages/SignUp.js";
-import Modal from "./components/Layouts/Modal.js";
+import Contact from "./pages/Contact";
+import SignUp from "./pages/SignUp";
+// import Form from "./components/Form"
+// import Modal from "./Layouts/Modal";
+// import SignUp from './pages/SignUp';
 
 export class App extends React.Component {
     render() {
@@ -16,7 +18,7 @@ export class App extends React.Component {
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route path="/Login" component={Modal} />
+                    {/* <Route path="/Login" component={Modal} /> */}
                 </Router>
 
                 

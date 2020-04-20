@@ -1,7 +1,7 @@
 import React from "react";
-import Header from '../Layouts/Header.js'
-import NavBar from '../Layouts/Navbar.js'
-import Footer from '../Layouts/Footer.js'
+import Header from '../components/Layouts/Header'
+import NavBar from '../components/Layouts/Navbar.js'
+import Footer from '../components/Layouts/Footer.js'
 
 function Contact() {
     return (
