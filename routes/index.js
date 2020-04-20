@@ -6,4 +6,8 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "./client/build/index.html"));
     });
 
+    app.get("/signup", function (req, res) {
+        res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    });
+
 };
