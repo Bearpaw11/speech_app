@@ -1,5 +1,7 @@
 const mysql = require("mysql");
+
 let connection
+
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL)
 }
@@ -9,7 +11,8 @@ else {
         port: 3306,
         user: "root",
         password: "Bearpaw11",
-        database: "speech"
+        database: "speechapp"
+        
     });
 }
 connection.connect(function (err) {
@@ -19,4 +22,5 @@ connection.connect(function (err) {
     }
     console.log("connected as id " + connection.threadId);
 });
+
 module.exports = connection
