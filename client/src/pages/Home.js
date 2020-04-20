@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import Header from '../components/Layouts/Header.js'
 import NavBar from '../components/Layouts/Navbar.js'
 import Footer from '../components/Layouts/Footer.js'
