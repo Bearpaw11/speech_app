@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
 // import Form from "./components/Form"
-// import Modal from "./Layouts/Modal";
+import Modal from "./components/Layouts/Modal";
 // import SignUp from './pages/SignUp';
 
 export class App extends React.Component {
@@ -18,7 +18,7 @@ export class App extends React.Component {
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    {/* <Route path="/Login" component={Modal} /> */}
+                    <Route path="/Login" component={Modal} />
                 </Router>
 
                 
