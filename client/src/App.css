@@ -10,18 +10,15 @@
     position: relative;
     height: 2.5rem;
     font-size: 15px;
-    color: rgb(17, 86, 155);
     text-align: center;
 }	
-
 
 .modal-content {
     background-color: black;
     border: solid 1px #c15911;
     color: #c15911;
-    
     }
-    
+
     .close {
       color: #c15911;
     }
@@ -47,4 +44,44 @@
       width: 100%;
       margin: 0;
       letter-spacing: 4px;
+}
+
+.groupPics {
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+    padding-right: 10px;
+}
+
+.groupName {
+    font-size: 30px;
+    font-family: 'Georgia';
+}
+
+
+/*BACKGROUND IDEA*/
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
     }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.methods {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    background: transparent;
+}
