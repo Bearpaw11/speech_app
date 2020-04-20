@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import Header from '../components/Layouts/Header'
 import NavBar from '../components/Layouts/Navbar'
 import Footer from '../components/Layouts/Footer'
-import Api from '../utils/API'
-import { Input, TextArea, FormBtn } from "../components/Form";
+import API from '../utils/API'
+import { Input, FormBtn } from "../components/Form";
 // import "./Layouts/layouts.css";
 
 function SignUp() {
@@ -15,22 +15,22 @@ function SignUp() {
     password: ""
   })
 
-  // function handleFormSubmit(event) {
-  //   event.preventDefault();
-  //   if (formObject.username && formObject.email && formObject.password) {
-  //     app.saveBook({
-  //       username: formObject.username,
-  //       email: formObject.email,
-  //       password: formObject.pasword
-  //     })
-  //       .then(() => setFormObject({
-  //         email: "",
-  //         username: "",
-  //         password: ""
-  //       }))
-  //       .catch(err => console.log(err));
-  //   }
-  // };
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.username && formObject.email && formObject.password) {
+      API.signUp({
+        username: formObject.username,
+        email: formObject.email,
+        password: formObject.pasword
+      })
+        .then(() => setFormObject({
+          email: "",
+          username: "",
+          password: ""
+        }))
+        .catch(err => console.log(err));
+    }
+  };
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -47,14 +47,22 @@ function SignUp() {
         <form>
             <Input
               onChange={handleInputChange}
+              name="username"
+              placeholder="Username"
               value={formObject.username} />
             <Input
               onChange={handleInputChange}
+              name="email"
+              placeholder="Email"
             value={formObject.email} />
             <Input
               onChange={handleInputChange}
+              name="password"
+              placeholder="Password"
             value={formObject.password} />
-          <FormBtn/>
+            <FormBtn
+            onClick={handleFormSubmit}
+            />
         </form>
         </div>
       <Footer />
