@@ -8,12 +8,14 @@
     }
   }
   
-  .card {
+  .cardSpin {
     animation: spin 8s ease;
     animation-iteration-count: default;
     color: #0000ff;
+    background-color: transparent;
     font-family: 'Georgia';
     font-weight: bold;
+    border: none;
   }
   
   .card--title {
@@ -27,19 +29,14 @@
     background-clip: text;
     color: transparent;
     height: 100px;
-    box-sizing: border-box;
-    font-size: 58px;
+    font-size: 48px;
     font-weight: bold;
     line-height: 100px;
     flex-shrink: 0;
+    
   }
 
-p:first-child::first-letter{
-  font-size: 26px;
-  font-weight: bold;
-  font-style: italic;
-}
-body{
+body {
   width: 75%;
   margin: auto;
   font-family:cormorant infant;
