@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "David Coons",
+        "bio": "David Coons is a Full-Stack Developer that is passionate about tech, a team player, and enthusiastic about sales."
+    },
+    {
+        "id": 2,
+        "name": "Melanie Rogoff",
+        "bio": "Melanie Rogoff is a Full-Stack Developer with proficiencies in JavaScript, Express, Node, MySQL, React, and Responsive Web Design."
+    },
+    {
+        "id": 3,
+        "name": "Shauna McGrail",
+        "bio": "Shauna McGrail is a Full-Stack Developer with proficiencies in JavaScript, Responsive Web Design, UX/UI Design, and is passionate about cake."
+    },
+    {
+        "id": 4,
+        "name": "Chris Behrens",
+        "bio": "Chris Behrens is a Full Stack Web Developer who is a critical thinker, team player and loves a challenge."
+        
+    }
+]
