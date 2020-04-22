@@ -10,6 +10,8 @@ function NavBar(props) {
       <Link to="/About" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>About</Link>
       <Link to="/Contact" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Contact</Link>
       <Link to="/SignUp" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
+      <Link to="/Recordings" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Recordings</Link>
+
       <button onClick={props.showModal} >Log In</button>
     </div>
   )
