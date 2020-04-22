@@ -7,16 +7,8 @@ import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
 import LoginModal from "./LoginModal.js";
 
-const AppModal = () => {
+const AppModal = (props) => {
     const [title, setTitle] = React.useState("Transitioning...");
-  
-    const showModal = () => {
-      setIsOpen(true);
-    };
-  
-    const hideModal = () => {
-      setIsOpen(false);
-    };
   
     const modalLoaded = () => {
       setTitle("Log In");
@@ -24,8 +16,8 @@ const AppModal = () => {
   
     return (
         <div>
-        <button onClick={showModal}>Log In</button>
-        <Modal show={isOpen} onHide={hideModal} onEntered={modalLoaded}>
+        <button onClick={props.showModal}>Log In</button>
+        <Modal onEntered={modalLoaded}>
           <Modal.Header>
             <Modal.Title>{title}</Modal.Title>
           </Modal.Header>

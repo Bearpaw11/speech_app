@@ -10,12 +10,19 @@ import AppModal from "./components/Layouts/Modal/Modal.js";
 // import SignUp from './pages/SignUp';
 
 
-const [isOpen, setIsOpen] = React.useState(false);
 
 
-export class App extends React.Component {
+function App () {
+    const [isOpen, setIsOpen] = React.useState(false);
 
-    render() {
+    const showModal = () => {
+        setIsOpen(true);
+      };
+    
+      const hideModal = () => {
+        setIsOpen(false);
+      };
+
         return (
             <div>
                 <Router>
@@ -23,12 +30,13 @@ export class App extends React.Component {
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route path="/Login" component={AppModal} />
+                    <Route exact path="/Login"> 
+                        <AppModal showModal={showModal} onHide={hideModal} show={isOpen} />
+                     </Route>
                 </Router>
 
             </div>
         );
-    }
 }  
 
 export default App;
