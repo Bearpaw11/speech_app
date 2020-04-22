@@ -1,0 +1,47 @@
+/*HEADER COMPONENT CSS*/
+@keyframes spin {
+    from {
+      transform: rotateY(0);
+    }
+    to {
+      transform: rotateY(1turn);
+    }
+  }
+  
+  .cardSpin {
+    animation: spin 8s ease;
+    animation-iteration-count: default;
+    color: #0000ff;
+    background-color: transparent;
+    font-family: 'Georgia';
+    font-weight: bold;
+    border: none;
+  }
+  
+  .card--title {
+    text-align: center;
+  }
+  
+  .clip-text {
+    background: url(https://media.giphy.com/media/Xlk4JrwQE7XEs/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    color: transparent;
+    height: 100px;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 100px;
+    flex-shrink: 0;
+    
+  }
+
+body {
+  width: 75%;
+  margin: auto;
+  font-family:cormorant infant;
+}
+
+.vision {
+    text-align: center;
+}
