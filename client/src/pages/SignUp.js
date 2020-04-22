@@ -18,14 +18,15 @@ function SignUp() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.username && formObject.email && formObject.password) {
+      console.log(formObject)
       API.signUp({
         username: formObject.username,
         email: formObject.email,
-        password: formObject.pasword
+        password: formObject.password
       })
         .then(() => setFormObject({
-          email: "",
           username: "",
+          email: "",
           password: ""
         }))
         .catch(err => console.log(err));
