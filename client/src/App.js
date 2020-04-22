@@ -10,25 +10,30 @@ import AppModal from "./components/Layouts/Modal/Modal.js";
 // import SignUp from './pages/SignUp';
 
 
-const [isOpen, setIsOpen] = React.useState(false);
+function App () {
+   
+    const showModal = () => {
+        setIsOpen(true);
+      };
 
-
-export class App extends React.Component {
-
-    render() {
+      const [isOpen, setIsOpen] = React.useState(false);
+      const [title, setTitle] = React.useState("Transitioning...");
+    
+   
+     
         return (
-            <div>
+        
                 <Router>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route path="/Login" component={AppModal} />
+                    <Route path="/Login" showModal={showModal} component={AppModal}> 
+                     </Route>
                 </Router>
 
             </div>
         );
-    }
 }  
 
 export default App;

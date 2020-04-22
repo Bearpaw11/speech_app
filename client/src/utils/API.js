@@ -14,7 +14,8 @@ export default {
     },
 
     login: function (loginData) {
-        return axios.post("/api/login", loginData)
+        return axios.post("/api/login",loginData)
+        
     }
 
 
