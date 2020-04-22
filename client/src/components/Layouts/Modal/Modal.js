@@ -8,6 +8,7 @@ import ModalTitle from "react-bootstrap/ModalTitle";
 import LoginModal from "./LoginModal.js";
 
 const AppModal = () => {
+    const [isOpen, setIsOpen] = React.useState(false);
     const [title, setTitle] = React.useState("Transitioning...");
   
     const showModal = () => {
