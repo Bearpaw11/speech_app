@@ -30,7 +30,7 @@ function About() {
                     overall confidence and performance in interpersonal and occupational situations. 
                 </p>
 
-                <h1 className="vision">Meet The Team</h1>
+                <h1 className="vision">Meet The Team</h1> <br></br>
                 <Team />
         <Footer />
       </div>

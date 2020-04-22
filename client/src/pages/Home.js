@@ -32,6 +32,8 @@ function Home() {
                         </MDBCardBody>
                      </MDBCard>
                     </MDBCol>
+                    {/* SIGN UP BUTTON W/SIGN UP FORM  */}
+                    {/* IF A USER IS ON HOME PAGE + LOGGED IN, DON'T SEE SIGN UP BTN */}
             <Footer />
       </div>
     )

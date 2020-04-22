@@ -21,7 +21,6 @@ export class App extends React.Component {
                     <Route path="/Login" component={Modal} />
                 </Router>
 
-                
             </div>
         );
     }
