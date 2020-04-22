@@ -17,7 +17,7 @@ export class App extends React.Component {
 
     render() {
         return (
-            <div>
+        
                 <Router>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/About" component={About} />
