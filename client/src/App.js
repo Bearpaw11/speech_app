@@ -8,28 +8,35 @@ import SignUp from "./pages/SignUp";
 // import Form from "./components/Form"
 import AppModal from "./components/Layouts/Modal/Modal.js";
 // import SignUp from './pages/SignUp';
+import NavBar from "../src/components/Layouts/Navbar";
 
+function App (props) {
+    const [isOpen, setIsOpen] = React.useState(false);
 
-function App () {
-   
     const showModal = () => {
         setIsOpen(true);
       };
 
-      const [isOpen, setIsOpen] = React.useState(false);
-      const [title, setTitle] = React.useState("Transitioning...");
-    
-   
-     
+      const hideModal = () => {
+        setIsOpen(false);
+      };
+
         return (
-        <div>
+            <div>
                 <Router>
+                <NavBar showModal={showModal}/>
+
                     <Route exact path="/" component={Home} />
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route path="/Login" showModal={showModal} component={AppModal}> 
-                     </Route>
+                  
+                {
+                    isOpen && <AppModal isOpen={isOpen} hideModal={hideModal}/>
+                }   
+                
+                {/* CONDITIONAL RENDERING: if the state of isOpen is true, then render AppModal component with the isOpen boolean value equal to the passed in isOpen, and the hideModal value equal to the passed in hideModal */}
+
                 </Router>
 
             </div>

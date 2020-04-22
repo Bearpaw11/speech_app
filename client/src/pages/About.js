@@ -1,13 +1,11 @@
 import React from "react";
 import Header from '../components/Layouts/Header'
-import NavBar from '../components/Layouts/Navbar'
 import Footer from '../components/Layouts/Footer'
 import Team from "../components/Team/index.js";
 
 function About() {
     return (
       <div>
-        <NavBar />
             <Header />
                 <h1 className="vision">Vision</h1>
                 <p>
