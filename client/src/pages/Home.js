@@ -3,6 +3,7 @@ import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreac
 import Header from '../components/Layouts/Header.js'
 import NavBar from '../components/Layouts/Navbar.js'
 import Footer from '../components/Layouts/Footer.js'
+import App from "../components/Layouts/Modal/Modal.js";
 
 function Home() {
     return (
@@ -32,6 +33,7 @@ function Home() {
                         </MDBCardBody>
                      </MDBCard>
                     </MDBCol>
+                    <App />
                     {/* SIGN UP BUTTON W/SIGN UP FORM  */}
                     {/* IF A USER IS ON HOME PAGE + LOGGED IN, DON'T SEE SIGN UP BTN */}
             <Footer />
