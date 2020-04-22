@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-function NavBar() {
+function NavBar(props) {
   const location = useLocation();
 
   return (
@@ -10,7 +10,7 @@ function NavBar() {
       <Link to="/About" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>About</Link>
       <Link to="/Contact" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Contact</Link>
       <Link to="/SignUp" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
-
+      <button onClick={props.showModal} >Log In</button>
     </div>
   )
 }
