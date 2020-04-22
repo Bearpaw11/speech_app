@@ -1,14 +1,12 @@
 import React from "react";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import Header from '../components/Layouts/Header.js'
-import NavBar from '../components/Layouts/Navbar.js'
 import Footer from '../components/Layouts/Footer.js'
 import Speeches from "../components/Speeches/index.js";
 
 function Results() {
     return (
       <div>
-            <NavBar />
             <Header />
                 <MDBCol>
                     <MDBCard className="methods" style={{ width: "42rem"}}>

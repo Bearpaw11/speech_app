@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Header from '../components/Layouts/Header'
-import NavBar from '../components/Layouts/Navbar'
 import Footer from '../components/Layouts/Footer'
 import API from '../utils/API'
 import { Input, FormBtn } from "../components/Form";
-// import "./Layouts/layouts.css";
 
 function SignUp() {
 
@@ -40,7 +38,6 @@ function SignUp() {
 
     return (   
         <div>
-        <NavBar />
         <Header />
         <br>
         </br>

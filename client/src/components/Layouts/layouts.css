@@ -1,22 +1,4 @@
 /*HEADER COMPONENT CSS*/
-@keyframes spin {
-    from {
-      transform: rotateY(0);
-    }
-    to {
-      transform: rotateY(1turn);
-    }
-  }
-  
-  .cardSpin {
-    animation: spin 8s ease;
-    animation-iteration-count: default;
-    color: #0000ff;
-    background-color: transparent;
-    font-family: 'Georgia';
-    font-weight: bold;
-    border: none;
-  }
   
   .card--title {
     text-align: center;
