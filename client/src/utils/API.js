@@ -11,6 +11,11 @@ export default {
 
     signUp: function (userData) {
         return axios.post("/api/signup", userData)
+    },
+
+    login: function (loginData) {
+        return axios.post("/api/login",loginData)
+        
     }
 
     //    signup: app.post("/api/signup", function (req, res) {
