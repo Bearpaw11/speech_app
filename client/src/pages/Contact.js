@@ -8,6 +8,7 @@ function Contact() {
       <div>
         <NavBar />
             <Header />
+            {/* FORM GOES HERE */}
         <Footer />
       </div>
     )

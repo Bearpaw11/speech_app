@@ -6,10 +6,15 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
 // import Form from "./components/Form"
-import Modal from "./components/Layouts/Modal";
+import AppModal from "./components/Layouts/Modal/Modal.js";
 // import SignUp from './pages/SignUp';
 
+
+const [isOpen, setIsOpen] = React.useState(false);
+
+
 export class App extends React.Component {
+
     render() {
         return (
             <div>
@@ -18,10 +23,9 @@ export class App extends React.Component {
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route path="/Login" component={Modal} />
+                    <Route path="/Login" component={AppModal} />
                 </Router>
 
-                
             </div>
         );
     }

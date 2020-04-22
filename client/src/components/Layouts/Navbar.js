@@ -9,7 +9,8 @@ function NavBar() {
       <Link to="/About" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>About</Link>
       <Link to="/Contact" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Contact</Link>
       <Link to="/Signup" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
-      <Link to="/Login" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Log In</Link>
+      <Link to="/Login" component={}>Log In</Link>
+
     </div>
   )
 }
