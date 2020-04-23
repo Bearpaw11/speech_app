@@ -1,18 +1,24 @@
 import React from "react";
+import PropTypes from "prop-types";
+import SpeechRecognition from "react-speech-recognition"
+
 
 function Speeches() {
     const script=document.createElement("script");
-    script.src="./voice.js"
-    
+    script.src = "./Voice.js"
+
     return (
+
         <div className="container shadow p-3 mb-5 bg-white rounded">
+
                 <div className="col-4 offset-4">
                     <form action="https://www.google.com/search" method="get" id="search-form" target="_blank">
                         <input type="text" placeholder="Search Google" autoComplete="off" autoFocus />
                     </form>
                 </div>
     
-        <div className="container">
+            <div className="container">
+                
             <br></br> Press Start and begin speaking! <br></br>
 
             <button type="button" className="btn btn-info">Start</button>
