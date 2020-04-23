@@ -11,16 +11,40 @@ function Speeches() {
         voiceFunctionality();
     });
 
+ //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
+    function timer(){
+        const minutesLabel = document.getElementById("minutes");
+        const secondsLabel = document.getElementById("seconds");
+        let totalSecs = 0;
+        setInterval(setTime, 1000);
+
+        function setTime() {
+            ++totalSecs;
+            secondsLabel.innerHTML = pad(totalSecs % 60);
+            minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
+        }
+        function pad(value) {
+            const valueString = value + "";
+            if (valueString.length < 2) {
+                return "0" + valueString;
+            } else {
+                return valueString;
+            }
+        }
+    }
+ //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
+
     function voiceFunctionality() {
-       
+
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         
         if (SpeechRecognition) {
+
             console.log("Your Browser supports speech Recognition")
-            
             searchForm.insertAdjacentHTML("beforeend", '<button type="button" id="input"><i class="fas fa-microphone"></i></button>')
+            
             const micBtn = searchForm.querySelector("button");
             const micIcon = micBtn.querySelector("i");
         
@@ -41,6 +65,7 @@ function Speeches() {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
+                timer(); //Start Timer
                 console.log("Speech recognition active.")
             }
             
@@ -49,24 +74,24 @@ function Speeches() {
                 micIcon.classList.add("fa-microphone")
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.")
+                //STOP THE TIMER (NEEDS CODE HERE)
             }
         
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
                 console.log(event.resultIndex) //this returned 0 
                 const textArea = document.querySelector("#textarea")
-                const textAreaTwo = document.querySelector("#textareatwo")
                 const save = document.querySelector("#save")
                 const textResults = document.querySelector("#textresults")
                 const results = document.querySelector("#results")
         
                 const transcript = event.results[currentResultIndex][0].transcript;
                 searchFormInput.value = transcript;
-                textArea.innerHTML = transcript;
-                console.log(transcript, "TRANSCRIPT") //this returns the transcript of the speech
+                textArea.innerHTML = transcript; //returns transcript of speech
         
                 save.addEventListener("click", function () { //saving
-                    textAreaTwo.innerHTML = textArea.innerHTML
+                    console.log(textArea, "textArea");  //returns transcription
+                    //this needs to save textArea info to database
                 })
         
                 results.addEventListener("click", function () {
@@ -106,7 +131,8 @@ function Speeches() {
 
     return (
         <div>
-        
+            {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
+            <p>Click the microphone to start. When you are finished, click the microphone again.</p>
             <div className="voiceContainer container shadow p-3 mb-5 bg-white rounded">
                 <div className="row">
                     <div className="col-4 offset-4">
@@ -116,11 +142,13 @@ function Speeches() {
                     </div>
                 </div>
             </div>
-
+              
+                <div className="vision">Timer: <br/>
+                    <label id="minutes">00</label>:<label id="seconds">00</label>
+                </div><br/>
+            
             <div className="voiceContainer container">
-                <div className="mb-3">
-                    <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/>
-                </div> <br/><br/>
+                <div className="mb-3"></div>
 
                 <label htmlFor="validationTextarea">Transcription area</label>
                     <textarea className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
