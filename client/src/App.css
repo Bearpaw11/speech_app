@@ -51,6 +51,7 @@
     border-radius: 50%;
     float: left;
     padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .groupName {
@@ -85,3 +86,4 @@ body {
     margin-bottom: 10px; /* Added */
     background: transparent;
 }
+
