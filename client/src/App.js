@@ -31,7 +31,7 @@ function App (props) {
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route exact path="/Recordings" component={CreateSpeech} />
+                    <Route path="/Recordings" component={CreateSpeech} />
 
                 {
                     isOpen && <AppModal isOpen={isOpen} hideModal={hideModal}/>
