@@ -17,8 +17,7 @@ function Home() {
                             get promoted faster, or even graduate college at 
                             the top of your class?</MDBCardText>
                                 
-                            <MDBCardText className="vision"> 
-                                
+                            <MDBCardText className="vision">                
                             That's exactly what Speech 
                             Therapy will give you. You will unlock potential 
                             you never knew you had by using an intuitive 
@@ -29,7 +28,6 @@ function Home() {
                  </MDBCard>
                 </MDBCol>
             <App />
-            {/* IF A USER IS ON HOME PAGE + LOGGED IN, DON'T SEE SIGN UP BTN */}
       </div>
     )
 }
