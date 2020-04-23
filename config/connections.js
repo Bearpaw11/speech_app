@@ -10,7 +10,7 @@ else {
         host: "localhost",
         port: 3306,
         user: "root",
-        password: "root",
+        password: "Bearpaw11",
         database: "speechapp"
         
     });

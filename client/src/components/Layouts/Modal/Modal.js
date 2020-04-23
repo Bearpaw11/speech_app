@@ -2,6 +2,12 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import LoginModal from "./LoginModal.js";
 
+
+
+
+
+
+
 const AppModal = (props) => {
     return (
         <div>

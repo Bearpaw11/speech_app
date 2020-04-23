@@ -16,8 +16,12 @@ export default {
     login: function (loginData) {
         return axios.post("/api/login",loginData)
         
-    }
+    },
 
+    verifyLogin: function () {
+        return axios.post("/api/verifylogin")
+        
+    }
 
 
 
