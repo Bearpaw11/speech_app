@@ -12,30 +12,31 @@ function Speeches() {
     });
 
  //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
-    function timer(){
-        const minutesLabel = document.getElementById("minutes");
-        const secondsLabel = document.getElementById("seconds");
-        let totalSecs = 0;
-        setInterval(setTime, 1000);
+    // function timer(){
+    //     const minutesLabel = document.getElementById("minutes");
+    //     const secondsLabel = document.getElementById("seconds");
+    //     let totalSecs = 0;
+    //     setInterval(setTime, 1000);
+    
+    //     function setTime() {
+    //         ++totalSecs;
+    //         secondsLabel.innerHTML = pad(totalSecs % 60);
+    //         minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
+    //     }
+    //     function pad(value) {
+    //         const valueString = value + "";
+    //         if (valueString.length < 2) {
+    //             return "0" + valueString;
+    //         } else {
+    //             return valueString;
+    //         }
+    //     } 
+    // }
+    // clearInterval(setTime);
 
-        function setTime() {
-            ++totalSecs;
-            secondsLabel.innerHTML = pad(totalSecs % 60);
-            minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
-        }
-        function pad(value) {
-            const valueString = value + "";
-            if (valueString.length < 2) {
-                return "0" + valueString;
-            } else {
-                return valueString;
-            }
-        }
-    }
+
  //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
-
     function voiceFunctionality() {
-
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -73,7 +74,7 @@ function Speeches() {
                 micIcon.classList.remove("fa-microphone-slash");
                 micIcon.classList.add("fa-microphone")
                 searchFormInput.focus();
-                console.log("Speech recognition is not active.")
+                console.log("Speech recognition is not active.")                
                 //STOP THE TIMER (NEEDS CODE HERE)
             }
         
@@ -84,14 +85,13 @@ function Speeches() {
                 const save = document.querySelector("#save")
                 const textResults = document.querySelector("#textresults")
                 const results = document.querySelector("#results")
-        
+
                 const transcript = event.results[currentResultIndex][0].transcript;
                 searchFormInput.value = transcript;
                 textArea.innerHTML = transcript; //returns transcript of speech
         
                 save.addEventListener("click", function () { //saving
                     console.log(textArea, "textArea");  //returns transcription
-                    //this needs to save textArea info to database
                 })
         
                 results.addEventListener("click", function () {
