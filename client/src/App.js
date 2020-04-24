@@ -5,12 +5,13 @@ import Home from './components/Pages/Home.js';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Contact from "./components/Pages/Contact";
 import SignUp from "./components/Pages/SignUp";
+import Members from "./components/Pages/Members";
 import AppModal from "./components/Layouts/Modal/Modal.js";
 import NavBar from "../src/components/Layouts/Navbar";
 import Header from "../src/components/Layouts/Header";
 import Footer from "../src/components/Layouts/Footer";
 import CreateSpeech from "./components/Pages/CreateSpeech.js";
-
+import API from "./utils/API"
 function App (props) {
     const [isOpen, setIsOpen] = React.useState(false);
 
@@ -21,19 +22,25 @@ function App (props) {
       const hideModal = () => {
         setIsOpen(false);
       };
+ 
+
+  
 
         return (
             <div>
                 <Router>
                 <NavBar showModal={showModal}/>
                 <Header />
-                    <Route exact path="/" component={Home} />
+      
+                    <Route exact path="/" component={Home} />   
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route path="/Recordings" component={CreateSpeech} />
-
-                {
+                    <Route exact path="/Recordings" component={CreateSpeech} />
+                   <Route exact path ="/members" component={Members} />
+                
+                
+                {   
                     isOpen && <AppModal isOpen={isOpen} hideModal={hideModal}/>
                 }   
                 
@@ -42,6 +49,11 @@ function App (props) {
                 <Footer/>
             </div>
         );
+
 }  
 
+
 export default App;
+
+
+// render coditional component based on the req.user exist or not
