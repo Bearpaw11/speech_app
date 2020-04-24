@@ -1,27 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import PropTypes from "prop-types";
-import SpeechRecognition from "react-speech-recognition"
-
-
-function Speeches() {
-    const script=document.createElement("script");
-    script.src = "./Voice.js"
-
-    return (
-
-        <div className="container shadow p-3 mb-5 bg-white rounded">
-
-                <div className="col-4 offset-4">
-                    <form action="https://www.google.com/search" method="get" id="search-form" target="_blank">
-                        <input type="text" placeholder="Search Google" autoComplete="off" autoFocus />
-                    </form>
-                </div>
-    
-            <div className="container">
-                
-            <br></br> Press Start and begin speaking! <br></br>
-=======
 import { useEffect } from 'react';
 
 function Speeches() {
@@ -144,7 +121,6 @@ function Speeches() {
                 <div className="mb-3">
                     <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/>
                 </div> <br/><br/>
->>>>>>> fedaa4c42a06426d62a89471f1e935cc8edf0cc0
 
                 <label htmlFor="validationTextarea">Transcription area</label>
                     <textarea className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
