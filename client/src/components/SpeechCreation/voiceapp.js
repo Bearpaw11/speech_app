@@ -39,7 +39,7 @@ function Speeches() {
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        
+                
         if (SpeechRecognition) {
 
             console.log("Your Browser supports speech Recognition")
@@ -96,62 +96,39 @@ function Speeches() {
         
                 results.addEventListener("click", function () {
                     const resultsText = textArea.innerHTML
-                    const grabText = resultsText.match(/David/g)
+                    const grabText = resultsText.match(/like/g)
                     console.log(grabText)
-                    if (grabText[0] === "David") {
+                    if (grabText[0] === "like") {
                         const counter = grabText.length
                          textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
                     }
                 })
     
-                if (transcript.toLowerCase().trim() === "stop recording") {
-                    recognition.stop()
-                }
-                else if (!searchFormInput.value) {
-                    searchFormInput.value = transcript;
-                }
-                else {
-                    if (transcript.toLowerCase().trim() === "go") {
-                        const newResult = event.results[currentResultIndex - 1][0].transcript
-                        console.log(newResult)
-                        searchFormInput.value = newResult
-                        searchForm.submit();
-                    }
-                    else if (transcript.toLowerCase().trim() === "reset input") {
-                        searchFormInput.value = ""
-                        textArea.innerHTML = ""
-                    }
-                    else {
-                        searchFormInput.value = transcript;
-                    }
-                }
             }
         }  
     }
 
     return (
         <div>
+
             {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
             <p>Click the microphone to start. When you are finished, click the microphone again.</p>
-            <div className="voiceContainer container shadow p-3 mb-5 bg-white rounded">
+            <div className="voiceContainer container shadow p-3 mb-5">
                 <div className="row">
                     <div className="col-4 offset-4">
-                        <form action="https://www.google.com/search" method="get" id="searchForm" target="_blank">
-                            <input type="text" name="q" placeholder="Search Google" autoComplete="off" autoFocus />
-                        </form>
+                        <form  method="get" id="searchForm" target="_blank">
+                            <input type="hidden" autoComplete="off" autoFocus />
+                        </form>                        
                     </div>
                 </div>
             </div>
-              
                 <div className="vision">Timer: <br/>
                     <label id="minutes">00</label>:<label id="seconds">00</label>
-                </div><br/>
+                </div>
             
             <div className="voiceContainer container">
                 <div className="mb-3"></div>
-
-                <label htmlFor="validationTextarea">Transcription area</label>
-                    <textarea className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
+                    <textarea name="hide" style={{display:'none'}} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
                 <br/>
     
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
