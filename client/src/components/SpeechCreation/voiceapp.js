@@ -60,6 +60,8 @@ function Speeches() {
                     recognition.stop()
                 }
             }
+
+            
         
             recognition.onstart = function startSpeechRecogniton() { //beginning recording
                 micIcon.classList.remove("fa-microphone")
@@ -76,6 +78,8 @@ function Speeches() {
                 console.log("Speech recognition is not active.")
                 //STOP THE TIMER (NEEDS CODE HERE)
             }
+            const results = document.querySelector("#results")
+            const resulttext = document.querySelector("#resulttext")
         
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
@@ -83,9 +87,9 @@ function Speeches() {
                 const textArea = document.querySelector("#textarea")
                 const save = document.querySelector("#save")
                 const textResults = document.querySelector("#textresults")
-                const results = document.querySelector("#results")
         
                 const transcript = event.results[currentResultIndex][0].transcript;
+                console.log(transcript)
                 searchFormInput.value = transcript;
                 textArea.innerHTML = transcript; //returns transcript of speech
         
@@ -94,13 +98,13 @@ function Speeches() {
                     //this needs to save textArea info to database
                 })
         
-                results.addEventListener("click", function () {
-                    const resultsText = textArea.innerHTML
-                    const grabText = resultsText.match(/like/g)
+                results.addEventListener("click", function() {
+                    const resultsText = transcript
+                    const grabText = resultsText.match(/David/g)
                     console.log(grabText)
-                    if (grabText[0] === "like") {
+                    if (grabText[0] === "David") {
                         const counter = grabText.length
-                         textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
+                        resulttext.innerHTML = (`You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`) + "Your time was 10 min"
                     }
                 })
     
@@ -134,7 +138,8 @@ function Speeches() {
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
                     <br/> <br/><br/>
             
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Results</button>
+                <button type="button" className="btn btn-info" id="results">View Results</button>
+                <p id="resulttext"></p>
             </div>
 
             <div className="invalid-feedback"> Press the microphone to begin.</div>
