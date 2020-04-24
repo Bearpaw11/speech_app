@@ -1,6 +1,6 @@
 const path = require("path");
 const db = require("../models");
-// const passport = require("../config/passport");
+const passport = require("../config/passport");
 // const apiRoute = require("./api-routes")
 
 
@@ -27,11 +27,16 @@ module.exports = function (app) {
                 res.status(401).json(err);
             });
     });
-    // app.post("/api/login/", passport.authenticate("local"), function(req, res) {
-    //     res.json(req.user);
-    // });
 
-    
+    app.post("/api/login/", passport.authenticate("local"), function(req, res) {
+        console.log(res)
+        res.json(req.user);
+    });
+
+    app.post("/api/verifyLogin/", function(req, res) {
+        console.log("---verify backend:", req.user)
+        res.json(req.user);
+    });
 
     // app.get("/logout/", function (req, res) {
     //     req.logout();
