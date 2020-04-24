@@ -29,7 +29,7 @@ function LoginModal(props) {
                         password: ""
                     })
                     props.onHide()
-                    history.push("/members");
+                    history.push("/Recordings");
 
                 }).catch(err => console.log(err));
         }
