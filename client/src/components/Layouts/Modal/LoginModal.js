@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import API from '../../../utils/API'
 import { Input, FormBtn } from "../../Form";
-import {Redirect} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
 
-function LoginModal() {
-
+function LoginModal(props) {
+    let history = useHistory();
     const [formObject, setFormObject] = useState({
 
         email: "",
@@ -28,7 +28,8 @@ function LoginModal() {
                         email: "",
                         password: ""
                     })
-                    return <Redirect to={"/members"}/>
+                    props.onHide()
+                    history.push("/members");
 
                 }).catch(err => console.log(err));
         }

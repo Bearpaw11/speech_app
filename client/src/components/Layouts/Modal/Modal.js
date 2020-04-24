@@ -17,7 +17,7 @@ const AppModal = (props) => {
             </Modal.Header>
           
             <Modal.Body>
-                <LoginModal/> {/* This is the login form */}
+                <LoginModal onHide={props.hideModal}/> {}
             </Modal.Body>
         </Modal>
         </div>
