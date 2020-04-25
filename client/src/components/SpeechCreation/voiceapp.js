@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from 'react';
 import API from '../../utils/API'
-import Timing from "./Timer.js";
 
 function Speeches() {
 
@@ -14,26 +13,26 @@ function Speeches() {
     });
 
     //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
-    // function timer() {
-    //     const minutesLabel = document.getElementById("minutes");
-    //     const secondsLabel = document.getElementById("seconds");
-    //     let totalSecs = 0;
-    //     setInterval(setTime, 1000);
+    function timer() {
+        const minutesLabel = document.getElementById("minutes");
+        const secondsLabel = document.getElementById("seconds");
+        let totalSecs = 0;
+        setInterval(setTime, 1000);
 
-    //     function setTime() {
-    //         ++totalSecs;
-    //         secondsLabel.innerHTML = pad(totalSecs % 60);
-    //         minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
-    //     }
-    //     function pad(value) {
-    //         const valueString = value + "";
-    //         if (valueString.length < 2) {
-    //             return "0" + valueString;
-    //         } else {
-    //             return valueString;
-    //         }
-    //     }
-    // }
+        function setTime() {
+            ++totalSecs;
+            secondsLabel.innerHTML = pad(totalSecs % 60);
+            minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
+        }
+        function pad(value) {
+            const valueString = value + "";
+            if (valueString.length < 2) {
+                return "0" + valueString;
+            } else {
+                return valueString;
+            }
+        }
+    }
     //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
 
  //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
@@ -67,7 +66,7 @@ function Speeches() {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-              //  timer(); //Start Timer
+               timer(); //Start Timer
               
                 console.log("Speech recognition active.")
             }
@@ -116,9 +115,9 @@ function Speeches() {
                 viewResults.addEventListener("click", function () {
                     
                    speechTitle.innerHTML = title.value
-                    const grabText = transcript.match(/David/g)
+                    const grabText = transcript.match(/like/g)
                     console.log(grabText)
-                    if (grabText[0] === "David") {
+                    if (grabText[0] === "like") {
                         const counter = grabText.length
                          
                         textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
@@ -132,7 +131,6 @@ function Speeches() {
 
     return (
         <div>
-            <Timing />
             {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
             <p>Click the microphone to start. When you are finished, click the microphone again.</p>
             
