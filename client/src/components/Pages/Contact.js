@@ -19,7 +19,7 @@ function Contact() {
                         <label for="first_name">first name</label>
                         <input type="text" name="first_name" placeholder="John" />
                       </p>
-                      <p class="pull-right">
+                      <p class="left">
                         <label for="last_name">last name</label>
                         <input type="text" name="last_name" placeholder="Smith" />      
                       </p>

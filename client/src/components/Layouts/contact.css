@@ -22,10 +22,13 @@ body {
 }
 .row.header {
   padding: 1.5em 2.5em;
-  border-bottom: 1px solid #ccc;
-  background: url(https://images2.imgbox.com/a5/2e/m3lRbCCA_o.jpg) left -80px;
-  color: #fff;
+  border-bottom: 1px solid #000000;
+  /* background: url(https://images2.imgbox.com/a5/2e/m3lRbCCA_o.jpg) left -80px; */
+  background: url(./colorwave.png) left -10px top 25px no-repeat;
+  background-size: 470px 100px;
+  
 }
+
 .row.body {
   padding: 0.5em 2.5em 1em;
 }
@@ -40,7 +43,7 @@ h1 {
   display: inline-block;
   font-weight: 100;
   font-size: 2.8125em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
   margin: 0 0 0.1em 0;
   padding: 0 0 0.4em 0;
 }
