@@ -35,8 +35,8 @@ function Speeches() {
     }
     //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
 
+ //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
     function voiceFunctionality() {
-
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -66,7 +66,8 @@ function Speeches() {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-                timer(); //Start Timer
+               timer(); //Start Timer
+              
                 console.log("Speech recognition active.")
             }
 
@@ -74,7 +75,7 @@ function Speeches() {
                 micIcon.classList.remove("fa-microphone-slash");
                 micIcon.classList.add("fa-microphone")
                 searchFormInput.focus();
-                console.log("Speech recognition is not active.")
+                console.log("Speech recognition is not active.")                
                 //STOP THE TIMER (NEEDS CODE HERE)
             }
             const textResults = document.querySelector("#textresults")
@@ -114,9 +115,9 @@ function Speeches() {
                 viewResults.addEventListener("click", function () {
                     
                    speechTitle.innerHTML = title.value
-                    const grabText = transcript.match(/David/g)
+                    const grabText = transcript.match(/like/g)
                     console.log(grabText)
-                    if (grabText[0] === "David") {
+                    if (grabText[0] === "like") {
                         const counter = grabText.length
                          
                         textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
@@ -130,7 +131,6 @@ function Speeches() {
 
     return (
         <div>
-
             {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
             <p>Click the microphone to start. When you are finished, click the microphone again.</p>
             
