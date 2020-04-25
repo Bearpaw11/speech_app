@@ -61,11 +61,6 @@ function Speeches() {
                 }
             }
 
-<<<<<<< HEAD
-            
-        
-=======
->>>>>>> 9822011522db1f066532ce29852f43e4020aa3b9
             recognition.onstart = function startSpeechRecogniton() { //beginning recording
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")

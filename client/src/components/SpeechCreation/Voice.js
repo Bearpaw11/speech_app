@@ -89,16 +89,16 @@ function Voice() {
                     searchFormInput.value = transcript;
                 }
             }
-        else {
-                console.log("Your browser does not support speech recognition")
-            }
         }
+    }
+    else {
+        console.log("Your browser does not support speech recognition")
     }
 
     return (
         console.log('working')
     )
-    
+
 }
 
 export default Voice;
