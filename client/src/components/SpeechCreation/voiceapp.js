@@ -12,7 +12,7 @@ function Speeches() {
         voiceFunctionality();
     });
 
-    //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
+//******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
     function timer() {
         const minutesLabel = document.getElementById("minutes");
         const secondsLabel = document.getElementById("seconds");
@@ -33,9 +33,9 @@ function Speeches() {
             }
         }
     }
-    //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
+ //******** TIMER FUNCTION ENDS HERE **********//
 
- //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
+ //******** STARTING THE VOICE FUNCTIONALITY **********//
     function voiceFunctionality() {
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
@@ -78,6 +78,7 @@ function Speeches() {
                 console.log("Speech recognition is not active.")                
                 //STOP THE TIMER (NEEDS CODE HERE)
             }
+            
             const textResults = document.querySelector("#textresults")
             const viewResults = document.querySelector("#viewresults")
             const title = document.querySelector("#title")
@@ -94,8 +95,6 @@ function Speeches() {
                 
                 textArea.innerHTML = transcript; //returns transcript of speech
                 
-
-
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
                     console.log(textResults.innerHTML)
@@ -117,13 +116,25 @@ function Speeches() {
                    speechTitle.innerHTML = title.value
                    const grabText= [1]
                    const grabText1= [1]
+                   const grabText2= [1]
+                   const grabText3= [1]
+                   const grabText4= [1]
                    const text = "like"
                    const text1 ="and"
+                   const text2 = "so"
+                   const text3 ="sorry"
+                   const text4 ="right"
                    let countertest = 0
                    let countertest1 =0 
+                   let countertest2 = 0
+                   let countertest3 =0 
+                   let countertest4 = 0
                     grabText.push(transcript.match(/like/g))
                     grabText1.push(transcript.match(/and/g))
-                    
+                    grabText2.push(transcript.match(/so/g))
+                    grabText3.push(transcript.match(/sorry/g))
+                    grabText4.push(transcript.match(/right/g))
+
                     console.log(grabText)
                     if (grabText[1] == null) {
 
@@ -134,20 +145,42 @@ function Speeches() {
                     else {
                         countertest = grabText[1].length
                     }
-                       
                     if (grabText1[1] == null) {
+                        console.log("working")
+                      }
+  
+                      else {
+                          countertest1 = grabText1[1].length
+                      }
+                      if (grabText2[1] == null) {
 
                         console.log("working")
                       
                       }
   
                       else {
-                          countertest1 = grabText1[1].length
+                          countertest2 = grabText2[1].length
                       }
-                   
-                        textResults.innerHTML = `You said ${text} ${countertest} times! and you said ${text1} ${countertest1} times!`
-                        
-                    }
+                      if (grabText3[1] == null) {
+
+                        console.log("working")
+                      
+                      }
+  
+                      else {
+                          countertest3 = grabText3[1].length
+                      }
+                      if (grabText4[1] == null) {
+
+                        console.log("working")
+                      
+                      }
+  
+                      else {
+                          countertest4 = grabText4[1].length
+                      }
+                    textResults.innerHTML = `You said ${text} ${countertest} times! You said ${text1} ${countertest1} times! You said ${text2} ${countertest2} times! You said ${text3} ${countertest3} times! You said ${text4} ${countertest4} times!`
+                        }
                     
                     
                 )
