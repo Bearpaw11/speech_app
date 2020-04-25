@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect } from 'react';
+import API from '../../utils/API'
+import Timing from "./Timer.js";
 
 function Speeches() {
 
@@ -12,26 +14,26 @@ function Speeches() {
     });
 
     //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
-    function timer() {
-        const minutesLabel = document.getElementById("minutes");
-        const secondsLabel = document.getElementById("seconds");
-        let totalSecs = 0;
-        setInterval(setTime, 1000);
+    // function timer() {
+    //     const minutesLabel = document.getElementById("minutes");
+    //     const secondsLabel = document.getElementById("seconds");
+    //     let totalSecs = 0;
+    //     setInterval(setTime, 1000);
 
-        function setTime() {
-            ++totalSecs;
-            secondsLabel.innerHTML = pad(totalSecs % 60);
-            minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
-        }
-        function pad(value) {
-            const valueString = value + "";
-            if (valueString.length < 2) {
-                return "0" + valueString;
-            } else {
-                return valueString;
-            }
-        }
-    }
+    //     function setTime() {
+    //         ++totalSecs;
+    //         secondsLabel.innerHTML = pad(totalSecs % 60);
+    //         minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
+    //     }
+    //     function pad(value) {
+    //         const valueString = value + "";
+    //         if (valueString.length < 2) {
+    //             return "0" + valueString;
+    //         } else {
+    //             return valueString;
+    //         }
+    //     }
+    // }
     //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
 
  //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
@@ -65,7 +67,8 @@ function Speeches() {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-                timer(); //Start Timer
+              //  timer(); //Start Timer
+              
                 console.log("Speech recognition active.")
             }
 
@@ -76,31 +79,49 @@ function Speeches() {
                 console.log("Speech recognition is not active.")                
                 //STOP THE TIMER (NEEDS CODE HERE)
             }
+            const textResults = document.querySelector("#textresults")
+            const viewResults = document.querySelector("#viewresults")
+            const title = document.querySelector("#title")
+            const speechTitle = document.querySelector("#speechtitle")
+            const textArea = document.querySelector("#textarea")
+            const save = document.querySelector("#save")
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
                 console.log(event.resultIndex) //this returned 0 
-                const textArea = document.querySelector("#textarea")
-                const save = document.querySelector("#save")
-                const textResults = document.querySelector("#textresults")
-                const results = document.querySelector("#results")
-
+                
                 const transcript = event.results[currentResultIndex][0].transcript;
-                searchFormInput.value = transcript;
+                console.log(transcript)
+                
                 textArea.innerHTML = transcript; //returns transcript of speech
+                
 
-                save.addEventListener("click", function () { //saving
-                    console.log(textArea, "textArea");  //returns transcription
+
+                save.addEventListener("click", function (event) { //saving
+                    event.preventDefault();
+                    API.saveSpeech({
+                        speechTitle: title.value,
+                        length: 5,
+                        analytics: textResults.value,
+                        userId: 1
+                        
+                    }).then(function (data) {
+                        console.log(data)
+                    }).catch((err) => console.log(err) )
+
                 })
-
-                results.addEventListener("click", function () {
-                    const resultsText = textArea.innerHTML
-                    const grabText = resultsText.match(/like/g)
+                
+                viewResults.addEventListener("click", function () {
+                    
+                   speechTitle.innerHTML = title.value
+                    const grabText = transcript.match(/David/g)
                     console.log(grabText)
-                    if (grabText[0] === "like") {
+                    if (grabText[0] === "David") {
                         const counter = grabText.length
+                         
                         textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
                     }
+                    
                 })
 
             }
@@ -109,11 +130,11 @@ function Speeches() {
 
     return (
         <div>
-
+            <Timing />
             {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
             <p>Click the microphone to start. When you are finished, click the microphone again.</p>
             
-                <input type="text" className="form-control" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"/>
+                <input id="title" type="text" className="form-control" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"/>
                 <div className="voiceContainer container shadow p-3 mb-5">
                     <div className="row">
                         <div className="col-4 offset-4">
@@ -132,10 +153,15 @@ function Speeches() {
                     <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
                     <br />
 
-                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
+                <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
+                <br></br>
+                <br></br>
+                <button id="viewresults" type="button" className="btn btn-info">View Results</button>
+                <p id="speechtitle">Title</p>
+                <p id="textresults">Results</p>
                     <br /> <br /><br />
 
-                    <button type="button" className="btn btn-info" onClick={relocation} id="results">View Results</button>
+                    <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speches</button>
                 </div>
 
                 <div className="invalid-feedback"> Press the microphone to begin.</div>

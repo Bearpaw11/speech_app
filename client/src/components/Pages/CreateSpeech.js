@@ -4,7 +4,11 @@ import Speeches from "../SpeechCreation/voiceapp.js";
 function CreateSpeech() {
     return (
       <div>
-            <Speeches />
+            {/* Box for transcription w/code */}
+            {/* Timer running */}
+        <Speeches />
+        
+
       </div>
     )
 }
