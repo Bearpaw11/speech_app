@@ -34,11 +34,12 @@ module.exports = function (app) {
     });
 
     app.post("/api/savespeech", function (req, res) {
+        console.log(req.body)
         db.SpeechesLists.create({
-            speechTitle: req.body.username,
+            speechTitle: req.body.speechTitle,
             length: req.body.length,
             analytics: req.body.analytics,
-            userId: req.body.userId
+            UserId: req.body.UserId
         })
             .then(function () {
                 res.redirect(307, "/");
