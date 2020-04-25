@@ -11,7 +11,7 @@ import NavBar from "../src/components/Layouts/Navbar";
 import Header from "../src/components/Layouts/Header";
 import Footer from "../src/components/Layouts/Footer";
 import CreateSpeech from "./components/Pages/CreateSpeech.js";
-import API from "./utils/API"
+//import API from "./utils/API"
 
 function App (props) {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -25,8 +25,6 @@ function App (props) {
       };
  
 
-  
-
         return (
             <div>
                 <Router>
@@ -38,8 +36,7 @@ function App (props) {
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
                     <Route exact path="/Recordings" component={CreateSpeech} />
-                   <Route exact path ="/members" component={Members} />
-                
+                   <Route exact path="/Members" component={Members} />
                 
                 {   
                     isOpen && <AppModal isOpen={isOpen} hideModal={hideModal}/>

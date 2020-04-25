@@ -12,7 +12,7 @@ function Speeches() {
         voiceFunctionality();
     });
 
-    //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
+//******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
     function timer() {
         const minutesLabel = document.getElementById("minutes");
         const secondsLabel = document.getElementById("seconds");
@@ -33,9 +33,9 @@ function Speeches() {
             }
         }
     }
-    //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
+ //******** TIMER FUNCTION ENDS HERE **********//
 
- //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
+ //******** STARTING THE VOICE FUNCTIONALITY **********//
     function voiceFunctionality() {
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
@@ -78,6 +78,7 @@ function Speeches() {
                 console.log("Speech recognition is not active.")                
                 //STOP THE TIMER (NEEDS CODE HERE)
             }
+            
             const textResults = document.querySelector("#textresults")
             const viewResults = document.querySelector("#viewresults")
             const title = document.querySelector("#title")
@@ -94,8 +95,6 @@ function Speeches() {
                 
                 textArea.innerHTML = transcript; //returns transcript of speech
                 
-
-
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
                     console.log(textResults.innerHTML)
