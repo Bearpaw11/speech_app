@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from 'react';
+import API from '../../utils/API'
 
 function Speeches() {
 
@@ -92,9 +93,20 @@ function Speeches() {
                 
                 textArea.innerHTML = transcript; //returns transcript of speech
                 
-                save.addEventListener("click", function () { //saving
-                    console.log(textArea, "textArea");  //returns transcription
-                    //this needs to save textArea info to database
+
+
+                save.addEventListener("click", function (event) { //saving
+                    event.preventDefault();
+                    API.saveSpeech({
+                        speechTitle: title.value,
+                        length: 5,
+                        analytics: textResults.value,
+                        userId: 1
+                        
+                    }).then(function (data) {
+                        console.log(data)
+                    }).catch((err) => console.log(err) )
+
                 })
                 
                 viewResults.addEventListener("click", function () {

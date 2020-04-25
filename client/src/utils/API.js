@@ -21,6 +21,11 @@ export default {
     verifyLogin: function () {
         return axios.post("/api/verifylogin")
         
+    },
+
+    saveSpeech: function (speechData) {
+        return axios.post("/api/savespeech", speechData)
+
     }
 
 
