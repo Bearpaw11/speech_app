@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const SpeechesList = sequelize.define("SpeechesList", {
+    const SpeechesLists = sequelize.define("SpeechesList", {
 
         speechTitle: {
             type: DataTypes.STRING,
@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         length: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         
         analytics: {
@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
         },
     });
 
-    SpeechesList.associate = function(models) {
+    SpeechesLists.associate = function(models) {
         SpeechesList.belongsTo(models.Users, {
           foreignKey: {
             allowNull: false
@@ -25,5 +25,5 @@ module.exports = function (sequelize, DataTypes) {
         });
       };
     
-    return SpeechesList;
+    return SpeechesLists;
 };
