@@ -97,11 +97,13 @@ function Speeches() {
 
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
+                    console.log(textResults.innerHTML)
+            
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: 5,
-                        analytics: textResults.value,
-                        userId: 1
+                        analytics: textResults.innerHTML,
+                        UserId: 1
                         
                     }).then(function (data) {
                         console.log(data)
