@@ -115,15 +115,42 @@ function Speeches() {
                 viewResults.addEventListener("click", function () {
                     
                    speechTitle.innerHTML = title.value
-                    const grabText = transcript.match(/like/g)
+                   const grabText= [1]
+                   const grabText1= [1]
+                   const text = "like"
+                   const text1 ="and"
+                   let countertest = 0
+                   let countertest1 =0 
+                    grabText.push(transcript.match(/like/g))
+                    grabText1.push(transcript.match(/and/g))
+                    
                     console.log(grabText)
-                    if (grabText[0] === "like") {
-                        const counter = grabText.length
-                         
-                        textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
+                    if (grabText[1] == null) {
+
+                      console.log("working")
+                    
+                    }
+
+                    else {
+                        countertest = grabText[1].length
+                    }
+                       
+                    if (grabText1[1] == null) {
+
+                        console.log("working")
+                      
+                      }
+  
+                      else {
+                          countertest1 = grabText1[1].length
+                      }
+                   
+                        textResults.innerHTML = `You said ${text} ${countertest} times! and you said ${text1} ${countertest1} times!`
+                        
                     }
                     
-                })
+                    
+                )
 
             }
         }
