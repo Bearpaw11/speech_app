@@ -33,6 +33,24 @@ module.exports = function (app) {
         res.json(req.user);
     });
 
+    app.post("/api/savespeech", function (req, res) {
+        console.log(req.body)
+        db.SpeechesLists.create({
+            speechTitle: req.body.speechTitle,
+            length: req.body.length,
+            analytics: req.body.analytics,
+            UserId: req.body.UserId
+        })
+            .then(function () {
+                res.redirect(307, "/");
+            })
+            .catch(function (err) {
+                res.status(401).json(err);
+            });
+    });
+
+    
+
     app.post("/api/verifyLogin/", function(req, res) {
         console.log("---verify backend:", req.user)
         res.json(req.user);

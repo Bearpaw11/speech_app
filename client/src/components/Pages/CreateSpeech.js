@@ -7,7 +7,8 @@ function CreateSpeech() {
       <div>
             {/* Box for transcription w/code */}
             {/* Timer running */}
-            <Speeches />
+        <Speeches />
+        
 
       </div>
     )
