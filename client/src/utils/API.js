@@ -24,6 +24,7 @@ export default {
     },
 
     saveSpeech: function (speechData) {
+        console.log(speechData)
         return axios.post("/api/savespeech", speechData)
 
     }

@@ -2,12 +2,12 @@ import React from "react";
 // import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import Speeches from "../SpeechCreation/voiceapp.js";
 
-function CreateSpeech() {
+function CreateSpeech(props) {
     return (
       <div>
             {/* Box for transcription w/code */}
             {/* Timer running */}
-        <Speeches />
+        <Speeches userId={props.userId} />
         
 
       </div>

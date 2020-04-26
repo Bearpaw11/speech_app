@@ -2,7 +2,11 @@ import React from "react";
 import { useEffect } from 'react';
 import API from '../../utils/API'
 
-function Speeches() {
+
+const minutesLabel = document.getElementById("minutes");
+const secondsLabel = document.getElementById("seconds");
+
+function Speeches(props) {
 
     function relocation() {
         window.location.href = "../Pages/ViewSpeeches.js";
@@ -13,26 +17,45 @@ function Speeches() {
     });
 
     //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
-    function timer() {
-        const minutesLabel = document.getElementById("minutes");
-        const secondsLabel = document.getElementById("seconds");
-        let totalSecs = 0;
-        setInterval(setTime, 1000);
+    // let totalSecs = 0;
 
-        function setTime() {
-            ++totalSecs;
-            secondsLabel.innerHTML = pad(totalSecs % 60);
-            minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
-        }
-        function pad(value) {
-            const valueString = value + "";
-            if (valueString.length < 2) {
-                return "0" + valueString;
-            } else {
-                return valueString;
-            }
-        }
-    }
+    // function timer() {
+    //     setInterval(() => {
+    //         console.log("Started");
+    //         setTime();
+    //     }, 1000);
+    // }
+    
+    
+    // function pad(value) {
+    //     const valueString = value + "";
+    //     if (valueString.length < 2) {
+    //         return "0" + valueString;
+    //     } else {
+    //         return valueString;
+    //     }
+    // }
+    // function setTime() {
+    //     const minutesLabel = document.getElementById("minutes");
+    //     const secondsLabel = document.getElementById("seconds");
+
+    //     ++totalSecs;
+    //     console.log(secondsLabel.textContent)
+    //     secondsLabel.textContent = totalSecs;
+    //     minutesLabel.textContent = totalSecs;
+    // }
+    
+    // function stopTimer() {
+    //     const totalTime = pad(minutesLabel.value) + pad(secondsLabel.value)
+
+    //     clearInterval(timer)
+
+    //     setTime() 
+            
+        
+    // }
+
+  
     //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
 
     function voiceFunctionality() {
@@ -55,8 +78,11 @@ function Speeches() {
             micBtn.addEventListener("click", micBtnClick)
 
             function micBtnClick() {
+                
                 if (micIcon.classList.contains("fa-microphone")) { //Start speech recognition
+                    // timer()
                     recognition.start();
+                    
                 } else { //Stop Speech recognition
                     recognition.stop()
                 }
@@ -66,13 +92,13 @@ function Speeches() {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-                timer(); //Start Timer
+                // timer(); //Start Timer
                 console.log("Speech recognition active.")
             }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
                 micIcon.classList.remove("fa-microphone-slash");
-                micIcon.classList.add("fa-microphone")
+                micIcon.classList.add("fa-microphone");
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.")
                 //STOP THE TIMER (NEEDS CODE HERE)
@@ -86,24 +112,22 @@ function Speeches() {
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
-                console.log(event.resultIndex) //this returned 0 
+                // console.log(event.resultIndex) //this returned 0 
                 
                 const transcript = event.results[currentResultIndex][0].transcript;
-                console.log(transcript)
+                // console.log(transcript)
                 
                 textArea.innerHTML = transcript; //returns transcript of speech
-                
-
 
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
-                    console.log(textResults.innerHTML)
-            
+                    // console.log(textResults.innerHTML)
+                    
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: 5,
                         analytics: textResults.innerHTML,
-                        UserId: 1
+                        UserId: props.userId
                         
                     }).then(function (data) {
                         console.log(data)
@@ -112,8 +136,9 @@ function Speeches() {
                 })
                 
                 viewResults.addEventListener("click", function () {
-                    
-                   speechTitle.innerHTML = title.value
+                    // stopTimer();
+                    speechTitle.innerHTML = title.value
+                   
                     const grabText = transcript.match(/David/g)
                     console.log(grabText)
                     if (grabText[0] === "David") {
@@ -121,6 +146,7 @@ function Speeches() {
                          
                         textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
                     }
+                  
                     
                 })
 
@@ -145,7 +171,7 @@ function Speeches() {
                     </div>
                 </div>
                 <div className="vision">Timer: <br />
-                    <label id="minutes">00</label>:<label id="seconds">00</label>
+                    <div id="minutes">00</div>:<div id="seconds">00</div>
                 </div>
 
                 <div className="voiceContainer container">
