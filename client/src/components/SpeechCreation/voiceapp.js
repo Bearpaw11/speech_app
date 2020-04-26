@@ -16,50 +16,31 @@ function Speeches(props) {
         voiceFunctionality();
     });
 
-    //******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
-    // let totalSecs = 0;
+//******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
+    function timer() {
+        const minutesLabel = document.getElementById("minutes");
+        const secondsLabel = document.getElementById("seconds");
+        let totalSecs = 0;
+        setInterval(setTime, 1000);
 
-    // function timer() {
-    //     setInterval(() => {
-    //         console.log("Started");
-    //         setTime();
-    //     }, 1000);
-    // }
-    
-    
-    // function pad(value) {
-    //     const valueString = value + "";
-    //     if (valueString.length < 2) {
-    //         return "0" + valueString;
-    //     } else {
-    //         return valueString;
-    //     }
-    // }
-    // function setTime() {
-    //     const minutesLabel = document.getElementById("minutes");
-    //     const secondsLabel = document.getElementById("seconds");
+        function setTime() {
+            ++totalSecs;
+            secondsLabel.innerHTML = pad(totalSecs % 60);
+            minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
+        }
+        function pad(value) {
+            const valueString = value + "";
+            if (valueString.length < 2) {
+                return "0" + valueString;
+            } else {
+                return valueString;
+            }
+        }
+    }
+ //******** TIMER FUNCTION ENDS HERE **********//
 
-    //     ++totalSecs;
-    //     console.log(secondsLabel.textContent)
-    //     secondsLabel.textContent = totalSecs;
-    //     minutesLabel.textContent = totalSecs;
-    // }
-    
-    // function stopTimer() {
-    //     const totalTime = pad(minutesLabel.value) + pad(secondsLabel.value)
-
-    //     clearInterval(timer)
-
-    //     setTime() 
-            
-        
-    // }
-
-  
-    //******** STARTING THE TIMER FUNCTION ENDS HERE **********//
-
+ //******** STARTING THE VOICE FUNCTIONALITY **********//
     function voiceFunctionality() {
-
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -92,7 +73,8 @@ function Speeches(props) {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-                // timer(); //Start Timer
+               timer(); //Start Timer
+              
                 console.log("Speech recognition active.")
             }
 
@@ -100,9 +82,10 @@ function Speeches(props) {
                 micIcon.classList.remove("fa-microphone-slash");
                 micIcon.classList.add("fa-microphone");
                 searchFormInput.focus();
-                console.log("Speech recognition is not active.")
+                console.log("Speech recognition is not active.")                
                 //STOP THE TIMER (NEEDS CODE HERE)
             }
+            
             const textResults = document.querySelector("#textresults")
             const viewResults = document.querySelector("#viewresults")
             const title = document.querySelector("#title")
@@ -118,7 +101,7 @@ function Speeches(props) {
                 // console.log(transcript)
                 
                 textArea.innerHTML = transcript; //returns transcript of speech
-
+                
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
                     // console.log(textResults.innerHTML)
@@ -136,19 +119,78 @@ function Speeches(props) {
                 })
                 
                 viewResults.addEventListener("click", function () {
-                    // stopTimer();
-                    speechTitle.innerHTML = title.value
-                   
-                    const grabText = transcript.match(/David/g)
-                    console.log(grabText)
-                    if (grabText[0] === "David") {
-                        const counter = grabText.length
-                         
-                        textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
-                    }
-                  
                     
-                })
+                   speechTitle.innerHTML = title.value
+                   const grabText= [1]
+                   const grabText1= [1]
+                   const grabText2= [1]
+                   const grabText3= [1]
+                   const grabText4= [1]
+                   const text = "like"
+                   const text1 ="and"
+                   const text2 = "so"
+                   const text3 ="sorry"
+                   const text4 ="right"
+                   let countertest = 0
+                   let countertest1 =0 
+                   let countertest2 = 0
+                   let countertest3 =0 
+                   let countertest4 = 0
+                    grabText.push(transcript.match(/like/g))
+                    grabText1.push(transcript.match(/and/g))
+                    grabText2.push(transcript.match(/so/g))
+                    grabText3.push(transcript.match(/sorry/g))
+                    grabText4.push(transcript.match(/right/g))
+
+                    console.log(grabText)
+                    if (grabText[1] == null) {
+
+                      console.log("working")
+                    
+                    }
+
+                    else {
+                        countertest = grabText[1].length
+                    }
+                    if (grabText1[1] == null) {
+                        console.log("working")
+                      }
+  
+                      else {
+                          countertest1 = grabText1[1].length
+                      }
+                      if (grabText2[1] == null) {
+
+                        console.log("working")
+                      
+                      }
+  
+                      else {
+                          countertest2 = grabText2[1].length
+                      }
+                      if (grabText3[1] == null) {
+
+                        console.log("working")
+                      
+                      }
+  
+                      else {
+                          countertest3 = grabText3[1].length
+                      }
+                      if (grabText4[1] == null) {
+
+                        console.log("working")
+                      
+                      }
+  
+                      else {
+                          countertest4 = grabText4[1].length
+                      }
+                    textResults.innerHTML = `You said ${text} ${countertest} times! You said ${text1} ${countertest1} times! You said ${text2} ${countertest2} times! You said ${text3} ${countertest3} times! You said ${text4} ${countertest4} times!`
+                        }
+                    
+                    
+                )
 
             }
         }
@@ -156,7 +198,6 @@ function Speeches(props) {
 
     return (
         <div>
-
             {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
             <p>Click the microphone to start. When you are finished, click the microphone again.</p>
             
