@@ -121,11 +121,9 @@ function Speeches(props) {
                 viewResults.addEventListener("click", function () {
                     
                    speechTitle.innerHTML = title.value
-                   const grabText= [1]
-                   const grabText1= [1]
-                   const grabText2= [1]
-                   const grabText3= [1]
-                   const grabText4= [1]
+                    console.log(transcript)
+                   let words = transcript.split(" ");
+                   console.log(words)
                    const text = "like"
                    const text1 ="and"
                    const text2 = "so"
@@ -134,63 +132,33 @@ function Speeches(props) {
                    let countertest = 0
                    let countertest1 =0 
                    let countertest2 = 0
-                   let countertest3 =0 
+                   let countertest3 = 0 
                    let countertest4 = 0
-                    grabText.push(transcript.match(/like/g))
-                    grabText1.push(transcript.match(/and/g))
-                    grabText2.push(transcript.match(/so/g))
-                    grabText3.push(transcript.match(/sorry/g))
-                    grabText4.push(transcript.match(/right/g))
-
-                    console.log(grabText)
-                    if (grabText[1] == null) {
-
-                      console.log("working")
-                    
+                for (let i=0; i < words.length; i++) {
+                    if (words[i] === text ) {
+                        countertest ++
                     }
-
-                    else {
-                        countertest = grabText[1].length
-                    }
-                    if (grabText1[1] == null) {
-                        console.log("working")
-                      }
-  
-                      else {
-                          countertest1 = grabText1[1].length
-                      }
-                      if (grabText2[1] == null) {
-
-                        console.log("working")
-                      
-                      }
-  
-                      else {
-                          countertest2 = grabText2[1].length
-                      }
-                      if (grabText3[1] == null) {
-
-                        console.log("working")
-                      
-                      }
-  
-                      else {
-                          countertest3 = grabText3[1].length
-                      }
-                      if (grabText4[1] == null) {
-
-                        console.log("working")
-                      
-                      }
-  
-                      else {
-                          countertest4 = grabText4[1].length
-                      }
-                    textResults.innerHTML = `You said ${text} ${countertest} times! You said ${text1} ${countertest1} times! You said ${text2} ${countertest2} times! You said ${text3} ${countertest3} times! You said ${text4} ${countertest4} times!`
+                    else if 
+                         (words[i] === text1 ) {
+                            countertest1 ++
                         }
-                    
-                    
-                )
+                    else if 
+                        (words[i] === text2 ) {
+                           countertest2 ++
+                       }  
+                    else if 
+                       (words[i] === text3 ) {
+                          countertest3 ++
+                      }  
+                    else if 
+                      (words[i] === text4 ) {
+                         countertest4 ++
+                     }            
+        }   
+                    textResults.innerHTML = `You said ${text} ${countertest} times! You said ${text1} ${countertest1} times! You said ${text2} ${countertest2} times! You said ${text3} ${countertest3} times! You said ${text4} ${countertest4} times!`
+                        
+    } 
+                    )
 
             }
         }
