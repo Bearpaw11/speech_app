@@ -2,7 +2,11 @@ import React from "react";
 import { useEffect } from 'react';
 import API from '../../utils/API'
 
-function Speeches() {
+
+const minutesLabel = document.getElementById("minutes");
+const secondsLabel = document.getElementById("seconds");
+
+function Speeches(props) {
 
     function relocation() {
         window.location.href = "../Pages/ViewSpeeches.js";
@@ -55,8 +59,11 @@ function Speeches() {
             micBtn.addEventListener("click", micBtnClick)
 
             function micBtnClick() {
+                
                 if (micIcon.classList.contains("fa-microphone")) { //Start speech recognition
+                    // timer()
                     recognition.start();
+                    
                 } else { //Stop Speech recognition
                     recognition.stop()
                 }
@@ -73,7 +80,7 @@ function Speeches() {
 
             recognition.onend = function endSpeechRecognition() { //ending recording
                 micIcon.classList.remove("fa-microphone-slash");
-                micIcon.classList.add("fa-microphone")
+                micIcon.classList.add("fa-microphone");
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.")                
                 //STOP THE TIMER (NEEDS CODE HERE)
@@ -88,22 +95,22 @@ function Speeches() {
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
-                console.log(event.resultIndex) //this returned 0 
+                // console.log(event.resultIndex) //this returned 0 
                 
                 const transcript = event.results[currentResultIndex][0].transcript;
-                console.log(transcript)
+                // console.log(transcript)
                 
                 textArea.innerHTML = transcript; //returns transcript of speech
                 
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
-                    console.log(textResults.innerHTML)
-            
+                    // console.log(textResults.innerHTML)
+                    
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: 5,
                         analytics: textResults.innerHTML,
-                        UserId: 1
+                        UserId: props.userId
                         
                     }).then(function (data) {
                         console.log(data)
@@ -205,7 +212,7 @@ function Speeches() {
                     </div>
                 </div>
                 <div className="vision">Timer: <br />
-                    <label id="minutes">00</label>:<label id="seconds">00</label>
+                    <div id="minutes">00</div>:<div id="seconds">00</div>
                 </div>
 
                 <div className="voiceContainer container">

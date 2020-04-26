@@ -1,10 +1,14 @@
 import React from "react";
 import Speeches from "../SpeechCreation/voiceapp.js";
 
-function CreateSpeech() {
+function CreateSpeech(props) {
     return (
       <div>
-        <Speeches />
+            {/* Box for transcription w/code */}
+            {/* Timer running */}
+        <Speeches userId={props.userId} />
+        
+
       </div>
     )
 }
