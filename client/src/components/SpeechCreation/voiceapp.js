@@ -23,9 +23,9 @@ function Speeches(props) {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
         if (SpeechRecognition) {
+            searchForm.insertAdjacentHTML("beforeend", '<button type="button" id="input"><i class="fas fa-microphone"></i></button>')
 
             console.log("Your Browser supports speech Recognition")
-            searchForm.insertAdjacentHTML("beforeend", '<button type="button" id="input"><i class="fas fa-microphone"></i></button>')
 
             const micBtn = searchForm.querySelector("button");
             const micIcon = micBtn.querySelector("i");
@@ -73,10 +73,8 @@ function Speeches(props) {
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
             
-
                 const transcript = event.results[currentResultIndex][0].transcript;
               
-
                 textArea.innerHTML = transcript; //returns transcript of speech
 
                 save.addEventListener("click", function (event) { //saving

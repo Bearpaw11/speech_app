@@ -4,6 +4,9 @@ import { Input, FormBtn } from "../Form";
 
 function SignUp() {
 
+
+  
+
   const [formObject, setFormObject] = useState({
     username: "",
     email: "",
@@ -26,6 +29,10 @@ function SignUp() {
         }))
         .catch(err => console.log(err));
     }
+
+    
+
+
   };
 
   function handleInputChange(event) {
