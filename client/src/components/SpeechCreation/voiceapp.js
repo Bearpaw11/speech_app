@@ -1,12 +1,13 @@
 import React from "react";
 import { useEffect } from 'react';
 import API from '../../utils/API'
+import Timer from '../Timer/Timer'
 
 
-const minutesLabel = document.getElementById("minutes");
-const secondsLabel = document.getElementById("seconds");
+
 
 function Speeches(props) {
+   
 
     function relocation() {
         window.location.href = "../Pages/ViewSpeeches.js";
@@ -16,30 +17,6 @@ function Speeches(props) {
         voiceFunctionality();
     });
 
-//******* STARTING THE TIMER FUNCTION BEGINS HERE ********//
-    function timer() {
-        const minutesLabel = document.getElementById("minutes");
-        const secondsLabel = document.getElementById("seconds");
-        let totalSecs = 0;
-        setInterval(setTime, 1000);
-
-        function setTime() {
-            ++totalSecs;
-            secondsLabel.innerHTML = pad(totalSecs % 60);
-            minutesLabel.innerHTML = pad(parseInt(totalSecs / 60));
-        }
-        function pad(value) {
-            const valueString = value + "";
-            if (valueString.length < 2) {
-                return "0" + valueString;
-            } else {
-                return valueString;
-            }
-        }
-    }
- //******** TIMER FUNCTION ENDS HERE **********//
-
- //******** STARTING THE VOICE FUNCTIONALITY **********//
     function voiceFunctionality() {
         const searchForm = document.querySelector("#searchForm");
         const searchFormInput = searchForm.querySelector("input");
@@ -59,11 +36,11 @@ function Speeches(props) {
             micBtn.addEventListener("click", micBtnClick)
 
             function micBtnClick() {
-                
                 if (micIcon.classList.contains("fa-microphone")) { //Start speech recognition
-                    // timer()
-                    recognition.start();
+                   
                     
+                    recognition.start();
+
                 } else { //Stop Speech recognition
                     recognition.stop()
                 }
@@ -73,8 +50,8 @@ function Speeches(props) {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-               timer(); //Start Timer
-              
+                
+
                 console.log("Speech recognition active.")
             }
 
@@ -82,10 +59,10 @@ function Speeches(props) {
                 micIcon.classList.remove("fa-microphone-slash");
                 micIcon.classList.add("fa-microphone");
                 searchFormInput.focus();
-                console.log("Speech recognition is not active.")                
-                //STOP THE TIMER (NEEDS CODE HERE)
+                console.log("Speech recognition is not active.")
+                
             }
-            
+
             const textResults = document.querySelector("#textresults")
             const viewResults = document.querySelector("#viewresults")
             const title = document.querySelector("#title")
@@ -95,29 +72,29 @@ function Speeches(props) {
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
-                // console.log(event.resultIndex) //this returned 0 
-                
+            
+
                 const transcript = event.results[currentResultIndex][0].transcript;
-                // console.log(transcript)
-                
+              
+
                 textArea.innerHTML = transcript; //returns transcript of speech
-                
+
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
-                    // console.log(textResults.innerHTML)
-                    
+                  
+
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: 5,
                         analytics: textResults.innerHTML,
                         UserId: props.userId
-                        
+
                     }).then(function (data) {
                         console.log(data)
-                    }).catch((err) => console.log(err) )
+                    }).catch((err) => console.log(err))
 
                 })
-                
+
                 viewResults.addEventListener("click", function () {
                     
                    speechTitle.innerHTML = title.value
@@ -163,30 +140,31 @@ function Speeches(props) {
             }
         }
     }
+    
 
     return (
         <div>
             {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
             <p>Click the microphone to start. When you are finished, click the microphone again.</p>
-            
-                <input id="title" type="text" className="form-control" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"/>
-                <div className="voiceContainer container shadow p-3 mb-5">
-                    <div className="row">
-                        <div className="col-4 offset-4">
-                            <form method="get" id="searchForm" target="_blank">
-                                <input type="hidden" autoComplete="off" autoFocus />
-                            </form>
-                        </div>
+
+            <input id="title" type="text" className="form-control" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+            <div className="voiceContainer container shadow p-3 mb-5">
+                <div className="row">
+                    <div className="col-4 offset-4">
+                        <form method="get" id="searchForm" target="_blank">
+                            <input type="hidden" autoComplete="off" autoFocus />
+                        </form>
                     </div>
                 </div>
-                <div className="vision">Timer: <br />
-                    <div id="minutes">00</div>:<div id="seconds">00</div>
-                </div>
+            </div>
+            <div className="vision"> <br />
+                  <Timer/>
+            </div>
 
-                <div className="voiceContainer container">
-                    <div className="mb-3"></div>
-                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
-                    <br />
+            <div className="voiceContainer container">
+                <div className="mb-3"></div>
+                <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
+                <br />
 
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
                 <br></br>
@@ -194,15 +172,15 @@ function Speeches(props) {
                 <button id="viewresults" type="button" className="btn btn-info">View Results</button>
                 <p id="speechtitle">Title</p>
                 <p id="textresults">Results</p>
-                    <br /> <br /><br />
+                <br /> <br /><br />
 
-                    <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speches</button>
-                </div>
-
-                <div className="invalid-feedback"> Press the microphone to begin.</div>
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speches</button>
             </div>
 
-)
+            <div className="invalid-feedback"> Press the microphone to begin.</div>
+        </div>
+
+    )
 }
 
 export default Speeches;
