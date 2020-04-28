@@ -11,39 +11,42 @@
     height: 2.5rem;
     font-size: 15px;
     text-align: center;
+    margin-top: 10px;
 }	
 
-.modal-content {
-    background-color: black;
-    border: solid 1px #c15911;
-    color: #c15911;
-    }
+.navbar-toggler {
+    overflow: hidden;
+}
+.speechTitler {
+    width: 350px;
+    margin: 10px 200px auto auto
+}
 
-    .close {
-      color: #c15911;
-    }
+
+.modal-content {
+    background-color: rgb(37, 57, 238);
+    border: solid 1px #ffd4b6;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
     
-    .modal-header, .modal-footer {
-      border: none;
-    }
+.modal-title {
+    font-family:'Shadows Into Light', cursive;
+  font-size: 30px;
+}
     
-    .modal-title {
-      font-family:'Shadows Into Light', cursive;
-      font-size: 30px;
-    }
-    
-    .loginBtn {
-      font-size: .9em;
-      color: #fff;
-      background: blue;
-      outline: none;
-      border: 1px solid;
-      cursor: pointer;
-      padding: 0.9em;
-      -webkit-appearance: none;
-      width: 100%;
-      margin: 0;
-      letter-spacing: 4px;
+.loginBtn {
+    font-size: .9em;
+    color: #fff;
+    outline: none;
+    border: 1px solid;
+    padding: 0.9em;
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 0;
+    letter-spacing: 4px;
 }
 
 .groupPics {
@@ -81,13 +84,13 @@ body {
 }
 
 .methods {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
     background: transparent;
 }
 
-
 .voiceContainer {
     text-align: center;
+    margin-top: 30px;
 }
