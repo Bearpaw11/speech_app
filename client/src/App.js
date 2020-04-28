@@ -14,6 +14,9 @@ import CreateSpeech from "./components/Pages/CreateSpeech.js";
 //import API from "./utils/API"
 
 function App (props) {
+
+console.log("app:", props)
+
     const [isOpen, setIsOpen] = React.useState(false);
 
     const [userId, setUserId] = React.useState(null);
@@ -39,8 +42,10 @@ function App (props) {
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
                     <Route exact path="/Recordings" render={(props) => <CreateSpeech userId={userId}/>} />
+
+                    {/* <Route exact path="/Recordings" render={(props) => props.userid ? <CreateSpeech userId={userId}/> : <SignUp/>} /> */}
+                   {/* <Route exact path ="/members" render={(props) => props.userid ? <members /> : <SignUp/>} /> */}
                    <Route exact path ="/members" component={Members} />
-                
                 
                 {   
                         isOpen && <AppModal setUserId={setUserId} isOpen={isOpen} hideModal={hideModal}/>
