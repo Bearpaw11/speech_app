@@ -5,39 +5,55 @@ function NavBar(props) {
   const location = useLocation();
 
   return (
-    <div className="pos-f-t">
-          <div className="collapse" id="navbarToggleExternalContent">
-          <div className="bg-dark p-4">
-          <h5 className="text-white h4">Collapsed content</h5>
-          <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
-      <Link to="/About" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>About</Link>
-      <Link to="/Contact" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Contact</Link>
-      <Link to="/SignUp" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
-      {/* <Link to="/Recordings" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Recordings</Link>
-      <Link to="/Members" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Members</Link> */}
-      <button onClick={props.showModal} >Log In</button>
-          </div>
-    </div>
-    <nav className="navbar navbar-dark bg-dark">
+ <div>
+    <nav className="navbar navbar-expand-md navbar-dark">
         
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        
+        <a className="navbar-brand" href="#">Navigation</a>
 
-    <span class="navbar-toggler-icon">
-        
-    </span>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span className="navbar-toggler-icon"></span>
+        </button>
 
-</button>
-      <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
-      <Link to="/About" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>About</Link>
-      <Link to="/Contact" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Contact</Link>
-      <Link to="/SignUp" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
-      {/* <Link to="/Recordings" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Recordings</Link>
-      <Link to="/Members" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Members</Link> */}
-      <button onClick={props.showModal} >Log In</button>
-      </nav>
+        {/* Navbar links */}
+        <div className="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul className="navbar-nav">
 
-    </div>
+                <li className="nav-item">
+                    <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="/About" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>About</Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="/Contact" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Contact</Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="/SignUp" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
+                </li>
+
+                {/* <li className="nav-item">
+                    <Link to="/Recordings" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Recordings</Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="/Members" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Members</Link>
+                </li> */}
+                
+                <li className="nav-item">
+                    <button onClick={props.showModal}>Log In</button>
+                </li>
+
+                <li className="nav-item">
+                    <button id="logOut">Log Out</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+    
   )
 }
 

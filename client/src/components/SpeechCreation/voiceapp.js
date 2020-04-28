@@ -3,11 +3,7 @@ import { useEffect } from 'react';
 import API from '../../utils/API'
 import Timer from '../Timer/Timer'
 
-
-
-
 function Speeches(props) {
-   
 
     function relocation() {
         window.location.href = "../Pages/ViewSpeeches.js";
@@ -38,7 +34,6 @@ function Speeches(props) {
 
             function micBtnClick() {
                 if (micIcon.classList.contains("fa-microphone")) { //Start speech recognition
-                   
                     
                     recognition.start();
 
@@ -154,11 +149,11 @@ function Speeches(props) {
 
     return (
         <div>
-            {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
-            <p>Click the microphone to start. When you are finished, click the microphone again.</p>
-
-            <input id="title" type="text" className="form-control" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-            <div className="voiceContainer container shadow p-3 mb-5">
+            <br/>
+            <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
+            <br/>
+            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+            <div className="voiceContainer">
                 <div className="row">
                     <div className="col-4 offset-4">
                         <form method="get" id="searchForm" target="_blank">
@@ -177,8 +172,7 @@ function Speeches(props) {
                 <br />
 
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
-                <br></br>
-                <br></br>
+                <br/><br/> 
                 <button id="viewresults" type="button" className="btn btn-info">View Results</button>
                 <p id="speechtitle"></p>
                 <p id="textresults"></p>

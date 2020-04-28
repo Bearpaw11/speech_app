@@ -38,9 +38,9 @@ body {
   font-size: 100%;
   @include lato-reg;
 }
-div, textarea, input {
-//   @include box-sizing(border-box); 
-}  
+// div, textarea, input {
+// //   @include box-sizing(border-box); 
+// }  
 .container {  
   max-width: 510px;
   min-width: 324px;
@@ -170,7 +170,6 @@ form {
   label {
     width: 100%;
     display: inline-block;
-    float: left;
     clear: both;
   }
   li, p {
