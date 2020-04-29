@@ -1,8 +1,20 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import API from '../../utils/API'
+
 
 function NavBar(props) {
   const location = useLocation();
+
+    function logOut() {
+        API.logOut().then((logout) => {
+            console.log(logout)
+            window.location.href = "/";
+            alert("You've been logged out!")
+        })
+        
+    }
+    
 
   return (
  <div>
@@ -34,20 +46,20 @@ function NavBar(props) {
                     <Link to="/SignUp" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
                 </li>
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <Link to="/Recordings" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Recordings</Link>
                 </li>
 
                 <li className="nav-item">
                     <Link to="/Members" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Members</Link>
-                </li>
+                </li> */}
                 
                 <li className="nav-item">
                     <button onClick={props.showModal}>Log In</button>
                 </li>
 
                 <li className="nav-item">
-                    <button id="logOut">Log Out</button>
+                    <button id="logOut" onClick={logOut} >Log Out</button>
                 </li>
             </ul>
         </div>
