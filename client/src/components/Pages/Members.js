@@ -59,6 +59,7 @@ if(this.state.loggedIn){
                         <li className="recordingListItem">
                             {/* MAP THROUGH ARRAY OF RECORDINGS*/}
                             {/* HAVE AUTOMATIC GENERATION OF LISTS & ANALYTICS HERE */}
+                            {/* WHEN TITLE IS CLICKED, HAVE ACCORDION THAT DISPLAYS ANALYTICS  */}
                         </li>
                     </ul>
                 
