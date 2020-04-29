@@ -44,7 +44,7 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         //     }
 
     return (
-        <div>
+        <div className="containerDiv">
             <p className="userWelcome">Welcome, username!</p>
                 <div>
                     <p className="recordingListTitle">Past Recordings:</p>

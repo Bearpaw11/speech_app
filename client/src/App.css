@@ -6,28 +6,27 @@
     font-size: 15px;
 }
 
+.containerDiv {
+    width: 700px;
+    position: relative;
+    left: 140px;
+}
+
 .footer {
     position: relative;
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
     font-size: 15px;
-    height: 198px;
+    height: 48px;
     text-align: center;
     margin-top: 10px;
-    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
 }	
-.wave:nth-of-type(2) {
-    top: -125px;
-    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
-    opacity: 1;
-  }
+
 
 .navbar-toggler {
     overflow: hidden;
 }
 .speechTitler {
     width: 350px;
-    margin: 10px 200px auto auto
+    margin: 10px 150px auto auto
 }
 
 .modal-content {

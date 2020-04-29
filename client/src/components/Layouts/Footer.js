@@ -3,8 +3,8 @@ import "../../App.css"
 
 function Footer() {
   return (
-    <footer className="footer wave">
-        <div className="wave"></div> 
+    <footer className="footer">
+        <div>Speech Therapy (c) 2020</div> 
     </footer>
   );
 }
