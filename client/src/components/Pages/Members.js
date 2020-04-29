@@ -3,14 +3,16 @@ import API from "../../utils/API"
 import { Redirect } from "react-router-dom";
 
 class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
+   
     state = {
         loggedIn : false,
-        ready:false
+        ready: false,
+        userName: []
     }
 
     componentDidMount() { 
         this.verify()
-        //need a function to call to the database to save the data and save it to the state to render it based on state
+        //need a function call to database to save the data and save it to the state to render it based on state
         //TO MAKE THIS FASTER, WE CAN CALL THE DATABASE ONCE AND ANYTIME THERE'S NEW RECORDINGS, ADD IT TO OUR STATE ARRAY INSTEAD OF MAKING AN API CALL TO GET THE LATEST
     }
 
@@ -18,13 +20,13 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         window.location.href = "./Recordings";
     }
 
-    verify = () =>{
+    verify = () => {
         API.verifyLogin().then(user => {
             console.log("--->user data>", user.data)
             
             if(user.data){
                 console.log("change state")
-                this.setState({loggedIn:true, ready:true})
+                this.setState({loggedIn:true, ready:true, userName: user.data})
             } else{
                 this.setState({ready:true})
             }
@@ -32,6 +34,7 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     } 
    
     render(){
+        console.log(this.state.loggedIn, "USERDATA") //logs True
         // console.log("value of the state: ", this.state.loggedIn)
         // if(!this.state.ready){
         //     return <div/>
@@ -45,7 +48,7 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
     return (
         <div className="containerDiv">
-            <p className="userWelcome">Welcome, username!</p>
+            <p className="userWelcome">Welcome, {this.state.userName.username}!</p>
                 <div>
                     <p className="recordingListTitle">Past Recordings:</p>
 
