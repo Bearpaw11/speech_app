@@ -148,7 +148,7 @@ function Speeches(props) {
     
 
     return (
-        <div>
+        <div className="vision">
             <br/>
             <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
             <br/>
