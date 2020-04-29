@@ -3,17 +3,14 @@ import { useEffect } from 'react';
 import API from '../../utils/API'
 import Timer from '../Timer/Timer'
 
-
-
-
 function Speeches(props) {
-   
 
     function relocation() {
         window.location.href = "../Pages/ViewSpeeches.js";
     }
 
     useEffect(() => {
+        
         voiceFunctionality();
     });
 
@@ -37,7 +34,6 @@ function Speeches(props) {
 
             function micBtnClick() {
                 if (micIcon.classList.contains("fa-microphone")) { //Start speech recognition
-                   
                     
                     recognition.start();
 
@@ -62,7 +58,7 @@ function Speeches(props) {
                 console.log("Speech recognition is not active.")
                 
             }
-
+            const textResultsPersonal = document.querySelector("#textResultsPersonal")
             const textResults = document.querySelector("#textresults")
             const viewResults = document.querySelector("#viewresults")
             const title = document.querySelector("#title")
@@ -84,7 +80,7 @@ function Speeches(props) {
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: 5,
-                        analytics: textResults.innerHTML,
+                        analytics: textResults.innerHTML+ textResultsPersonal.innerHTML,
                         UserId: props.userId
 
                     }).then(function (data) {
@@ -99,38 +95,47 @@ function Speeches(props) {
                     console.log(transcript)
                    let words = transcript.split(" ");
                    console.log(words)
-                   const text = "like"
-                   const text1 ="and"
-                   const text2 = "so"
-                   const text3 ="sorry"
-                   const text4 ="right"
-                   let countertest = 0
-                   let countertest1 =0 
-                   let countertest2 = 0
-                   let countertest3 = 0 
-                   let countertest4 = 0
+                   let textObj={
+                       "like":0,
+                       "and":0,
+                       "so":0,
+                       "sorry":0,
+                       "right":0
+                   }
+                   let textObjPersonal={}
+                   
                 for (let i=0; i < words.length; i++) {
-                    if (words[i] === text ) {
-                        countertest ++
-                    }
-                    else if 
-                         (words[i] === text1 ) {
-                            countertest1 ++
-                        }
-                    else if 
-                        (words[i] === text2 ) {
-                           countertest2 ++
-                       }  
-                    else if 
-                       (words[i] === text3 ) {
-                          countertest3 ++
-                      }  
-                    else if 
-                      (words[i] === text4 ) {
-                         countertest4 ++
-                     }            
-        }   
-                    textResults.innerHTML = `You said ${text} ${countertest} times! You said ${text1} ${countertest1} times! You said ${text2} ${countertest2} times! You said ${text3} ${countertest3} times! You said ${text4} ${countertest4} times!`
+
+                    //
+                 
+                    if (textObj[words[i]] !== undefined){
+                      //  console.log("----", words[i], textObj[words[i]])
+                        textObj[words[i]]++
+                   }else if(textObjPersonal[words[i]] !== undefined){
+                       textObjPersonal[words[i]]++
+                   }else{
+                    textObjPersonal[words[i]] = 1
+                   }
+                        
+        }  
+        let textRegular = ""
+        for(let key in textObj){
+          console.log(key, ": ", textObj[key] )
+          if (textObj[key]> 0){
+         textRegular += `You said ${key} ${textObj[key]} times! `
+          }
+        }
+        textResults.innerHTML = textRegular
+
+        let textPersonal = ""
+             for(let key in textObjPersonal){
+            if (textObjPersonal[key] > 3 ){
+            console.log(key, ": ", textObjPersonal[key] )
+            textPersonal += `You said ${key} ${textObjPersonal[key]} times! `
+            }
+          }
+          textResultsPersonal.innerHTML = textPersonal
+                   
                         
     } 
                     )
@@ -142,11 +147,11 @@ function Speeches(props) {
 
     return (
         <div>
-            {/* <input id="keyword" type="text" placeholder="Listen for? (Press 'Enter')"/> HOW TO GET THE LISTEN FOR TO WORK -- DISCUSS WITH TEAM*/}
-            <p>Click the microphone to start. When you are finished, click the microphone again.</p>
-
-            <input id="title" type="text" className="form-control" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-            <div className="voiceContainer container shadow p-3 mb-5">
+            <br/>
+            <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
+            <br/>
+            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+            <div className="voiceContainer">
                 <div className="row">
                     <div className="col-4 offset-4">
                         <form method="get" id="searchForm" target="_blank">
@@ -165,11 +170,11 @@ function Speeches(props) {
                 <br />
 
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
-                <br></br>
-                <br></br>
+                <br/><br/> 
                 <button id="viewresults" type="button" className="btn btn-info">View Results</button>
-                <p id="speechtitle">Title</p>
-                <p id="textresults">Results</p>
+                <p id="speechtitle"></p>
+                <p id="textresults"></p>
+                <p id="textResultsPersonal"></p>
                 <br /> <br /><br />
 
                 <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speches</button>

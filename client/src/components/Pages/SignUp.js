@@ -41,27 +41,33 @@ function SignUp() {
   };
 
     return (   
-        <div>
+        <div> 
+            <div className="container"><br/>
+
             <div className="row">
-                <form>
+                <form className="vision">
                     <Input
+                        className="vision"
                         onChange={handleInputChange}
                         name="username"
                         placeholder="Username"
                         value={formObject.username} />
                     <Input
+                        className="vision"
                         onChange={handleInputChange}
                         name="email"
                         placeholder="Email"
                         value={formObject.email} />
                     <Input
+                        className="vision"
                         onChange={handleInputChange}
                         name="password"
                         placeholder="Password"
                         value={formObject.password} />
                         
-                    <FormBtn onClick={handleFormSubmit}>Submit</FormBtn>
+                    <FormBtn className="forSignUp" onClick={handleFormSubmit}>Submit</FormBtn>
                 </form>
+            </div>
             </div>
       </div>
       )

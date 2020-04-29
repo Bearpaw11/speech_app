@@ -1,10 +1,10 @@
 /*HEADER COMPONENT CSS*/
-  
-  .card--title {
+
+.card--title {
     text-align: center;
-  }
+}
   
-  .clip-text {
+.clip-text {
     background: url(https://media.giphy.com/media/Xlk4JrwQE7XEs/giphy.gif);
     background-size: cover;
     background-position: center;
@@ -14,9 +14,8 @@
     font-size: 48px;
     font-weight: bold;
     line-height: 100px;
-    flex-shrink: 0;
-    
-  }
+    flex-shrink: 0; 
+}
 
 body {
   width: 75%;
@@ -26,5 +25,7 @@ body {
 
 .vision {
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: -10px;
 }
 
