@@ -15,7 +15,7 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     }
 
     relocation = () => {
-        window.location.href = "./Recordings";
+        this.props.history.push("/Recordings");
     }
     relocationSignup = () => {
         window.location.href = "./Signup";

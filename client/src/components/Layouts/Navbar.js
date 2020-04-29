@@ -1,8 +1,20 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import API from '../../utils/API'
+
 
 function NavBar(props) {
   const location = useLocation();
+
+    function logOut() {
+        API.logOut().then((logout) => {
+            console.log(logout)
+            window.location.href = "/";
+            alert("You've been logged out!")
+        })
+        
+    }
+    
 
   return (
  <div>
@@ -47,7 +59,7 @@ function NavBar(props) {
                 </li>
 
                 <li className="nav-item">
-                    <button id="logOut">Log Out</button>
+                    <button id="logOut" onClick={logOut} >Log Out</button>
                 </li>
             </ul>
         </div>
