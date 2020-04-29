@@ -16,8 +16,18 @@ export default {
     login: function (loginData) {
         return axios.post("/api/login",loginData)
         
-    }
+    },
 
+    verifyLogin: function () {
+        return axios.post("/api/verifylogin")
+        
+    },
+
+    saveSpeech: function (speechData) {
+        console.log(speechData)
+        return axios.post("/api/savespeech", speechData)
+
+    }
 
 
 
