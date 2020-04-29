@@ -1,0 +1,10 @@
+html, body {
+    height: 100%;
+  }
+  body {
+    background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #B7E8EB 100%);
+    /* overflow: hidden; */
+  }
+
+
+  /*# sourceMappingURL=output.css.map */

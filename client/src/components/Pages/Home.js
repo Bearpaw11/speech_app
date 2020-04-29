@@ -4,9 +4,9 @@ import App from "../Layouts/Modal/Modal.js";
 
 function Home() {
     return (
-      <div>
+      <div className="containerDiv">
             <MDBCol>
-                <MDBCard className="methods" style={{ width: "42rem"}}>
+                <MDBCard className="methods">
                     <MDBCardBody>
                         <MDBCardTitle className="vision">Why Speech Therapy? </MDBCardTitle>
                             <MDBCardText className="vision">3 out of every 4 people have a fear of public 

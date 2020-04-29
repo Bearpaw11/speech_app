@@ -6,22 +6,28 @@
     font-size: 15px;
 }
 
+.containerDiv {
+    width: 700px;
+    position: relative;
+    left: 140px;
+}
+
 .footer {
     position: relative;
-    height: 2.5rem;
     font-size: 15px;
+    height: 48px;
     text-align: center;
     margin-top: 10px;
 }	
+
 
 .navbar-toggler {
     overflow: hidden;
 }
 .speechTitler {
     width: 350px;
-    margin: 10px 200px auto auto
+    margin: 10px 150px auto auto
 }
-
 
 .modal-content {
     background-color: rgb(37, 57, 238);
@@ -65,30 +71,6 @@
 
 /*BACKGROUND IDEA*/
 
-body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.methods {
-    margin: 0 auto; 
-    float: none; 
-    margin-bottom: 10px; 
-    background: transparent;
-}
 
 .voiceContainer {
     text-align: center;

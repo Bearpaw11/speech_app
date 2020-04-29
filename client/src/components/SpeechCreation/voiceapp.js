@@ -148,8 +148,8 @@ function Speeches(props) {
 
 
     return (
-        <div>
-            <br />
+        <div className="vision">
+            <br/>
             <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
             <br />
             <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
