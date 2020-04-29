@@ -57,9 +57,11 @@ if(this.state.loggedIn){
 
                     <ul className="recordingList">
                         <li className="recordingListItem">
+                            <button type="button" id="speechDeleter">Delete</button>
                             {/* MAP THROUGH ARRAY OF RECORDINGS*/}
                             {/* HAVE AUTOMATIC GENERATION OF LISTS & ANALYTICS HERE */}
                             {/* WHEN TITLE IS CLICKED, HAVE ACCORDION THAT DISPLAYS ANALYTICS  */}
+                            {/* Have delete button generated next to each recording */}
                         </li>
                     </ul>
                 
