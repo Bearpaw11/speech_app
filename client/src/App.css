@@ -57,7 +57,7 @@
 
 .groupPics {
     height: 100px;
-    border-radius: 50%;
+    border-radius: 100% !important;
     float: left;
     padding-right: 10px;
     padding-bottom: 10px;
