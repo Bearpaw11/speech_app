@@ -12,6 +12,7 @@ import Header from "../src/components/Layouts/Header";
 import Footer from "../src/components/Layouts/Footer";
 import CreateSpeech from "./components/Pages/CreateSpeech.js";
 //import API from "./utils/API"
+import './components/Layouts/background.css';
 
 function App (props) {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -26,14 +27,11 @@ function App (props) {
         setIsOpen(false);
       };
  
-    
-
         return (
             <div>
                 <Router>
                 <NavBar showModal={showModal}/>
                 <Header />
-      
                     <Route exact path="/" component={Home} />   
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
@@ -41,14 +39,14 @@ function App (props) {
                     <Route exact path="/Recordings" render={(props) => <CreateSpeech userId={userId}/>} />
                    <Route exact path ="/members" component={Members} />
                 
-                
                 {   
-                        isOpen && <AppModal setUserId={setUserId} isOpen={isOpen} hideModal={hideModal}/>
+                    isOpen && <AppModal setUserId={setUserId} isOpen={isOpen} hideModal={hideModal}/>
                 }   
                 
                 {/* CONDITIONAL RENDERING: if the state of isOpen is true, then render AppModal component with the isOpen boolean value equal to the passed in isOpen, and the hideModal value equal to the passed in hideModal */}
                 </Router>
                 <Footer/>
+
             </div>
         );
 

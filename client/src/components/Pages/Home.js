@@ -4,7 +4,7 @@ import App from "../Layouts/Modal/Modal.js";
 
 function Home() {
     return (
-      <div>
+      <div className="containerDiv">
             <MDBCol>
                 <MDBCard className="methods" style={{ width: "42rem"}}>
                     <MDBCardBody>

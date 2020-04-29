@@ -1,9 +1,10 @@
 import React from "react";
-// import ""
+import "../../App.css"
+
 function Footer() {
   return (
-    <footer className="footer">
-      <span>Speech Therapy 2020©</span>
+    <footer className="footer wave">
+        <div className="wave"></div> 
     </footer>
   );
 }

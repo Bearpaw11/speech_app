@@ -8,11 +8,19 @@
 
 .footer {
     position: relative;
-    height: 2.5rem;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
     font-size: 15px;
+    height: 198px;
     text-align: center;
     margin-top: 10px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
 }	
+.wave:nth-of-type(2) {
+    top: -125px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
+    opacity: 1;
+  }
 
 .navbar-toggler {
     overflow: hidden;
@@ -21,7 +29,6 @@
     width: 350px;
     margin: 10px 200px auto auto
 }
-
 
 .modal-content {
     background-color: rgb(37, 57, 238);
@@ -65,30 +72,6 @@
 
 /*BACKGROUND IDEA*/
 
-body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.methods {
-    margin: 0 auto; 
-    float: none; 
-    margin-bottom: 10px; 
-    background: transparent;
-}
 
 .voiceContainer {
     text-align: center;
