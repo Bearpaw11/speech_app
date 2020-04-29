@@ -17,6 +17,9 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     relocation = () => {
         window.location.href = "./Recordings";
     }
+    relocationSignup = () => {
+        window.location.href = "./Signup";
+    }
 
     verify = () =>{
         API.verifyLogin().then(user => {
@@ -42,7 +45,7 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         //         console.log("state false")
         //         return <Redirect to="/Signup"/>
         //     }
-
+if(this.state.loggedIn){
     return (
         <div className="containerDiv">
             <p className="userWelcome">Welcome, username!</p>
@@ -60,8 +63,19 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
                 </div>
         </div>
     )}
-   
+    
+
+else{
+    return ( <div>
+        <p className="userWelcome">Please signup, username!</p>
+            <div>
+              
+            
+                <button type="button" onClick={this.relocationSignup}>Signup</button>
+            </div>
+    </div>)
 }
+}}
 // }
 
 export default Members;
