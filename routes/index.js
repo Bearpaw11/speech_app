@@ -45,7 +45,7 @@ module.exports = function (app) {
                 res.redirect(307, "/");
             })
             .catch(function (err) {
-                res.status(401).json(err);
+                res.json(err);
             });
     });
 
@@ -56,10 +56,11 @@ module.exports = function (app) {
         res.json(req.user);
     });
 
-    // app.get("/logout/", function (req, res) {
-    //     req.logout();
-    //     res.redirect("/");
-    // });
+    app.get("/api/logout/", function (req, res) {
+        req.logout();
+        res.json(true)
+       
+    });
 
     
 

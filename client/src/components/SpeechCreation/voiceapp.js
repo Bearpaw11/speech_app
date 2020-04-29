@@ -10,7 +10,7 @@ function Speeches(props) {
     }
 
     useEffect(() => {
-        
+
         voiceFunctionality();
     });
 
@@ -34,7 +34,7 @@ function Speeches(props) {
 
             function micBtnClick() {
                 if (micIcon.classList.contains("fa-microphone")) { //Start speech recognition
-                    
+
                     recognition.start();
 
                 } else { //Stop Speech recognition
@@ -46,7 +46,7 @@ function Speeches(props) {
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-                
+
 
                 console.log("Speech recognition active.")
             }
@@ -56,7 +56,7 @@ function Speeches(props) {
                 micIcon.classList.add("fa-microphone");
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.")
-                
+
             }
             const textResultsPersonal = document.querySelector("#textResultsPersonal")
             const textResults = document.querySelector("#textresults")
@@ -68,21 +68,21 @@ function Speeches(props) {
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
-            
+
 
                 const transcript = event.results[currentResultIndex][0].transcript;
-              
+
 
                 textArea.innerHTML = transcript; //returns transcript of speech
 
                 save.addEventListener("click", function (event) { //saving
                     event.preventDefault();
-                  
+
 
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: 5,
-                        analytics: textResults.innerHTML+ textResultsPersonal.innerHTML,
+                        analytics: textResults.innerHTML + textResultsPersonal.innerHTML,
                         UserId: props.userId
 
                     }).then(function (data) {
@@ -92,66 +92,66 @@ function Speeches(props) {
                 })
 
                 viewResults.addEventListener("click", function () {
-                    
-                   speechTitle.innerHTML = title.value
+
+                    speechTitle.innerHTML = title.value
                     console.log(transcript)
-                   let words = transcript.split(" ");
-                   console.log(words)
-                   let textObj={
-                       "like":0,
-                       "and":0,
-                       "so":0,
-                       "sorry":0,
-                       "right":0
-                   }
-                   let textObjPersonal={}
-                   
-                for (let i=0; i < words.length; i++) {
+                    let words = transcript.split(" ");
+                    console.log(words)
+                    let textObj = {
+                        "like": 0,
+                        "and": 0,
+                        "so": 0,
+                        "sorry": 0,
+                        "right": 0
+                    }
+                    let textObjPersonal = {}
 
-                    //
-                 
-                    if (textObj[words[i]] !== undefined){
-                      //  console.log("----", words[i], textObj[words[i]])
-                        textObj[words[i]]++
-                   }else if(textObjPersonal[words[i]] !== undefined){
-                       textObjPersonal[words[i]]++
-                   }else{
-                    textObjPersonal[words[i]] = 1
-                   }
-                        
-        }  
-        let textRegular = ""
-        for(let key in textObj){
-          console.log(key, ": ", textObj[key] )
-          if (textObj[key]> 0){
-         textRegular += `You said ${key} ${textObj[key]} times! `
-          }
-        }
-        textResults.innerHTML = textRegular
+                    for (let i = 0; i < words.length; i++) {
 
-        let textPersonal = ""
-             for(let key in textObjPersonal){
-            if (textObjPersonal[key] > 3 ){
-            console.log(key, ": ", textObjPersonal[key] )
-            textPersonal += `You said ${key} ${textObjPersonal[key]} times! `
-            }
-          }
-          textResultsPersonal.innerHTML = textPersonal
-                   
-                        
-    } 
-                    )
+                        //
+
+                        if (textObj[words[i]] !== undefined) {
+                            //  console.log("----", words[i], textObj[words[i]])
+                            textObj[words[i]]++
+                        } else if (textObjPersonal[words[i]] !== undefined) {
+                            textObjPersonal[words[i]]++
+                        } else {
+                            textObjPersonal[words[i]] = 1
+                        }
+
+                    }
+                    let textRegular = ""
+                    for (let key in textObj) {
+                        console.log(key, ": ", textObj[key])
+                        if (textObj[key] > 0) {
+                            textRegular += `You said ${key} ${textObj[key]} times! `
+                        }
+                    }
+                    textResults.innerHTML = textRegular
+
+                    let textPersonal = ""
+                    for (let key in textObjPersonal) {
+                        if (textObjPersonal[key] > 3) {
+                            console.log(key, ": ", textObjPersonal[key])
+                            textPersonal += `You said ${key} ${textObjPersonal[key]} times! `
+                        }
+                    }
+                    textResultsPersonal.innerHTML = textPersonal
+
+
+                }
+                )
 
             }
         }
     }
-    
+
 
     return (
         <div className="vision">
             <br/>
             <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
-            <br/>
+            <br />
             <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
             <div className="voiceContainer">
                 <div className="row">
@@ -163,7 +163,7 @@ function Speeches(props) {
                 </div>
             </div>
             <div className="vision"> <br />
-                  <Timer/>
+                <Timer />
             </div>
 
             <div className="voiceContainer container">
@@ -172,7 +172,7 @@ function Speeches(props) {
                 <br />
 
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
-                <br/><br/> 
+                <br /><br />
                 <button id="viewresults" type="button" className="btn btn-info">View Results</button>
                 <p id="speechtitle"></p>
                 <p id="textresults"></p>

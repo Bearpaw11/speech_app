@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
     SpeechesLists.associate = function(models) {
         SpeechesLists.belongsTo(models.Users, {
           foreignKey: {
-            allowNull: false
+            allowNull: true
           }
         });
       };
