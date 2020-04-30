@@ -5,12 +5,15 @@ import { Redirect } from "react-router-dom";
 class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     state = {
         loggedIn : false,
-        ready:false
+        ready: false,
+        userId: ""
     }
+        
+    
 
     componentDidMount() { 
         this.verify()
-        //need a function to call to the database to save the data and save it to the state to render it based on state
+       
         //TO MAKE THIS FASTER, WE CAN CALL THE DATABASE ONCE AND ANYTIME THERE'S NEW RECORDINGS, ADD IT TO OUR STATE ARRAY INSTEAD OF MAKING AN API CALL TO GET THE LATEST
     }
 
@@ -26,13 +29,26 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
             console.log("--->user data>", user.data)
             
             if(user.data){
-                console.log("change state")
-                this.setState({loggedIn:true, ready:true})
+                
+                this.setState({loggedIn:true, ready:true, userId: user.data.id})
             } else{
                 this.setState({ready:true})
             }
         })
     } 
+
+    getSpeech = () => {
+       let id = this.state.userId
+
+        console.log(id)
+        API.getSpeech({
+            UserId: id
+        }).then(id => {
+           console.log(id)
+       })
+   }
+
+
    
     render(){
         // console.log("value of the state: ", this.state.loggedIn)
@@ -45,6 +61,7 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         //         console.log("state false")
         //         return <Redirect to="/Signup"/>
         //     }
+      
 if(this.state.loggedIn){
     return (
         <div className="containerDiv">
@@ -58,7 +75,7 @@ if(this.state.loggedIn){
                             {/* HAVE AUTOMATIC GENERATION OF LISTS & ANALYTICS HERE */}
                         </li>
                     </ul>
-                
+                    <button type="button" onClick={this.getSpeech}>View past Recordings</button>
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
                 </div>
         </div>

@@ -29,6 +29,10 @@ export default {
      logOut: function () {
         return axios.get("/api/logout/")
     },
+     
+    getSpeech: function (id) {
+         return axios.get("/api/members/" + id)
+     }
 
 
 
