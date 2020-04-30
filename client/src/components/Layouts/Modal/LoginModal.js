@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import API from '../../../utils/API'
 import { Input, FormBtn } from "../../Form";
 import { useHistory } from "react-router-dom";
-
+import "./modal.css";
 
 function LoginModal(props) {
     let history = useHistory();
@@ -46,6 +46,7 @@ function LoginModal(props) {
     return ( 
         <div>
             <form>
+                <h1 className="vision"> Log in! 🎤</h1> <br/>
                     <Input
                         onChange={handleInputChange}
                         name="email"

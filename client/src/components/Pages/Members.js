@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 import { Redirect } from "react-router-dom";
+import Recordings from "../SpeechCreation/membersInfo.js";
 
-class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
+class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
    
     state = {
         loggedIn : false,
         ready: false,
-        userName: []
+        userName: [],
+        speech: []
     }
 
     componentDidMount() { 
         this.verify()
-        //need a function call to database to save the data and save it to the state to render it based on state
-        //TO MAKE THIS FASTER, WE CAN CALL THE DATABASE ONCE AND ANYTIME THERE'S NEW RECORDINGS, ADD IT TO OUR STATE ARRAY INSTEAD OF MAKING AN API CALL TO GET THE LATEST
     }
 
     relocation = () => {
@@ -25,19 +25,20 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
     verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user.data)
+            console.log("--->user data>", user)
             
             if(user.data){
                 console.log("change state")
-                this.setState({loggedIn:true, ready:true, userName: user.data})
-            } else{
+                this.setState({loggedIn:true, ready:true, userName: user.data.username, speech: user.data.speech})
+            } else {
                 this.setState({ready:true})
             }
         })
     } 
    
-    render(){
+    render() {
         console.log(this.state.loggedIn, "USERDATA") //logs True
+        //this.state.speech should console.log the speech
         // console.log("value of the state: ", this.state.loggedIn)
         // if(!this.state.ready){
         //     return <div/>
@@ -48,38 +49,41 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         //         console.log("state false")
         //         return <Redirect to="/Signup"/>
         //     }
-if(this.state.loggedIn){
+
+if (this.state.loggedIn) {
     return (
         <div className="containerDiv">
-            <p className="userWelcome">Welcome, {this.state.userName.username}!</p>
+            <p className="userWelcome">Welcome, {this.state.userName}!</p>
                 <div>
-                    <p className="recordingListTitle">Past Recordings:</p>
+                    <h5 className="recordingListTitle">Past Recordings:</h5>
 
-                    <ul className="recordingList">
-                        <li className="recordingListItem">
-                            <button type="button" className="speechDeleter">Delete</button>
-                            {/* MAP THROUGH ARRAY OF RECORDINGS*/}
-                            {/* HAVE AUTOMATIC GENERATION OF LISTS & ANALYTICS HERE */}
-                            {/* WHEN TITLE IS CLICKED, HAVE ACCORDION THAT DISPLAYS ANALYTICS  */}
-                            {/* Have delete button generated next to each recording */}
-                        </li>
-                    </ul>
-                
+                        <div className="recordingList">
+
+                            {this.state.speech.map((record) => (
+                                <Recordings speechTitle={record.speechTitle} 
+                                            analytics={record.analytics}
+                                            length={record.length} 
+                                            id={record.id}/>
+                            )
+                            )}
+                        </div>
+
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
+                    
                 </div>
         </div>
     )}
     
 
-else{
-    return ( <div>
-        <p className="userWelcome">Please signup, username!</p>
-            <div>
-              
-            
-                <button type="button" onClick={this.relocationSignup}>Signup</button>
-            </div>
-    </div>)
+else {
+    return ( 
+        <div>
+            <p className="userWelcome">Please signup!</p>
+                <div>
+                    <button type="button" onClick={this.relocationSignup}>Signup</button>
+                </div>
+        </div>
+    )
 }
 }}
 // }
