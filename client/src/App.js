@@ -7,11 +7,10 @@ import Contact from "./components/Pages/Contact";
 import SignUp from "./components/Pages/SignUp";
 import Members from "./components/Pages/Members";
 import AppModal from "./components/Layouts/Modal/Modal.js";
-import NavBar from "../src/components/Layouts/Navbar";
-import Header from "../src/components/Layouts/Header";
+import NavBar from "../src/components/Layouts/Navbar/Navbar.js";
+import Header from "../src/components/Layouts/Header/Header.js";
 import Footer from "../src/components/Layouts/Footer";
 import CreateSpeech from "./components/Pages/CreateSpeech.js";
-
 //import API from "./utils/API"
 import './components/Layouts/background.css';
 

@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 import { Redirect } from "react-router-dom";
+import Recordings from "../SpeechCreation/membersInfo.js";
 
-class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
+class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
+   
     state = {
         loggedIn : false,
         ready: false,
-        userId: ""
+        userName: [],
+        speech: []
     }
         
     
 
     componentDidMount() { 
         this.verify()
-       
-        //TO MAKE THIS FASTER, WE CAN CALL THE DATABASE ONCE AND ANYTIME THERE'S NEW RECORDINGS, ADD IT TO OUR STATE ARRAY INSTEAD OF MAKING AN API CALL TO GET THE LATEST
     }
 
     relocation = () => {
@@ -24,14 +25,14 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         window.location.href = "./Signup";
     }
 
-    verify = () =>{
+    verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user.data)
+            console.log("--->user data>", user)
             
             if(user.data){
-                
-                this.setState({loggedIn:true, ready:true, userId: user.data.id})
-            } else{
+                console.log("change state")
+                this.setState({loggedIn:true, ready:true, userName: user.data.username, speech: user.data.speech})
+            } else {
                 this.setState({ready:true})
             }
         })
@@ -50,7 +51,9 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
 
    
-    render(){
+    render() {
+        console.log(this.state.loggedIn, "USERDATA") //logs True
+        //this.state.speech should console.log the speech
         // console.log("value of the state: ", this.state.loggedIn)
         // if(!this.state.ready){
         //     return <div/>
@@ -61,36 +64,41 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         //         console.log("state false")
         //         return <Redirect to="/Signup"/>
         //     }
-      
-if(this.state.loggedIn){
+
+if (this.state.loggedIn) {
     return (
         <div className="containerDiv">
-            <p className="userWelcome">Welcome, username!</p>
+            <p className="userWelcome">Welcome, {this.state.userName}!</p>
                 <div>
-                    <p className="recordingListTitle">Past Recordings:</p>
+                    <h5 className="recordingListTitle">Past Recordings:</h5>
 
-                    <ul className="recordingList">
-                        <li className="recordingListItem">
-                            {/* MAP THROUGH ARRAY OF RECORDINGS*/}
-                            {/* HAVE AUTOMATIC GENERATION OF LISTS & ANALYTICS HERE */}
-                        </li>
-                    </ul>
-                    <button type="button" onClick={this.getSpeech}>View past Recordings</button>
+                        <div className="recordingList">
+
+                            {this.state.speech.map((record) => (
+                                <Recordings speechTitle={record.speechTitle} 
+                                            analytics={record.analytics}
+                                            length={record.length} 
+                                            id={record.id}/>
+                            )
+                            )}
+                        </div>
+
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
+                    
                 </div>
         </div>
     )}
     
 
-else{
-    return ( <div>
-        <p className="userWelcome">Please signup, username!</p>
-            <div>
-              
-            
-                <button type="button" onClick={this.relocationSignup}>Signup</button>
-            </div>
-    </div>)
+else {
+    return ( 
+        <div>
+            <p className="userWelcome">Please signup!</p>
+                <div>
+                    <button type="button" onClick={this.relocationSignup}>Signup</button>
+                </div>
+        </div>
+    )
 }
 }}
 // }

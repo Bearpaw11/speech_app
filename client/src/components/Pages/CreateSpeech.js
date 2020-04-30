@@ -5,10 +5,7 @@ function CreateSpeech(props) {
  
     return (
       <div>
-
         <Speeches userId={props.userId} />
-        
-
       </div>
     )
 }
