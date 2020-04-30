@@ -1,5 +1,5 @@
 import React from "react";
-import '../../../src/components/Layouts/contact.css';
+import '../../../src/components/Layouts/ContactCSS/contact.css';
 
 function Contact() {
     return (
@@ -7,8 +7,7 @@ function Contact() {
             {
               <div className="container">
               <div className="row header">
-                <h1 id="contactUs">CONTACT US &nbsp;</h1>
-                <h3>Let's get in touch!</h3>
+                <h1 id="contactUs">CONTACT US</h1>
               </div>
               <div className="row body">
                 <form action="#">
