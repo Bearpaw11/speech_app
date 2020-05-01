@@ -169,7 +169,9 @@ function Speeches(props) {
             <br/>
             <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
             <br />
-            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+            <div className="speechTitler">
+            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
+            </div>
             <div className="voiceContainer">
                 <div className="row">
                     <div className="col-4 offset-4">
@@ -179,22 +181,25 @@ function Speeches(props) {
                     </div>
                 </div>
             </div>
-            <div className="vision"> <br />
-                <Timer/>
+            <div>
+                <Timer />
+
             </div>
 
             <div className="voiceContainer container">
                 <div className="mb-3"></div>
-                <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
-                <br />
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
+                    <br/>
 
-                <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
-                <br /><br />
-                <button id="viewresults" type="button" className="btn btn-info">View Results</button>
-                <p id="speechtitle"></p>
-                <p id="textresults"></p>
-                <p id="textResultsPersonal"></p>
-                <br /> <br /><br />
+                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
+                    <br/><br />
+                
+                    <button id="viewresults" type="button" className="btn btn-info">View Results</button>
+                
+                    <p id="speechtitle"></p>
+                    <p id="textresults"></p>
+                    <p id="textResultsPersonal"></p>
+                    <br /> <br /><br />
 
                 <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
             </div>

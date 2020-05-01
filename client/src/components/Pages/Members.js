@@ -94,7 +94,7 @@ if (this.state.loggedIn) {
 
 =======
                         </div><br/>
-                        
+
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
 >>>>>>> 9acd6f7db4d174ca508f6f43d9ba9f8077b4330f
                     
@@ -106,10 +106,11 @@ if (this.state.loggedIn) {
 
 else {
     return ( 
-        <div>
+        <div className="vision">
             <p className="userWelcome">Please signup!</p>
                 <div>
                     <button type="button" onClick={this.relocationSignup}>Signup</button>
+                <br/><br/>
                 </div>
         </div>
     )

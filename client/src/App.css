@@ -13,8 +13,10 @@
 }	
 
 .speechTitler {
-    width: 350px;
-    margin: 10px 150px auto auto
+    min-width: 150px;
+    max-width: 300px;
+    margin: 0 auto; 
+    /* margin: 0 auto centers the info in the div */
 }
 
 .groupPics {
@@ -40,7 +42,10 @@ a {
 
 .teamFix {
     margin: right;
+}
 
+.signUpCenter {
+    margin: 0 auto;
 }
 
 #carouselExampleControls {
