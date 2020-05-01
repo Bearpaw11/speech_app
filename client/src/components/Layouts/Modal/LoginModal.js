@@ -46,7 +46,9 @@ function LoginModal(props) {
     return ( 
         <div>
             <form>
-                <h1 className="vision"> Log in! 🎤</h1> <br/>
+                <h1 className="vision"> Log in! 
+                    <span aria-label="microphone" role="img">🎤</span>
+                </h1> <br/>
                     <Input
                         onChange={handleInputChange}
                         name="email"

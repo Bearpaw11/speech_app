@@ -97,7 +97,7 @@ return <Redirect to ="/" />
                     
                     <li>
                       <p>
-                        <label htmlFor="email">Email <span class="req">*</span></label>
+                        <label htmlFor="email">Email <span className="req">*</span></label>
                         <input type="email" name="email" placeholder="john.smith@gmail.com" onChange ={this.handleInputChange} value={this.state.email}/>
                       </p>
                     </li>        
