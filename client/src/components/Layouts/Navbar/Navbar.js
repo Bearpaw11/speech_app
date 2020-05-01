@@ -24,7 +24,7 @@ function NavBar(props) {
             </button>
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <div className="navPic"></div>
-            <img className="navPic" src={logo} />
+            <img className="navPic" src={logo} alt="logo" href="#"/>
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
@@ -48,7 +48,7 @@ function NavBar(props) {
                         <a id="navlink" onClick={props.showModal}>Log In</a>
                     </li>
                     <li className="nav-item">
-                        <a id="logOut" onClick={logOut} >Log Out</a>
+                        <a id="logOut" onClick={logOut}>Log Out</a>
                     </li>
                 </ul>
             </div>

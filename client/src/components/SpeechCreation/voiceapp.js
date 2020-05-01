@@ -113,7 +113,7 @@ function Speeches(props) {
                     speechTitle.innerHTML = title.value
                     console.log(transcript)
                     let words = transcript.split(" ");
-                    console.log(words)
+                    console.log(words) //console logs words said
                     let textObj = {
                         "like": 0,
                         "and": 0,
@@ -124,8 +124,6 @@ function Speeches(props) {
                     let textObjPersonal = {}
 
                     for (let i = 0; i < words.length; i++) {
-
-                        //
 
                         if (textObj[words[i]] !== undefined) {
                             //  console.log("----", words[i], textObj[words[i]])
