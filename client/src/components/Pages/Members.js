@@ -66,7 +66,7 @@ if (this.state.loggedIn) {
                                 )
                             )}
                         </div><br/>
-                        
+
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
                     
                 </div>
@@ -76,10 +76,11 @@ if (this.state.loggedIn) {
 
 else {
     return ( 
-        <div>
+        <div className="vision">
             <p className="userWelcome">Please signup!</p>
                 <div>
                     <button type="button" onClick={this.relocationSignup}>Signup</button>
+                <br/><br/>
                 </div>
         </div>
     )
