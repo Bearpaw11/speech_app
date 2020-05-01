@@ -4,9 +4,6 @@ import { Input, FormBtn } from "../Form";
 
 function SignUp() {
 
-
-  
-
   const [formObject, setFormObject] = useState({
     username: "",
     email: "",
