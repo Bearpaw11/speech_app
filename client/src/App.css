@@ -42,3 +42,30 @@ a {
     margin: right;
 
 }
+
+#carouselExampleControls {
+    min-width: 100px;
+    height: 290px;
+    margin-top: 20px;
+}
+
+.carousel-inner {
+    background-color: rgb(47, 175, 192);
+}
+
+.carouselTitle {
+    text-align: center !important;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.carouselSignature {
+    text-align: center !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.carousel-item {
+    padding: 30px
+}

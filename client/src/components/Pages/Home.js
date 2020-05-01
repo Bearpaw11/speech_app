@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import App from "../Layouts/Modal/Modal.js";
+import Carousel from "../Layouts/Carousel.js";
 
 function Home() {
     return (
@@ -28,6 +29,8 @@ function Home() {
                     </MDBCardBody>
                  </MDBCard>
                 </MDBCol>
+
+  <Carousel/>
             <App />
       </div>
     )
