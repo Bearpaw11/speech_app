@@ -1,5 +1,6 @@
-.navbar a {
-    color: rgb(47, 175, 192);
+.navi {
+    background-color: #0d454d;
+    width: 100%;
     padding: 10px 10px;
     word-wrap: normal;
     display: inline-block;
@@ -10,12 +11,19 @@
     overflow: hidden;
 }
 
-#navlink {
-    color: rgb(47, 175, 192);
+.navPic {
+    width: 100px;
+    height: auto;
+}
+
+.nav-link{
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
 }
 
 #logOut {
-    color: rgb(47, 175, 192);
+    color: #390d4d;
 }
 
 .navbar-toggler {
