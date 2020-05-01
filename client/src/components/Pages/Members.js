@@ -52,22 +52,21 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
 if (this.state.loggedIn) {
     return (
-        <div className="containerDiv">
-            <p className="userWelcome">Welcome, {this.state.userName}!</p>
+        <div className="containerDiv vision">
+            <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
                 <div>
                     <h5 className="recordingListTitle">Past Recordings:</h5>
 
                         <div className="recordingList">
-
                             {this.state.speech.map((record) => (
                                 <Recordings speechTitle={record.speechTitle} 
                                             analytics={record.analytics}
                                             length={record.length} 
                                             id={record.id}/>
-                            )
+                                )
                             )}
-                        </div>
-
+                        </div><br/>
+                        
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
                     
                 </div>
