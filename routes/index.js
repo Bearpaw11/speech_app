@@ -73,22 +73,17 @@ module.exports = function (app) {
 
     
     app.get("/api/members/:id", function (req, res) {
-        let query = {}
-        if (req.query.id) {
-            query.UserId = rea.query.id
-        }
+        console.log(req)
         db.SpeechesLists.findAll({
             where:{
-                UserId: query,
-                include: [db.Users]
+                userId: req.params.id
+                
             }
             
         }).then(Users => {
-            res.json(Users.data)
-           
+            res.json(Users)
         })
             .catch(function (err) {
-                
                 res.json(err.data + " not working")
             });
     })

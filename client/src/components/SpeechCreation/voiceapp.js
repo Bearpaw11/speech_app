@@ -1,13 +1,20 @@
 import React from "react";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import API from '../../utils/API'
 import Timer from '../Timer/Timer'
+import { useHistory } from "react-router-dom"
 
 function Speeches(props) {
+    let history = useHistory();
 
     function relocation() {
-        window.location.href = "../Pages/ViewSpeeches.js";
+        history.push("/members");
     }
+
+    // const [isOn, setIsOn] = useState()
+    // function startTimer() {
+    //     setIsOn(true)
+    // }
 
     useEffect(() => {
 
@@ -21,6 +28,15 @@ function Speeches(props) {
 
         if (SpeechRecognition) {
 
+
+
+            
+
+
+
+
+
+
             console.log("Your Browser supports speech Recognition")
             searchForm.insertAdjacentHTML("beforeend", '<button type="button" id="input"><i class="fas fa-microphone"></i></button>')
 
@@ -29,6 +45,13 @@ function Speeches(props) {
 
             const recognition = new SpeechRecognition();
             recognition.continuous = true;
+            const textResultsPersonal = document.querySelector("#textResultsPersonal")
+            const textResults = document.querySelector("#textresults")
+            const viewResults = document.querySelector("#viewresults")
+            const title = document.querySelector("#title")
+            const speechTitle = document.querySelector("#speechtitle")
+            const textArea = document.querySelector("#textarea")
+            const save = document.querySelector("#save")
 
             micBtn.addEventListener("click", micBtnClick)
 
@@ -42,29 +65,23 @@ function Speeches(props) {
                 }
             }
 
-            recognition.onstart = function startSpeechRecogniton() { //beginning recording
+            recognition.onstart = function startSpeechRecogniton() {
+                
+                //beginning recording
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-
-
                 console.log("Speech recognition active.")
             }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
+              
                 micIcon.classList.remove("fa-microphone-slash");
                 micIcon.classList.add("fa-microphone");
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.")
 
             }
-            const textResultsPersonal = document.querySelector("#textResultsPersonal")
-            const textResults = document.querySelector("#textresults")
-            const viewResults = document.querySelector("#viewresults")
-            const title = document.querySelector("#title")
-            const speechTitle = document.querySelector("#speechtitle")
-            const textArea = document.querySelector("#textarea")
-            const save = document.querySelector("#save")
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
@@ -163,7 +180,7 @@ function Speeches(props) {
                 </div>
             </div>
             <div className="vision"> <br />
-                <Timer />
+                <Timer/>
             </div>
 
             <div className="voiceContainer container">
@@ -179,7 +196,7 @@ function Speeches(props) {
                 <p id="textResultsPersonal"></p>
                 <br /> <br /><br />
 
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speches</button>
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
             </div>
 
             <div className="invalid-feedback"> Press the microphone to begin.</div>
