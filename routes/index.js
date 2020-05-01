@@ -1,8 +1,17 @@
 const path = require("path");
 const db = require("../models");
 const passport = require("../config/passport");
+const nodemailer = require  ("nodemailer");
+require("dotenv").config()
 // const apiRoute = require("./api-routes")
-
+console.log("email add:", process.env.EMAIL_PASSWORD)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: `${ process.env.EMAIL_ADDRESS }`,
+    pass: `${ process.env.EMAIL_PASSWORD }`,
+  },
+});
 
 module.exports = function (app) {
 
@@ -63,9 +72,67 @@ module.exports = function (app) {
     });
 
     
-
+    app.get("/api/members/:id", function (req, res) {
+        console.log(req)
+        db.SpeechesLists.findAll({
+            where:{
+                userId: req.params.id
+                
+            }
+            
+        }).then(Users => {
+            res.json(Users)
+        })
+            .catch(function (err) {
+                res.json(err.data + " not working")
+            });
+    })
 
     
+    app.post("/api/sendemail", function(req, res){
+        console.log("post email: ", req.body)
+     
+       // sendEmail = () => {
+            // Define message for nodemailer
+        const mailOptions = req.body;
+          
+            // Send mail 
+        transporter.sendMail(mailOptions, function (err, response) {
+              if (err) {
+                console.error('there was an error: ', err);
+              } else {
+                console.log('here is the res: ', response);
+           
+              }
+              res.json(response)
+            });
+          
+          //}
+         
+    })
+
+   
+    app.post("/api/sendemailCustomer", function(req, res){
+        console.log("post email: ", req.body)
+     
+       // sendEmail = () => {
+            // Define message for nodemailer
+        const mailOptions = req.body;
+          
+            // Send mail 
+        transporter.sendMail(mailOptions, function (err, response) {
+              if (err) {
+                console.error('there was an error: ', err);
+              } else {
+                console.log('here is the res: ', response);
+                res.json(response)
+           
+              }
+            });
+          
+          //}
+         
+    })
 
     // app.get("/api/user_data", function(req, res) {
     //     if (!req.user) {

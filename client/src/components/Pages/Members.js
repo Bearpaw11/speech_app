@@ -10,10 +10,14 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         ready: false,
         userName: [],
         speech: []
+        
     }
+        
+    
 
     componentDidMount() { 
         this.verify()
+        this.getSpeech()
     }
 
     relocation = () => {
@@ -26,7 +30,6 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     verify = () => {
         API.verifyLogin().then(user => {
             console.log("--->user data>", user)
-            
             if(user.data){
                 console.log("change state")
                 this.setState({loggedIn:true, ready:true, userName: user.data.username, speech: user.data.speech})
@@ -35,6 +38,20 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
             }
         })
     } 
+
+    getSpeech = () => {
+       let id = this.state.userId
+        console.log(this.props.userId)
+       
+        API.getSpeech(
+            this.props.userId
+        ).then(id => {
+            this.setState({ speech: id.data })
+            // console.log(id.data)
+       })
+   }
+
+
    
     render() {
         console.log(this.state.loggedIn, "USERDATA") //logs True
@@ -58,18 +75,31 @@ if (this.state.loggedIn) {
                     <h5 className="recordingListTitle">Past Recordings:</h5>
 
                         <div className="recordingList">
+<<<<<<< HEAD
+                      
+                    {this.state.speech &&
+                        this.state.speech.map((record) => (
+=======
                             {this.state.speech.map((record) => (
+>>>>>>> 9acd6f7db4d174ca508f6f43d9ba9f8077b4330f
                                 <Recordings speechTitle={record.speechTitle} 
+                                            id={this.props.userId}
                                             analytics={record.analytics}
                                             length={record.length} 
                                             id={record.id}/>
                                 )
                             )}
+<<<<<<< HEAD
+                        </div>
+
+=======
                         </div><br/>
 
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
+>>>>>>> 9acd6f7db4d174ca508f6f43d9ba9f8077b4330f
                     
                 </div>
+                    <button type="button" onClick={this.relocation}>Create New Speech</button>
         </div>
     )}
     

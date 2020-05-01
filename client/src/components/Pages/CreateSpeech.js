@@ -5,7 +5,7 @@ function CreateSpeech(props) {
  
     return (
       <div>
-        <Speeches userId={props.userId} />
+        <Speeches  userId={props.userId} />
       </div>
     )
 }
