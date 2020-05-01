@@ -20,7 +20,7 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         this.props.history.push("/Recordings");
     }
     relocationSignup = () => {
-        window.location.href = "./Signup";
+        this.props.history.push("/SignUp");
     }
 
     verify = () => {
