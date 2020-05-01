@@ -1,7 +1,7 @@
 .containerDiv {
-    min-width: 200px;
-    padding: 10px 30px 40px 40px
-
+    min-width: 140px;
+    max-width: 1500px;
+    padding: 10px 20px 40px 50px;
 }
 
 .footer {
