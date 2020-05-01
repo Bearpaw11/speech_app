@@ -22,6 +22,8 @@ console.log("app:", props)
 
     const [userId, setUserId] = React.useState(null);
 
+    
+
     const showModal = () => {
         setIsOpen(true);
       };
@@ -39,11 +41,11 @@ console.log("app:", props)
                     <Route exact path="/About" component={About} />
                     <Route exact path="/Contact" component={Contact} />
                     <Route exact path="/Signup" component={SignUp} />
-                    <Route exact path="/Recordings" render={(props) => <CreateSpeech userId={userId}/>} />
+                    <Route exact path="/Recordings" render={(props) => <CreateSpeech history={props.history} userId={userId}/>} />
 
                     {/* <Route exact path="/Recordings" render={(props) => props.userid ? <CreateSpeech userId={userId}/> : <SignUp/>} /> */}
                    {/* <Route exact path ="/members" render={(props) => props.userid ? <members /> : <SignUp/>} /> */}
-                   <Route exact path ="/members" component={Members} />
+                <Route exact path="/Members" render={(props) => <Members history={props.history} userId={userId}/> }/>
                 
                 {   
                     isOpen && <AppModal setUserId={setUserId} isOpen={isOpen} hideModal={hideModal}/>
@@ -58,7 +60,7 @@ console.log("app:", props)
 
 }  
 
-
+// export default withRouter(connect(mapStateToProps, matchDispatchToProps)(App));
 export default withRouter(App);
 
 
