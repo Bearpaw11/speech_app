@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import API from '../../../utils/API'
 import './navbar.css';
-import logo from './colorwave.png';
+import logo from '../colorwave.png';
+
 function NavBar(props) {
   const location = useLocation();
     function logOut() {
@@ -15,7 +16,7 @@ function NavBar(props) {
   return (
     <div className="navi">
         <nav className="navbar navbar-expand-md">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span className="fas fa-bars fa-1x"></span>
             </button>
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
