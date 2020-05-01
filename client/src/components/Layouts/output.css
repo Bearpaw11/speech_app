@@ -1,52 +1,99 @@
-html, body {
+button {
+  overflow: hidden;
+  position: relative;
+  transition: background-color 700ms;
+}
+button:focus {
+  outline: none;
+}
+button:before, button:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: -100%;
+  right: -100%;
+  height: 35%;
+  background-image: url("http://www.tcmulder.com/codepen/wave-buttons/wave.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation-name: wave--link;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: -2200ms;
+  animation-duration: 4000ms;
+  transition: opacity 500ms;
+  cursor: pointer;
+  pointer-events: none;
+  transform: translateX(-75%);
+}
+@keyframes wave--link {
+  0% {
+    transform: translateX(-75%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(75%);
+  }
+}
+button:after {
+  animation-delay: -500ms;
+  animation-duration: 3500ms;
+  animation-direction: reverse;
+}
+button span {
+  position: relative;
+  z-index: 10;
+}
+
+button:before, button:after {
+  opacity: 0;
+}
+button.animate:before, button.animate:after, button:focus:before, button:focus:after, button:hover:before, button:hover:after {
+  opacity: 1;
+}
+
+button {
+  -webkit-font-smoothing: antialiased;
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+
+@keyframes moveAcross {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 110%;
+  }
+}
+html,
+body {
   height: 100%;
 }
 
 body {
-  background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #B7E8EB 100%);
-  overflow: hidden;
+  background-color: teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.ocean {
-  height: 5%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #015871;
+button {
+  position: relative;
+  padding: 0.4em 0.9em;
+  background-color: #64b446;
+  border: 0;
+  border-radius: 10em;
+  font-size: 1.3em;
+  letter-spacing: 0.1em;
+  color: #fff;
+  cursor: pointer;
+  transition: color 300ms, background-color 300ms;
+  font-size: 2em;
 }
-
-.wave {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
-  position: absolute;
-  top: -198px;
-  width: 6400px;
-  height: 198px;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-  transform: translate3d(0, 0, 0);
-}
-
-.wave:nth-of-type(2) {
-  top: -175px;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
-  opacity: 1;
-}
-
-@keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
-}
-@keyframes swell {
-  0%, 100% {
-    transform: translate3d(0, -25px, 0);
-  }
-  50% {
-    transform: translate3d(0, 5px, 0);
-  }
+button:focus, button:hover {
+  background-color: #508f38;
 }
 
 /*# sourceMappingURL=output.css.map */

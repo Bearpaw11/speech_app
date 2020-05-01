@@ -1,6 +1,7 @@
+
 .modal-content {
-    background-color: rgb(87,199,214);
-    border: solid 1px #ffd4b6;
+    background: linear-gradient(white, #1d0533);
+    border: solid 1px #1d0533;
 }
 
 .modal-header, .modal-footer {
