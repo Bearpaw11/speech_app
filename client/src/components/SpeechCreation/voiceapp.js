@@ -6,7 +6,7 @@ import Timer from '../Timer/Timer'
 function Speeches(props) {
 
     function relocation() {
-        window.location.href = "../Pages/ViewSpeeches.js";
+        window.location.href = "../Pages/Members.js";
     }
 
     useEffect(() => {

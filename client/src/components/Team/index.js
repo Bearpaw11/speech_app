@@ -8,28 +8,48 @@ import Chris from "./Photos/chris.jpeg";
 
 function TeamSection(props) {
     return (
-        <div>
-            <MeetTeam 
-                image={David}
-                name={Team[0].name}
-                bio={Team[0].bio}
-            />
-            <MeetTeam 
-                image={Mel}
-                name={Team[1].name}
-                bio={Team[1].bio}
-            />
-            <MeetTeam 
-                image={Shauna}
-                name={Team[2].name}
-                bio={Team[2].bio}
-            />
-            <MeetTeam 
-                image={Chris}
-                name={Team[3].name}
-                bio={Team[3].bio}
-            />            
-        </div>
+        <div className="row">
+            <div className="col-md-3 mb-3">
+                <div className="avatar mx-auto">
+                    <MeetTeam 
+                        image={David}
+                        name={Team[0].name}
+                        bio={Team[0].bio}
+                    />
+                </div>
+            </div>
+
+            <div className="col-md-3 mb-3">
+                <div className="avatar mx-auto">
+                    <MeetTeam 
+                        image={Mel}
+                        name={Team[1].name}
+                        bio={Team[1].bio}
+                    />
+                </div>
+            </div>
+            
+            <div className="col-md-3 mb-3">
+                <div class="avatar mx-auto">
+                    <MeetTeam 
+                        image={Shauna}
+                        name={Team[2].name}
+                        bio={Team[2].bio}
+                    />
+                </div>
+            </div>
+
+
+            <div className="col-md-3 mb-3">
+                <div class="avatar mx-auto">
+                    <MeetTeam 
+                        image={Chris}
+                        name={Team[3].name}
+                        bio={Team[3].bio}
+                    />            
+                </div>
+            </div>
+    </div>
     )
 }
 
