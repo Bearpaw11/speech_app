@@ -9,10 +9,26 @@ class Timer extends React.Component {
             isOn: false,
             start: 0
         }
+        this.stopTimerAndRec = this.stopTimerAndRec.bind(this)
+        this.startTimerAndRec = this.startTimerAndRec.bind(this)
         this.startTimer = this.startTimer.bind(this)
         this.stopTimer = this.stopTimer.bind(this)
         this.resetTimer = this.resetTimer.bind(this)
     }
+
+
+
+    startTimerAndRec() {
+        this.startTimer()
+        this.props.recognition.start()
+    }
+
+    stopTimerAndRec() {
+        this.stopTimer()
+        
+        this.props.recognition.stop()
+    }
+
     startTimer() {
         
         this.setState({
@@ -35,11 +51,11 @@ class Timer extends React.Component {
         
         
         let start = (this.state.time == 0) ?
-            <button onClick={this.startTimer}>Start</button> :
+            <button onClick={this.startTimerAndRec}>Start</button> :
             null
         let stop = (this.state.time == 0 || !this.state.isOn) ?
             null :
-            <button onClick={this.stopTimer}>Stop</button>
+            <button onClick={this.stopTimerAndRec}>Stop</button>
         let resume = (this.state.time == 0 || this.state.isOn) ?
             null :
             <button onClick={this.startTimer}>Resume</button>
@@ -50,9 +66,9 @@ class Timer extends React.Component {
         return (
             <div>
                 <h3>Timer:</h3>
-                <p>{ms(this.state.time)}</p>
+                <p id="time">{ms(this.state.time)}</p>
                 {start}
-                {resume}
+                {/* {resume} */}
                 {stop}
                 {reset}
             </div>

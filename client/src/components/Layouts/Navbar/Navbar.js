@@ -2,11 +2,10 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import API from '../../../utils/API'
 import './navbar.css';
-import logo from '../colorwave.png';
+import logo from './logorainbow.png';
 
 function NavBar(props) {
   const location = useLocation();
-
     function logOut() {
         API.logOut().then((logout) => {
             console.log(logout)

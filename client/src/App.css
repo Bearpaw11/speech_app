@@ -12,6 +12,10 @@
     margin-top: 10px;
 }	
 
+.accordCard {
+    width: 500px;
+    margin: 0 auto;
+}
 .speechTitler {
     min-width: 150px;
     max-width: 300px;
@@ -27,7 +31,7 @@
 }
 
 a {
-    color: rgb(47, 175, 192);
+    color: #1d0533;
 }
 
 .groupName {
