@@ -1,8 +1,10 @@
-html, body {
+/* html, body {
     height: 100%;
-  }
+  } */
   body {
-    background: linear-gradient(white, #5eb4db);
+    /* background: linear-gradient(#ffffff, #addeec); */
+    background-image: linear-gradient(to top, #ee82ee6c, #b08fc56c, #9494da7a, #8edf8e88, #f5f59580, #f8d0863f, #dd7f7f4d);
+  
   }
 
 

@@ -1,117 +1,79 @@
-// settings
-%--wave-animation {
-  overflow: hidden;
-  position: relative;
-  transition: background-color 700ms;
-  &:focus {
-      outline: none; // traces everything outside overflow in chrome
-  }
-  &:before,
-  &:after {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: -100%;
-      right: -100%;
-      height: 35%;
-      background-image: url("http://www.tcmulder.com/codepen/wave-buttons/wave.svg");
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-      animation-name: wave--link;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-delay: -2200ms;
-      animation-duration: 4000ms;
-      // /*DEBUG*/ animation-play-state: paused;
-      transition: opacity 500ms;
-      cursor: pointer;
-      pointer-events: none;
-      transform: translateX(-75%);
-      @keyframes wave--link {
-          0% {
-              transform: translateX(-75%);
-          }
-          50% {
-              transform: translateX(0);
-          }
-          100% {
-              transform: translateX(75%);
-          }
-      }
-  }
-  &:after {
-      animation-delay: -500ms;
-      animation-duration: 3500ms;
-      animation-direction: reverse;
-  }
-  span {
-      position: relative;
-      z-index: 10;
-  }
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin-ext');
+body, html {
+  margin:0;
+  padding:0;
+  font-family: 'Raleway', sans-serif;
+  min-height:100%;
+  background-color: #000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-%--wave-animation-hover {
-  &:before,
-  &:after {
-      opacity: 0;
-  }
-  // /*DEBUG*/overflow: visible;&:after,&:before{background-color:rgba(aquamarine,.5);}
-  // &, /*DEBUG*/
-  &.animate,
-  &:focus,
-  &:hover {
-      &:before,
-      &:after {
-          opacity: 1;
-      }
-  }
+.Sound {
+  width:40px;
+  heigth:25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  cursor:pointer;
+}
+.Sound:hover span {
+  background-color:#fff;
+}
+.Sound span {
+  display:block;
+  width:2px;
+  margin-right:1px;
+  background-color:#b28949;
+  animation:sound 0ms -.8s linear infinite alternate;
+  transition:height .8s, background .3s;
+}
+.Sound span:nth-child(1) {
+  height:1px;
+  animation-duration:474ms;
+}
+.Sound span:nth-child(2) {
+  height:3px;
+  animation-duration:433ms;
+}
+.Sound span:nth-child(3) {
+  height:5px;
+  animation-duration:407ms;
+}
+.Sound span:nth-child(4) {
+  height:7px;
+  animation-duration:458ms;
+}
+.Sound span:nth-child(5) {
+  height:8px;
+  animation-duration:.4s;
 }
 
-// fix for safari border radius overflow issue
-%--wave-animation-overflow-fix {
-  -webkit-font-smoothing: antialiased;
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+.Sound.off span {
+  animation:none;
+}
+.Sound.off span:nth-child(1) {
+  height:8px;
+  animation-duration:474ms;
+}
+.Sound.off span:nth-child(2) {
+  height:3px;
+  animation-duration:433ms;
+}
+.Sound.off span:nth-child(3) {
+  height:5px;
+  animation-duration:407ms;
+}
+.Sound.off span:nth-child(4) {
+  height:4px;
+  animation-duration:458ms;
+}
+.Sound.off span:nth-child(5) {
+  height:8px;
+  animation-duration:.4s;
 }
 
-@keyframes moveAcross {
-0% {
-  left: -200px;
-}
-100% {
-  left: 110%;
-}
-}
-
-// base
-html,
-body {
-  height: 100%;
-}
-body {
-  background-color: teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// styles
-button {
-  @extend %--wave-animation;
-  @extend %--wave-animation-hover;
-  @extend %--wave-animation-overflow-fix;
-  position: relative;
-  padding: .4em .9em;
-  background-color: #64b446;
-  border: 0;
-  border-radius: 10em;
-  font-size: 1.3em;
-  letter-spacing: .1em;
-  color: #fff;
-  cursor: pointer;
-  transition: color 300ms, background-color 300ms;
-  font-size: 2em; // this just makes it really big for the demo
-  // &, /*DEBUG*/
-  &:focus,
-  &:hover {
-    background-color: #508f38;
-  }
+@keyframes sound {
+  0% {opacity:.35;height:6px}
+  100% {opacity:1;height:23px}
 }

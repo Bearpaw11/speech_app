@@ -1,6 +1,9 @@
 
+modal {
+    background-image: url ('./soundwave.png');
+}
+
 .modal-content {
-    background: linear-gradient(white, #1d0533);
     border: solid 1px #1d0533;
 }
 

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../Form";
 
+
 function SignUp() {
 
   const [formObject, setFormObject] = useState({
@@ -40,7 +41,6 @@ function SignUp() {
     return (   
         <div> 
             <div className="container"><br/>
-
             <div className="row">
                 <form className="vision">
                     <Input

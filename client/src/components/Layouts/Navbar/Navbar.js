@@ -2,8 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import API from '../../../utils/API'
 import './navbar.css';
-// import '../wavebutton.css';
-import logo from '../colorwave.png';
+import logo from './logorainbow.png';
 
 function NavBar(props) {
   const location = useLocation();
@@ -20,8 +19,8 @@ function NavBar(props) {
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span className="fas fa-bars fa-1x"></span>
             </button>
-            <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <img className="navPic" src={logo} />
+            <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav">
                     <li className="nav-li">
                         <Link to="/" className={location.pathname === "/" ? "nav-links active" : "nav-links"}>Home</Link>
