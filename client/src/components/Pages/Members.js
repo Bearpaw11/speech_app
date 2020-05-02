@@ -75,13 +75,9 @@ if (this.state.loggedIn) {
                     <h5 className="recordingListTitle">Past Recordings:</h5>
 
                         <div className="recordingList">
-<<<<<<< HEAD
                       
                     {this.state.speech &&
                         this.state.speech.map((record) => (
-=======
-                            {this.state.speech.map((record) => (
->>>>>>> 9acd6f7db4d174ca508f6f43d9ba9f8077b4330f
                                 <Recordings speechTitle={record.speechTitle} 
                                             id={this.props.userId}
                                             analytics={record.analytics}
@@ -89,14 +85,8 @@ if (this.state.loggedIn) {
                                             id={record.id}/>
                                 )
                             )}
-<<<<<<< HEAD
                         </div>
 
-=======
-                        </div><br/>
-                        
-                    <button type="button" onClick={this.relocation}>Create New Speech</button>
->>>>>>> 9acd6f7db4d174ca508f6f43d9ba9f8077b4330f
                     
                 </div>
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
