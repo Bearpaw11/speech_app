@@ -47,6 +47,17 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
        })
    }
 
+   deleteSpeech = () => {
+    let id = this.state.userId;
+     console.log(this.props.userId, id, "id?") //returns null + []
+    
+     API.deleteSpeech(
+         this.props.userId
+     ).then(id => {
+         this.setState({ speech: id.data }) //EMPTY ARRAY
+    })
+}
+
     render() {
         console.log(this.state.loggedIn, "USERDATA") //logs True
         //this.state.speech should console.log the speech
@@ -72,7 +83,7 @@ if (this.state.loggedIn) {
                     {this.state.speech &&
                         this.state.speech.map((record) => (
                                 <Recordings speechTitle={record.speechTitle} 
-                                            id={this.props.userId}
+                                            // userid={this.props.userId}
                                             analytics={record.analytics}
                                             length={record.length} 
                                             id={record.id}/>
