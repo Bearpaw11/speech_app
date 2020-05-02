@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import API from '../../utils/API'
 import Timer from '../Timer/Timer'
 import { useHistory } from "react-router-dom"
+import Accordion from "./accordion.js";
 
 function Speeches(props) {
     let history = useHistory();
@@ -162,13 +163,14 @@ function Speeches(props) {
 
     return (
         <div className="vision">
-            <br/>
-            <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
-            <br />
+            <p className="vision">According to research conducted, the following 5 words are the most common fillers used: 
+            "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
+           
             <div className="speechTitler">
             <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
             </div>
-            <div className="voiceContainer">
+           
+           <div className="voiceContainer">
                 <div className="row">
                     <div className="col-4 offset-4">
                         <form method="get" id="searchForm" target="_blank">
@@ -177,30 +179,23 @@ function Speeches(props) {
                     </div>
                 </div>
             </div>
+           
             <div>
                 <Timer />
-
             </div>
 
-            <div className="voiceContainer container">
+            <div className="voiceContainer">
                 <div className="mb-3"></div>
                     <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
-                    <br/>
+                   
+                        <Accordion/><br/> 
 
                     <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
-                    <br/><br />
-                
-                    <button id="viewresults" type="button" className="btn btn-info">View Results</button>
-                
-                    <p id="speechtitle"></p>
-                    <p id="textresults"></p>
-                    <p id="textResultsPersonal"></p>
-                    <br /> <br /><br />
+                    <br/><br/>  
 
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/>
             </div>
 
-            <div className="invalid-feedback"> Press the microphone to begin.</div>
         </div>
 
     )
