@@ -3,18 +3,10 @@
 .card--title {
     text-align: center;
 }
-  
-.clip-text {
-    background: url(https://media.giphy.com/media/Xlk4JrwQE7XEs/giphy.gif);
-    background-size: cover;
-    background-position: center;
-    background-clip: text;
-    color: transparent;
-    height: 100px;
-    font-size: 48px;
-    font-weight: bold;
-    line-height: 100px;
-    flex-shrink: 0; 
+
+.soundLogo {
+    width: auto;
+    height: 150px;
 }
 
 body {

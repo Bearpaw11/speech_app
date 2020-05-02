@@ -1,8 +1,10 @@
-html, body {
+/* html, body {
     height: 100%;
-  }
+  } */
   body {
-    background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #B7E8EB 100%);
+    /* background: linear-gradient(#ffffff, #addeec); */
+    background-image: linear-gradient(to top, #ee82ee6c, #b08fc56c, #9494da7a, #8edf8e88, #f5f59580, #f8d0863f, #dd7f7f4d);
+  
   }
 
 
