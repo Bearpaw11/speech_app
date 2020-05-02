@@ -16,12 +16,19 @@
   width: 350px;
  
 }
+<<<<<<< HEAD
 
 .nav-links {
   color: #fff;
   font-family: "Manrope", sans-serif;
   font-size: 16px;
   margin: 0px 20px 20px 20px !important;
+=======
+.nav-link{
+    color: #fff;
+    font-family: 'Georgia';
+    font-size: 20px;
+>>>>>>> 8a95d36f5f7bd383a08056cebec1c855bd3bc889
 }
 
 :root {

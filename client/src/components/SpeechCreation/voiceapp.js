@@ -1,13 +1,21 @@
 import React from "react";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import API from '../../utils/API'
 import Timer from '../Timer/Timer'
+import { useHistory } from "react-router-dom"
+import Accordion from "./accordion.js";
 
 function Speeches(props) {
+    let history = useHistory();
 
     function relocation() {
-        window.location.href = "../Pages/Members.js";
+        history.push("/members");
     }
+
+    // const [isOn, setIsOn] = useState()
+    // function startTimer() {
+    //     setIsOn(true)
+    // }
 
     useEffect(() => {
 
@@ -21,6 +29,15 @@ function Speeches(props) {
 
         if (SpeechRecognition) {
 
+
+
+            
+
+
+
+
+
+
             console.log("Your Browser supports speech Recognition")
             searchForm.insertAdjacentHTML("beforeend", '<button type="button" id="input"><i class="fas fa-microphone"></i></button>')
 
@@ -29,6 +46,13 @@ function Speeches(props) {
 
             const recognition = new SpeechRecognition();
             recognition.continuous = true;
+            const textResultsPersonal = document.querySelector("#textResultsPersonal")
+            const textResults = document.querySelector("#textresults")
+            const viewResults = document.querySelector("#viewresults")
+            const title = document.querySelector("#title")
+            const speechTitle = document.querySelector("#speechtitle")
+            const textArea = document.querySelector("#textarea")
+            const save = document.querySelector("#save")
 
             micBtn.addEventListener("click", micBtnClick)
 
@@ -42,29 +66,23 @@ function Speeches(props) {
                 }
             }
 
-            recognition.onstart = function startSpeechRecogniton() { //beginning recording
+            recognition.onstart = function startSpeechRecogniton() {
+                
+                //beginning recording
                 micIcon.classList.remove("fa-microphone")
                 micIcon.classList.add("fa-microphone-slash")
                 searchFormInput.focus();
-
-
                 console.log("Speech recognition active.")
             }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
+              
                 micIcon.classList.remove("fa-microphone-slash");
                 micIcon.classList.add("fa-microphone");
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.")
 
             }
-            const textResultsPersonal = document.querySelector("#textResultsPersonal")
-            const textResults = document.querySelector("#textresults")
-            const viewResults = document.querySelector("#viewresults")
-            const title = document.querySelector("#title")
-            const speechTitle = document.querySelector("#speechtitle")
-            const textArea = document.querySelector("#textarea")
-            const save = document.querySelector("#save")
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex
@@ -96,7 +114,7 @@ function Speeches(props) {
                     speechTitle.innerHTML = title.value
                     console.log(transcript)
                     let words = transcript.split(" ");
-                    console.log(words)
+                    console.log(words) //console logs words said
                     let textObj = {
                         "like": 0,
                         "and": 0,
@@ -107,8 +125,6 @@ function Speeches(props) {
                     let textObjPersonal = {}
 
                     for (let i = 0; i < words.length; i++) {
-
-                        //
 
                         if (textObj[words[i]] !== undefined) {
                             //  console.log("----", words[i], textObj[words[i]])
@@ -126,6 +142,9 @@ function Speeches(props) {
                         if (textObj[key] > 0) {
                             textRegular += `You said ${key} ${textObj[key]} times! `
                         }
+                        else {
+                            textRegular = `Congratulations you said none of the filler words`
+                        }
                     }
                     textResults.innerHTML = textRegular
 
@@ -137,8 +156,6 @@ function Speeches(props) {
                         }
                     }
                     textResultsPersonal.innerHTML = textPersonal
-
-
                 }
                 )
 
@@ -149,11 +166,14 @@ function Speeches(props) {
 
     return (
         <div className="vision">
-            <br/>
-            <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
-            <br />
-            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-            <div className="voiceContainer">
+            <p className="vision">According to research conducted, the following 5 words are the most common fillers used: 
+            "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
+           
+            <div className="speechTitler">
+            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
+            </div>
+           
+           <div className="voiceContainer">
                 <div className="row">
                     <div className="col-4 offset-4">
                         <form method="get" id="searchForm" target="_blank">
@@ -162,27 +182,23 @@ function Speeches(props) {
                     </div>
                 </div>
             </div>
-            <div className="vision"> <br />
+           
+            <div>
                 <Timer />
             </div>
 
-            <div className="voiceContainer container">
+            <div className="voiceContainer">
                 <div className="mb-3"></div>
-                <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
-                <br />
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
+                   
+                        <Accordion/><br/> 
 
-                <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
-                <br /><br />
-                <button id="viewresults" type="button" className="btn btn-info">View Results</button>
-                <p id="speechtitle"></p>
-                <p id="textresults"></p>
-                <p id="textResultsPersonal"></p>
-                <br /> <br /><br />
+                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
+                    <br/><br/>  
 
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speches</button>
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/>
             </div>
 
-            <div className="invalid-feedback"> Press the microphone to begin.</div>
         </div>
 
     )

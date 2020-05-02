@@ -12,9 +12,15 @@
     margin-top: 10px;
 }	
 
+.accordCard {
+    width: 500px;
+    margin: 0 auto;
+}
 .speechTitler {
-    width: 350px;
-    margin: 10px 150px auto auto
+    min-width: 150px;
+    max-width: 300px;
+    margin: 0 auto; 
+    /* margin: 0 auto centers the info in the div */
 }
 
 .groupPics {
@@ -40,9 +46,35 @@ a {
 
 .teamFix {
     margin: right;
-
 }
 
-.waveani {
-    position: relative;
+.signUpCenter {
+    margin: 0 auto;
+}
+
+#carouselExampleControls {
+    min-width: 100px;
+    height: 290px;
+    margin-top: 20px;
+}
+
+.carousel-inner {
+    background-color: rgb(47, 175, 192);
+}
+
+.carouselTitle {
+    text-align: center !important;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.carouselSignature {
+    text-align: center !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.carousel-item {
+    padding: 30px
 }

@@ -9,11 +9,12 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         loggedIn : false,
         ready: false,
         userName: [],
-        speech: []
+        speech: [],
     }
-
+        
     componentDidMount() { 
         this.verify()
+        this.getSpeech()
     }
 
     relocation = () => {
@@ -26,16 +27,26 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     verify = () => {
         API.verifyLogin().then(user => {
             console.log("--->user data>", user)
-            
             if(user.data){
                 console.log("change state")
-                this.setState({loggedIn:true, ready:true, userName: user.data.username, speech: user.data.speech})
+                this.setState({loggedIn:true, ready:true, userName: user.data.username, userId: user.data.id})
             } else {
                 this.setState({ready:true})
             }
         })
     } 
-   
+
+    getSpeech = () => {
+       let id = this.state.userId;
+        console.log(this.props.userId, id, "id?") //returns null + []
+       
+        API.getSpeech(
+            this.props.userId
+        ).then(id => {
+            this.setState({ speech: id.data }) //EMPTY ARRAY
+       })
+   }
+
     render() {
         console.log(this.state.loggedIn, "USERDATA") //logs True
         //this.state.speech should console.log the speech
@@ -52,35 +63,35 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
 if (this.state.loggedIn) {
     return (
-        <div className="containerDiv">
-            <p className="userWelcome">Welcome, {this.state.userName}!</p>
+        <div className="containerDiv vision">
+            <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
                 <div>
                     <h5 className="recordingListTitle">Past Recordings:</h5>
-
                         <div className="recordingList">
-
-                            {this.state.speech.map((record) => (
+                        {this.state.speech &&
+                        this.state.speech.map((record) => (
                                 <Recordings speechTitle={record.speechTitle} 
+                                            id={this.props.userId}
                                             analytics={record.analytics}
                                             length={record.length} 
                                             id={record.id}/>
-                            )
+                                )
                             )}
-                        </div>
+                        </div><br/>
 
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
-                    
-                </div>
+                  </div>  
         </div>
     )}
     
 
 else {
     return ( 
-        <div>
+        <div className="vision">
             <p className="userWelcome">Please signup!</p>
                 <div>
                     <button type="button" onClick={this.relocationSignup}>Signup</button>
+                <br/><br/>
                 </div>
         </div>
     )

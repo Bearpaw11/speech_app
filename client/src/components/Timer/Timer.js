@@ -14,6 +14,7 @@ class Timer extends React.Component {
         this.resetTimer = this.resetTimer.bind(this)
     }
     startTimer() {
+        
         this.setState({
             isOn: true,
             time: this.state.time,
@@ -31,6 +32,8 @@ class Timer extends React.Component {
         this.setState({ time: 0, isOn: false })
     }
     render() {
+        
+        
         let start = (this.state.time == 0) ?
             <button onClick={this.startTimer}>Start</button> :
             null
@@ -43,6 +46,7 @@ class Timer extends React.Component {
         let reset = (this.state.time == 0 || this.state.isOn) ?
             null :
             <button onClick={this.resetTimer}>Reset</button>
+        
         return (
             <div>
                 <h3>Timer:</h3>

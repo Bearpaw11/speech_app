@@ -72,6 +72,23 @@ module.exports = function (app) {
     });
 
     
+    app.get("/api/members/:id", function (req, res) {
+        console.log(req)
+        db.SpeechesLists.findAll({
+            where:{
+                userId: req.params.id
+                
+            }
+            
+        }).then(Users => {
+            res.json(Users)
+        })
+            .catch(function (err) {
+                res.json(err.data + " not working")
+            });
+    })
+
+    
     app.post("/api/sendemail", function(req, res){
         console.log("post email: ", req.body)
      

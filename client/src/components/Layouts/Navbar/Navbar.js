@@ -13,12 +13,17 @@ function NavBar(props) {
             alert("You've been logged out!")
         })
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 8a95d36f5f7bd383a08056cebec1c855bd3bc889
   return (
     <div className="navi">
         <nav className="navbar navbar-expand-md">
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span className="fas fa-bars fa-1x"></span>
             </button>
+<<<<<<< HEAD
             <img className="navPic" src={logo} />
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav">
@@ -49,6 +54,39 @@ function NavBar(props) {
                     </li>
                 </ul>
             </div>
+=======
+            
+            <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                <div className="navPic"></div>
+                    <img className="navPic" src={logo} alt="logo" href="#"/>
+                        <ul className="navbar-nav">
+
+                            <li className="nav-item">
+                                <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link to="/About" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>About</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link to="/Contact" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Contact</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link to="/SignUp" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Sign Up</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <a id="navlink" onClick={props.showModal}>Log In</a>
+                            </li>
+
+                            <li className="nav-item">
+                                <a id="logOut" onClick={logOut}>Log Out</a>
+                            </li>
+                        </ul>
+                </div>
+>>>>>>> 8a95d36f5f7bd383a08056cebec1c855bd3bc889
         </nav>
     </div>
   )

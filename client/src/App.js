@@ -23,12 +23,15 @@ function App(props) {
 
     const [userId, setUserId] = React.useState(null);
 
+    
+
     const showModal = () => {
         setIsOpen(true);
     };
 
     const hideModal = () => {
         setIsOpen(false);
+<<<<<<< HEAD
     };
 
     return (
@@ -60,8 +63,39 @@ function App(props) {
     );
 
 }
+=======
+      };
+ 
+        return (
+            <div>
+                
+                <NavBar showModal={showModal}/>
+                <Header />
+                    <Route exact path="/" component={Home} />   
+                    <Route exact path="/About" component={About} />
+                    <Route exact path="/Contact" component={Contact} />
+                    <Route exact path="/Signup" component={SignUp} />
+                    <Route exact path="/Recordings" render={(props) => <CreateSpeech history={props.history} userId={userId}/>} />
 
+                    {/* <Route exact path="/Recordings" render={(props) => props.userid ? <CreateSpeech userId={userId}/> : <SignUp/>} /> */}
+                   {/* <Route exact path ="/members" render={(props) => props.userid ? <members /> : <SignUp/>} /> */}
+                <Route exact path="/Members" render={(props) => <Members history={props.history} userId={userId}/> }/>
+                
+                {   
+                    isOpen && <AppModal setUserId={setUserId} isOpen={isOpen} hideModal={hideModal}/>
+                }   
+                
+                {/* CONDITIONAL RENDERING: if the state of isOpen is true, then render AppModal component with the isOpen boolean value equal to the passed in isOpen, and the hideModal value equal to the passed in hideModal */}
+                
+                <Footer/>
 
+            </div>
+        );
+
+}  
+>>>>>>> 8a95d36f5f7bd383a08056cebec1c855bd3bc889
+
+// export default withRouter(connect(mapStateToProps, matchDispatchToProps)(App));
 export default withRouter(App);
 
 

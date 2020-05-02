@@ -5,7 +5,6 @@ import { Redirect} from "react-router-dom"
 import '../../../src/components/Layouts/ContactCSS/contact.css';
 
 
-
 class Contact extends Component {
 state={
 first_name: "",
@@ -97,7 +96,7 @@ return <Redirect to ="/" />
                     
                     <li>
                       <p>
-                        <label htmlFor="email">Email <span class="req">*</span></label>
+                        <label htmlFor="email">Email <span className="req">*</span></label>
                         <input type="email" name="email" placeholder="john.smith@gmail.com" onChange ={this.handleInputChange} value={this.state.email}/>
                       </p>
                     </li>        
