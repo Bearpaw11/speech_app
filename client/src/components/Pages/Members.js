@@ -10,7 +10,6 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         ready: false,
         userName: [],
         speech: [],
-        userId: [],   
     }
         
     componentDidMount() { 
@@ -72,10 +71,10 @@ if (this.state.loggedIn) {
                         {this.state.speech &&
                         this.state.speech.map((record) => (
                                 <Recordings speechTitle={record.speechTitle} 
-                                            userName={this.userName}
+                                            id={this.props.userId}
                                             analytics={record.analytics}
                                             length={record.length} 
-                                            id={record.state.userId}/>
+                                            id={record.id}/>
                                 )
                             )}
                         </div><br/>

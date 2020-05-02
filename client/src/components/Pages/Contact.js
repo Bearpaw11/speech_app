@@ -5,7 +5,6 @@ import { Redirect} from "react-router-dom"
 import '../../../src/components/Layouts/ContactCSS/contact.css';
 
 
-
 class Contact extends Component {
 state={
 first_name: "",
