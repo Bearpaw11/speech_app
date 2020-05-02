@@ -152,8 +152,6 @@ function Speeches(props) {
                         }
                     }
                     textResultsPersonal.innerHTML = textPersonal
-
-
                 }
                 )
 

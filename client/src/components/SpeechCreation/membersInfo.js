@@ -20,9 +20,10 @@ return (
             </div>
         </div>
     
-        <button type="button" className="speechDeleter">Delete</button>
+            <button type="button" className="speechDeleter">Delete</button>
+        
+        </div>
     </div>
-</div>
 
     )
 }
