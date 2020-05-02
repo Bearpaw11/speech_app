@@ -141,6 +141,9 @@ function Speeches(props) {
                         if (textObj[key] > 0) {
                             textRegular += `You said ${key} ${textObj[key]} times! `
                         }
+                        else {
+                            textRegular = `Congratulations you said none of the filler words`
+                        }
                     }
                     textResults.innerHTML = textRegular
 
