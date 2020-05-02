@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "",
-=======
-    "password": "Bearpaw11",
->>>>>>> 8a95d36f5f7bd383a08056cebec1c855bd3bc889
+    "password": "root",
     "database": "speechapp",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -13,11 +9,7 @@
   },
   "test": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "",
-=======
-    "password": "Bearpaw11",
->>>>>>> 8a95d36f5f7bd383a08056cebec1c855bd3bc889
+    "password": "root",
     "database": "speechapp",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -25,11 +17,7 @@
   },
   "production": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "",
-=======
-    "password": "Bearpaw11",
->>>>>>> 8a95d36f5f7bd383a08056cebec1c855bd3bc889
+    "password": "root",
     "database": "speechapp",
     "host": "127.0.0.1",
     "dialect": "mysql",

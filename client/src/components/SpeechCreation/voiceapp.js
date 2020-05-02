@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import API from '../../utils/API'
 import Timer from '../Timer/Timer'
 import { useHistory } from "react-router-dom"
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 import Accordion from "./accordion.js";
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 function Speeches(props) {
     let history = useHistory();
@@ -21,10 +21,6 @@ function Speeches(props) {
         
     const [recognition, setRecognition] = useState(false)
     
-        
-       
-    
-
  
     const voiceFunctionality = () => {
 
@@ -200,6 +196,7 @@ function Speeches(props) {
                 recognition={recognition}
                 />
             </div>
+            <br></br>
 
             <div className="voiceContainer">
                 <div className="mb-3"></div>
@@ -208,25 +205,25 @@ function Speeches(props) {
 
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
                 <br /><br />
-                <button id="viewresults" type="button" className="btn btn-info">View Results</button>
+                {/* <button id="viewresults" type="button" className="btn btn-info">View Results</button>
                 <p id="speechtitle"></p>
                 <p id="textresults"></p>
                 <p id="textResultsPersonal"></p>
                 <p id="timeresult"></p>
-                <br /> <br /><br />
+                <br /> <br /><br /> */}
 
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
-                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
+                {/* <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea> */}
                    
                         <Accordion/><br/> 
 
-                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
+                    {/* <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
                     <br/><br/>  
 
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/>
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/> */}
             </div>
 
-        </div>
+        // </div>
 
     )
 }
