@@ -68,7 +68,8 @@ if (this.state.loggedIn) {
                 <div>
                     <h5 className="recordingListTitle">Past Recordings:</h5>
                         <div className="recordingList">
-                        {this.state.speech &&
+                      
+                    {this.state.speech &&
                         this.state.speech.map((record) => (
                                 <Recordings speechTitle={record.speechTitle} 
                                             id={this.props.userId}
@@ -77,11 +78,13 @@ if (this.state.loggedIn) {
                                             id={record.id}/>
                                 )
                             )}
-                        </div><br/>
+                        </div>
 
+                    
+                </div>
                     <button type="button" onClick={this.relocation}>Create New Speech</button>
                   </div>  
-        </div>
+        
     )}
     
 

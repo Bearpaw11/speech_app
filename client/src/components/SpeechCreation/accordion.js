@@ -15,7 +15,8 @@ return (
             <div className="card-body">
                 <p id="speechtitle"></p>
                 <p id="textresults"></p>
-                <p id="textResultsPersonal"></p>
+                    <p id="textResultsPersonal"></p>
+                    <p id="timeresult"></p>
             </div>
         </div>        
         
