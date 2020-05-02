@@ -52,6 +52,7 @@ function Speeches(props) {
             const textArea = document.querySelector("#textarea")
             const save = document.querySelector("#save")
             const time = document.querySelector("#time")
+            const timeresult = document.getElementById("timeresult")
             // micBtn.addEventListener("click", micBtnClick)
   
             // function micBtnClick() {
@@ -139,9 +140,11 @@ function Speeches(props) {
                         
                     }
                     let textRegular = ""
+
                     for (let key in textObj) {
                         console.log(key, ": ", textObj[key])
                         if (textObj[key] > 0) {
+                            
                             textRegular += `You said ${key} ${textObj[key]} times! `
                         }
                     }
@@ -155,7 +158,7 @@ function Speeches(props) {
                         }
                     }
                     textResultsPersonal.innerHTML = textPersonal
-
+                    timeresult.innerHTML = `Speech Time:${time.innerHTML}`
                     
                 }
                 )
@@ -204,6 +207,7 @@ function Speeches(props) {
                 <p id="speechtitle"></p>
                 <p id="textresults"></p>
                 <p id="textResultsPersonal"></p>
+                <p id="timeresult"></p>
                 <br /> <br /><br />
 
                 <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
