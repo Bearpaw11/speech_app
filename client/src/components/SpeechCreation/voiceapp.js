@@ -4,6 +4,7 @@ import API from '../../utils/API'
 import Timer from '../Timer/Timer'
 import { useHistory } from "react-router-dom"
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+import Accordion from "./accordion.js";
 
 function Speeches(props) {
     let history = useHistory();
@@ -115,7 +116,7 @@ function Speeches(props) {
                     speechTitle.innerHTML = title.value
                     console.log(transcript)
                     let words = transcript.split(" ");
-                    console.log(words)
+                    console.log(words) //console logs words said
                     let textObj = {
                         "like": 0,
                         "and": 0,
@@ -126,8 +127,6 @@ function Speeches(props) {
                     let textObjPersonal = {}
 
                     for (let i = 0; i < words.length; i++) {
-
-                        //
 
                         if (textObj[words[i]] !== undefined) {
                             //  console.log("----", words[i], textObj[words[i]])
@@ -146,6 +145,9 @@ function Speeches(props) {
                         if (textObj[key] > 0) {
                             
                             textRegular += `You said ${key} ${textObj[key]} times! `
+                        }
+                        else {
+                            textRegular = `Congratulations you said none of the filler words`
                         }
                     }
                     textResults.innerHTML = textRegular
@@ -177,11 +179,14 @@ function Speeches(props) {
 
     return (
         <div className="vision">
-            <br/>
-            <p className="vision">Click the microphone to start. When you are finished, click the microphone again.</p>
-            <br />
-            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-            <div className="voiceContainer">
+            <p className="vision">According to research conducted, the following 5 words are the most common fillers used: 
+            "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
+           
+            <div className="speechTitler">
+            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
+            </div>
+           
+           <div className="voiceContainer">
                 <div className="row">
                     <div className="col-4 offset-4">
                         <form method="get" id="searchForm" target="_blank">
@@ -196,7 +201,7 @@ function Speeches(props) {
                 />
             </div>
 
-            <div className="voiceContainer container">
+            <div className="voiceContainer">
                 <div className="mb-3"></div>
                 <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
                 <br />
@@ -211,9 +216,16 @@ function Speeches(props) {
                 <br /> <br /><br />
 
                 <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
+                   
+                        <Accordion/><br/> 
+
+                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
+                    <br/><br/>  
+
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/>
             </div>
 
-            <div className="invalid-feedback"> Press the microphone to begin.</div>
         </div>
 
     )

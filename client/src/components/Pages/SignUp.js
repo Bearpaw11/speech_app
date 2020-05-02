@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../Form";
 
+
 function SignUp() {
 
   const [formObject, setFormObject] = useState({
@@ -40,9 +41,8 @@ function SignUp() {
     return (   
         <div> 
             <div className="container"><br/>
-
             <div className="row">
-                <form className="vision">
+                <form className="signUpCenter">
                     <Input
                         className="vision"
                         onChange={handleInputChange}
@@ -61,9 +61,13 @@ function SignUp() {
                         name="password"
                         placeholder="Password"
                         value={formObject.password} />
-                        
-                    <FormBtn className="forSignUp" onClick={handleFormSubmit}>Submit</FormBtn>
-                </form>
+                    </form>
+                    
+                    <div className="row">
+                        <div className="signUpCenter">
+                            <FormBtn onClick={handleFormSubmit}>Submit</FormBtn>
+                        </div>
+                    </div>
             </div>
             </div>
       </div>
