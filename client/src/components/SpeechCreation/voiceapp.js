@@ -135,17 +135,18 @@ function Speeches(props) {
                         
                     }
                     let textRegular = ""
-
+                    let counter = 0
                     for (let key in textObj) {
                         console.log(key, ": ", textObj[key])
                         if (textObj[key] > 0) {
                             
                             textRegular += `You said ${key} ${textObj[key]} times! `
-                        }
-                        else if (textObj[key] <= 0){
-                            textRegular = `Congratulations you said none of the filler words`
+                            counter ++
                         }
                     }
+                            if (counter === 0){
+                                textRegular = `Congratulations you said none of the filler words`
+                            }
                     textResults.innerHTML = textRegular
 
                     let textPersonal = ""
