@@ -142,7 +142,7 @@ function Speeches(props) {
                             
                             textRegular += `You said ${key} ${textObj[key]} times! `
                         }
-                        else {
+                        else if (textObj[key] <= 0){
                             textRegular = `Congratulations you said none of the filler words`
                         }
                     }
@@ -212,8 +212,8 @@ function Speeches(props) {
                 <p id="timeresult"></p>
                 <br /> <br /><br /> */}
 
-                {/* <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
-                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea> */}
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
                    
                         <Accordion/><br/> 
 
