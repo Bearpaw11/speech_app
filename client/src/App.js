@@ -23,7 +23,7 @@ function App(props) {
 
     const [userId, setUserId] = React.useState(null);
 
-    
+    const [id, setId] = React.useState(null)
 
     const showModal = () => {
         setIsOpen(true);
@@ -42,11 +42,11 @@ function App(props) {
             <Route exact path="/About" component={About} />
             <Route exact path="/Contact" component={Contact} />
             <Route exact path="/Signup" component={SignUp} />
-            <Route exact path="/Recordings" render={(props) => <CreateSpeech userId={userId} />} />
+            <Route exact path="/Recordings" render={(props) => <CreateSpeech userId={userId} setId={setId}/>} />
 
             {/* <Route exact path="/Recordings" render={(props) => props.userid ? <CreateSpeech userId={userId}/> : <SignUp/>} /> */}
             {/* <Route exact path ="/members" render={(props) => props.userid ? <members /> : <SignUp/>} /> */}
-            <Route exact path="/Members" render={(props) => <Members history={props.history} userId={userId} />} />
+            <Route exact path="/Members" render={(props) => <Members history={props.history} userId={userId} id={id} />} />
 
 
             {

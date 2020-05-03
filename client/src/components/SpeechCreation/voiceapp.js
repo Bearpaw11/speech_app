@@ -218,13 +218,13 @@ function Speeches(props) {
                    
                         <Accordion/><br/> 
 
-                    {/* <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
+                     {/* <button type="button" className="btn btn-danger savers" id="save">Save Recording</button> */}
                     <br/><br/>  
 
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/> */}
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/> 
             </div>
 
-        // </div>
+         </div>
 
     )
 }
