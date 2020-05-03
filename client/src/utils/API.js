@@ -32,7 +32,11 @@ export default {
      
     getSpeech: function (id) {
          return axios.get("/api/members/" + id)
-     }
+     },
+
+    deleteSpeech: function (id) {
+        return axios.delete("/api/delete/" + id)
+    }
 
 
 

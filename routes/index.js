@@ -88,6 +88,22 @@ module.exports = function (app) {
             });
     })
 
+    app.delete("/api/delete/:id", function (req, res) {
+        console.log(res)
+        db.SpeechesLists.destroy({
+            where:{
+                id: req.params.id
+                
+            }
+            
+        }).then(Users => {
+            res.json(Users)
+        })
+            .catch(function (err) {
+                res.json(err + " not working")
+            });
+    })
+
     
     app.post("/api/sendemail", function(req, res){
         console.log("post email: ", req.body)
