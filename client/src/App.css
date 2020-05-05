@@ -12,6 +12,23 @@
     margin-top: 10px;
 }	
 
+#btn-aquaColor {
+   background-color: rgb(74, 192, 153);
+   border-bottom-color:  rgb(125, 226, 226);
+}
+
+.aqua {
+    background-color: rgb(74, 192, 153);
+    border-bottom-color:  rgb(125, 226, 226);
+}
+
+.speechDeleter {
+    background-color: crimson;
+    color: white;
+    font-size: 19px;
+    width: 100px;
+}
+
 .accordCard {
     width: 500px;
     margin: 0 auto;

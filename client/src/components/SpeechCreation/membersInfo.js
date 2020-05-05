@@ -23,13 +23,15 @@ function Recordings (props) {
     //     console.log("working")
     // }
 return ( 
-    <div id="accordion recordingList">
+    <div>
+
+    <div id="accordion recordingList"><br/>
         <div class="card accordCard">
             <div class="card-header recordingListItem">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target= {`#${props.id}`} aria-expanded="false" aria-controls={props.id}>
+                    <a data-toggle="collapse" data-target= {`#${props.id}`} aria-expanded="false" aria-controls={props.id}>
                         Title: {props.speechTitle}
-                    </button>
+                    </a>
                 </h5>
             </div>
 
@@ -37,13 +39,17 @@ return (
             <div class="card-body">
                 Analysis: {props.analytics} <br/> 
                 Speech Length: {props.length}
+                <br/><br/>
+                <button onClick={speech} type="button" className="speechDeleter">Delete</button><br/>
+
             </div>
         </div>
     
             <button onClick={()=>props.delete(props.id)} className="speechDeleter">Delete</button>
         
         </div>
-    </div>
+        </div>
+     </div>
 
     )
 }
