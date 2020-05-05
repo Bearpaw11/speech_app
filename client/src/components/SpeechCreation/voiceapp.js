@@ -176,8 +176,8 @@ function Speeches(props) {
     
 
     return (
-        <div className="vision">
-            <p className="vision">According to research conducted, the following 5 words are the most common fillers used: 
+        <div id="recordingsPage">
+            <p>According to research conducted, the following 5 words are the most common fillers used: 
             "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
            
             <div className="speechTitler">

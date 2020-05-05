@@ -158,4 +158,18 @@ form small {
   }
 }
 
+
+@media only screen and (width: 768px) { /*iPAD ONLY*/
+    .container {
+        position: relative;
+        left: 160px;
+        top: 30px;
+    }
+    .footer {
+        margin-top: 100px;
+    }
+}
+
 /*# sourceMappingURL=contact.css.map */
+
+

@@ -24,7 +24,7 @@ function About() {
                 turn allow them to increase their earning potential, as well as their 
                 overall confidence and performance in interpersonal and occupational situations. 
             </p>
-
+            <br/>
             <h1 className="vision">Meet The Team </h1> <br/>
             <Team />
       </div>
