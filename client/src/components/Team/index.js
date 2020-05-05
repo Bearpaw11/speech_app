@@ -9,7 +9,7 @@ import Chris from "./Photos/chris.jpeg";
 function TeamSection(props) {
     return (
         <div className="row">
-            <div className="col-md-3 mb-3">
+            <div className="col-md-6" id="lefter">
                 <div className="avatar mx-auto">
                     <MeetTeam 
                         image={David}
@@ -19,7 +19,7 @@ function TeamSection(props) {
                 </div>
             </div>
 
-            <div className="col-md-3 mb-3">
+            <div className="col-md-6" id="melAdjust">
                 <div className="avatar mx-auto">
                     <MeetTeam 
                         image={Mel}
@@ -29,7 +29,7 @@ function TeamSection(props) {
                 </div>
             </div>
             
-            <div className="col-md-3 mb-3">
+            <div className="col-md-6" id="shaunaAdjust">
                 <div class="avatar mx-auto">
                     <MeetTeam 
                         image={Shauna}
@@ -40,7 +40,7 @@ function TeamSection(props) {
             </div>
 
 
-            <div className="col-md-3 mb-3">
+            <div className="col-md-6" id="chrisAdjust">
                 <div class="avatar mx-auto">
                     <MeetTeam 
                         image={Chris}
