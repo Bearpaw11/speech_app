@@ -180,7 +180,7 @@ function Speeches(props) {
             "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
            
             <div className="speechTitler">
-            <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
+                <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
             </div>
            
            <div className="voiceContainer">
@@ -192,12 +192,12 @@ function Speeches(props) {
                     </div>
                 </div>
             </div>
-            <div className="vision"> <br />
+
+            <div className="vision"> 
                 <Timer
-                recognition={recognition}
+                    recognition={recognition}
                 />
             </div>
-            <br></br>
 
             <div className="voiceContainer">
                 <div className="mb-3"></div>
@@ -206,15 +206,7 @@ function Speeches(props) {
 
                 <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
                 <br /><br />
-                {/* <button id="viewresults" type="button" className="btn btn-info">View Results</button>
-                <p id="speechtitle"></p>
-                <p id="textresults"></p>
-                <p id="textResultsPersonal"></p>
-                <p id="timeresult"></p>
-                <br /> <br /><br /> */}
 
-                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
-                   
                 <Accordion />
                 <br /> 
                 <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
