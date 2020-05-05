@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import API from '../../../utils/API'
 import { Input, FormBtn } from "../../Form";
 import { useHistory } from "react-router-dom";
-
+import "./modal.css";
 
 function LoginModal(props) {
     let history = useHistory();
@@ -41,24 +41,30 @@ function LoginModal(props) {
         setFormObject({...formObject, [name]: value })
     };
 
-
-
     return ( 
         <div>
             <form>
+                <h1 className="vision"> Log in! 
+                    <span aria-label="microphone" role="img">🎤</span>
+                </h1><br/>
+                    
                     <Input
                         onChange={handleInputChange}
                         name="email"
                         placeholder="Email"
-                        value={formObject.email} />
+                        value={formObject.email} 
+                    />
+                    
                     <Input
                         onChange={handleInputChange}
                         name="password"
                         placeholder="Password"
-                        value={formObject.password} />
+                        value={formObject.password} 
+                    />
                         
-                    <FormBtn onClick={handleFormSubmit}>Submit</FormBtn>
-                </form>
+                <FormBtn onClick={handleFormSubmit}>Submit</FormBtn>
+            </form>
+
         </div>
     )
 }

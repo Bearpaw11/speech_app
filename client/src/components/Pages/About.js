@@ -3,7 +3,7 @@ import Team from "../Team/index.js";
 
 function About() {
     return (
-      <div>
+      <div className="containerDiv">
             <h1 className="vision">Vision</h1>
             <p>
                 Speech Therapy was created by David Coons, Melanie Rogoff,
@@ -25,7 +25,7 @@ function About() {
                 overall confidence and performance in interpersonal and occupational situations. 
             </p>
 
-            <h1 className="vision">Meet The Team</h1> <br></br>
+            <h1 className="vision">Meet The Team </h1> <br/>
             <Team />
       </div>
     )

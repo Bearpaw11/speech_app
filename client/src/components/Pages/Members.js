@@ -1,40 +1,68 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 import { Redirect } from "react-router-dom";
+import Recordings from "../SpeechCreation/membersInfo.js";
 
-class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
+
+class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
+   
     state = {
         loggedIn : false,
-        ready:false
+        ready: false,
+        userName: [],
+        speech: [],
     }
-
+        
     componentDidMount() { 
         this.verify()
-        //need a function to call to the database to save the data and save it to the state to render it based on state
-        //TO MAKE THIS FASTER, WE CAN CALL THE DATABASE ONCE AND ANYTIME THERE'S NEW RECORDINGS, ADD IT TO OUR STATE ARRAY INSTEAD OF MAKING AN API CALL TO GET THE LATEST
+        this.getSpeech()
     }
 
     relocation = () => {
-        window.location.href = "./Recordings";
+        this.props.history.push("/Recordings");
     }
     relocationSignup = () => {
-        window.location.href = "./Signup";
+        this.props.history.push("/SignUp");
     }
 
-    verify = () =>{
+    verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user.data)
-            
+            console.log("--->user data>", user)
             if(user.data){
                 console.log("change state")
-                this.setState({loggedIn:true, ready:true})
-            } else{
+                this.setState({loggedIn:true, ready:true, userName: user.data.username, userId: user.data.id})
+            } else {
                 this.setState({ready:true})
             }
         })
     } 
-   
-    render(){
+
+    getSpeech = () => {
+       let id = this.state.userId;
+        console.log(this.props.userId, id, "id?") //returns null + []
+       
+        API.getSpeech(
+            this.props.userId
+        ).then(id => {
+            this.setState({ speech: id.data }) //EMPTY ARRAY
+            console.log(id)
+       })
+   }
+
+//    deleteSpeech = () => {
+//     let id = this.state.userId;
+//      console.log(this.props.userId, id, "id?") //returns null + []
+    
+//      API.deleteSpeech(
+//          this.props.userId
+//      ).then(id => {
+//          this.setState({ speech: id.data }) //EMPTY ARRAY
+//     })
+// }
+
+    render() {
+        console.log(this.state.loggedIn, "USERDATA") //logs True
+        //this.state.speech should console.log the speech
         // console.log("value of the state: ", this.state.loggedIn)
         // if(!this.state.ready){
         //     return <div/>
@@ -45,35 +73,40 @@ class Members extends Component{ //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         //         console.log("state false")
         //         return <Redirect to="/Signup"/>
         //     }
-if(this.state.loggedIn){
-    return (
-        <div>
-            <p className="userWelcome">Welcome, username!</p>
-                <div>
-                    <p className="recordingListTitle">Past Recordings:</p>
 
-                    <ul className="recordingList">
-                        <li className="recordingListItem">
-                            {/* MAP THROUGH ARRAY OF RECORDINGS*/}
-                            {/* HAVE AUTOMATIC GENERATION OF LISTS & ANALYTICS HERE */}
-                        </li>
-                    </ul>
-                
-                    <button type="button" onClick={this.relocation}>Create New Speech</button>
+if (this.state.loggedIn) {
+    return (
+        <div className="containerDiv vision">
+            <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
+                <div>
+                    <h5 className="recordingListTitle">Past Recordings:</h5>
+                        <div className="recordingList">
+                      
+                    {this.state.speech &&
+                        this.state.speech.map((record) => (
+                                <Recordings speechTitle={record.speechTitle} 
+                                            // userid={this.props.userId}
+                                            analytics={record.analytics}
+                                            length={record.length} 
+                                            id={record.id}/>
+                                )
+                            )}
+                        </div>
+        
                 </div>
-        </div>
+                    <button type="button" className="btn" id="btn-aquaColor" onClick={this.relocation}>Create New Speech</button>
+                  </div>  
     )}
     
-
-else{
-    return ( <div>
-        <p className="userWelcome">Please signup, username!</p>
-            <div>
-              
-            
-                <button type="button" onClick={this.relocationSignup}>Signup</button>
-            </div>
-    </div>)
+else {
+    return ( 
+        <div className="vision">
+            <p className="userWelcome">Please sign up in order to use the app.</p>
+                <div>
+                    <button type="button" onClick={this.relocationSignup}>Signup</button><br/><br/>
+                </div>
+        </div>
+    )
 }
 }}
 // }
