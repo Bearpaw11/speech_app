@@ -39,13 +39,13 @@ return (
             <div class="card-body">
                 Analysis: {props.analytics} <br/> 
                 Speech Length: {props.length}
-                <br/><br/>
+                <br/><br/><button onClick={()=>props.delete(props.id)} className="speechDeleter">Delete</button>
+
+                <br/>
                 
 
             </div>
         </div>
-    
-            <button onClick={()=>props.delete(props.id)} className="speechDeleter">Delete</button>
         
         </div>
         </div>
