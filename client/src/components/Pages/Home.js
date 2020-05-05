@@ -29,9 +29,9 @@ function Home() {
                     </MDBCardBody>
                  </MDBCard>
                 </MDBCol>
-
-  <Carousel/>
-            <App />
+                <br/>
+            <Carousel/>
+        <App />
       </div>
     )
 }
