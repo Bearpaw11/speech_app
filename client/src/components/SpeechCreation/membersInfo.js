@@ -3,23 +3,25 @@ import API from "../../utils/API"
 import { useHistory } from "react-router-dom"
 
 function Recordings (props) {
-let history = useHistory();
-  function speech() { 
-       console.log(props.id)
-        // let speechId = this.state.speech.record.id;
+    console.log("recording: ", props)
+
+// let history = useHistory();
+//   function speech() { 
+//        console.log(props.id)
+//         // let speechId = this.state.speech.record.id;
          
         
-         API.deleteSpeech(
-            props.id
-         ).then(id => {
-             window.location.reload();
+//          API.deleteSpeech(
+//             props.id
+//          ).then(id => {
+//              window.location.reload();
              
-        })
-    }
+//         })
+//     }
     
-    function relocation() {
-        console.log("working")
-    }
+    // function relocation() {
+    //     console.log("working")
+    // }
 return ( 
     <div id="accordion recordingList">
         <div class="card accordCard">
@@ -38,7 +40,7 @@ return (
             </div>
         </div>
     
-            <button onClick={speech} type="button" className="speechDeleter">Delete</button>
+            <button onClick={()=>props.delete(props.id)} className="speechDeleter">Delete</button>
         
         </div>
     </div>

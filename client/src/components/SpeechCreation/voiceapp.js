@@ -169,6 +169,7 @@ function Speeches(props) {
     }
     
     useEffect(() => {
+        
         voiceFunctionality();
     },[]);
     

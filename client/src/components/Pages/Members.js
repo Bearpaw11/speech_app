@@ -10,14 +10,19 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         ready: false,
         userName: [],
         speech: [],
+        userId:null
+        
     }
         
     componentDidMount() { 
-        this.verify()
-        this.getSpeech()
+        console.log("MOUNT", this.state)
+     this.verify()
+        //this.getSpeech()
     }
+ 
 
     relocation = () => {
+        console.log(this.props.history)
         this.props.history.push("/Recordings");
     }
     relocationSignup = () => {
@@ -33,25 +38,39 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
             } else {
                 this.setState({ready:true})
             }
+        this.getSpeech()
         })
     } 
 
     getSpeech = () => {
+        console.log("get", this.state.userId, this.props.userId)
        let id = this.state.userId;
-        console.log(this.props.userId, id, "id?") //returns null + []
-       
+        console.log(this.state.userId, id, "id?") //returns null + []
+       if(this.state.userId){
         API.getSpeech(
-            this.props.userId
-        ).then(id => {
-            this.setState({ speech: id.data }) //EMPTY ARRAY
+            this.state.userId
+        ).then(result => {
+            this.setState({ speech: result.data,loggedIn:true }) //EMPTY ARRAY
             // console.log(id.data[0].id, "id?") //returns null + []
        })
+    }
    }
 
- 
+ delete = (id) =>{
+
+    console.log("delete this id: ", id)
+
+         API.deleteSpeech(
+            id
+         ).then(id => {
+         this.getSpeech()
+             
+        })
+ }
+
 
     render() {
-        console.log(this.state.loggedIn, "USERDATA") //logs True
+        console.log(this.state, "USERDATA") //logs True
         //this.state.speech should console.log the speech
         // console.log("value of the state: ", this.state.loggedIn)
         // if(!this.state.ready){
@@ -74,11 +93,14 @@ if (this.state.loggedIn) {
                       
                     {this.state.speech &&
                         this.state.speech.map((record) => (
-                                <Recordings speechTitle={record.speechTitle} 
+                                <Recordings 
+                                key={record.id}
+                                speechTitle={record.speechTitle} 
+                                delete={this.delete}
                                             // userid={this.props.userId}
-                                            analytics={record.analytics}
-                                            length={record.length} 
-                                            id={record.id}/>
+                                analytics={record.analytics}
+                                length={record.length} 
+                                id={record.id}/>
                                 )
                             )}
                         </div>
