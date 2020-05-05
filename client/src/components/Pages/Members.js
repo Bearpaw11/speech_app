@@ -45,11 +45,20 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
             this.props.userId
         ).then(id => {
             this.setState({ speech: id.data }) //EMPTY ARRAY
-            // console.log(id.data[0].id, "id?") //returns null + []
+            console.log(id)
        })
    }
 
- 
+//    deleteSpeech = () => {
+//     let id = this.state.userId;
+//      console.log(this.props.userId, id, "id?") //returns null + []
+    
+//      API.deleteSpeech(
+//          this.props.userId
+//      ).then(id => {
+//          this.setState({ speech: id.data }) //EMPTY ARRAY
+//     })
+// }
 
     render() {
         console.log(this.state.loggedIn, "USERDATA") //logs True

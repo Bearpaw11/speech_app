@@ -17,7 +17,8 @@ return (
                 <p id="textresults"></p>
                     <p id="textResultsPersonal"></p>
                     <p id="timeresult"></p>
-            </div>
+                </div>
+                
         </div>        
         
         </div>
