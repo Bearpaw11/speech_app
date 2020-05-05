@@ -40,7 +40,7 @@ return (
                 Analysis: {props.analytics} <br/> 
                 Speech Length: {props.length}
                 <br/><br/>
-                <button onClick={speech} type="button" className="speechDeleter">Delete</button><br/>
+                
 
             </div>
         </div>
