@@ -3,6 +3,7 @@ import API from "../../utils/API"
 import { Redirect } from "react-router-dom";
 import Recordings from "../SpeechCreation/membersInfo.js";
 
+
 class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
    
     state = {
@@ -82,22 +83,18 @@ if (this.state.loggedIn) {
                                 )
                             )}
                         </div>
-
-                    
-                </div>
-                    <button type="button" onClick={this.relocation}>Create New Speech</button>
-                  </div>  
         
+                </div>
+                    <button type="button" className="btn" id="btn-aquaColor" onClick={this.relocation}>Create New Speech</button>
+                  </div>  
     )}
     
-
 else {
     return ( 
         <div className="vision">
-            <p className="userWelcome">Please signup!</p>
+            <p className="userWelcome">Please sign up in order to use the app.</p>
                 <div>
-                    <button type="button" onClick={this.relocationSignup}>Signup</button>
-                <br/><br/>
+                    <button type="button" onClick={this.relocationSignup}>Signup</button><br/><br/>
                 </div>
         </div>
     )
