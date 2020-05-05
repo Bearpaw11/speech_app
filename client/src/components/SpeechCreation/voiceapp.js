@@ -213,18 +213,14 @@ function Speeches(props) {
                 <p id="timeresult"></p>
                 <br /> <br /><br /> */}
 
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
                     <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
                    
-                        <Accordion/><br/> 
-
-                    {/* <button type="button" className="btn btn-danger savers" id="save">Save Recording</button>
-                    <br/><br/>  
-
-                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button><br/><br/> */}
+                <Accordion />
+                <br /> 
+                <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
             </div>
 
-        // </div>
+        </div>
 
     )
 }
