@@ -1,0 +1,17 @@
+
+modal {
+    background-image: url ('./soundwave.png');
+}
+
+.modal-content {
+    border: solid 1px #1d0533;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+    
+.modal-title {
+    font-family:'Shadows Into Light', cursive;
+    font-size: 30px;
+}
