@@ -16,6 +16,7 @@ function SignUp() {
 
         if (formObject.username && formObject.email && formObject.password) {
             console.log(formObject);
+            alert('Thank you for signing up! Please log in to view your account and create a speech.');
             
             API.signUp({
                 username: formObject.username,

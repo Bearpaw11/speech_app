@@ -128,6 +128,7 @@ function Speeches(props) {
 
     return (
         <div className="center">
+            <br/>
             <p>According to research conducted, the following 5 words are the most common fillers used: 
             "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
 
@@ -177,12 +178,11 @@ function Speeches(props) {
 
             <div className="voiceContainer">
                 <div className="mb-3"></div>
-                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea><br />
-
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
 
                     <Accordion /><br /> 
                 
-                    <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
+                    <button type="button" className="btn btn-success" onClick={relocation} id="results">View Speeches</button>
                 </div>
             </div>
     )

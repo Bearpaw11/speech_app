@@ -7,7 +7,7 @@ return (
         <div className="card accordCard">
             <div className="card-header recordingListItem">
                 <h5 className="mb-0">
-                    <button id="viewresults" data-toggle="collapse" data-target= {`#${props.id}`} aria-expanded="false" aria-controls={props.id} type="button" className="btn btn-info">View Results</button>
+                    <button id="viewresults" data-toggle="collapse" data-target= {`#${props.id}`} aria-expanded="false" aria-controls={props.id} type="button" className="btn btn-success">View Results</button>
                 </h5>
             </div>
 
@@ -17,7 +17,7 @@ return (
                     <p className="darker" id="textresults"></p>
                     <p className="darker" id="textResultsPersonal"></p>
                     <p className="darker" id="timeresult"></p>
-                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button><br /><br />
+                    <button type="button" className="btn btn-success savers" id="save">Save Recording</button><br /><br />
 
                 </div>
             </div>         

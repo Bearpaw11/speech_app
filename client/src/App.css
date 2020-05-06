@@ -31,16 +31,6 @@ body {
     color: white;
 }	
 
-#btn-aquaColor {
-   background-color: rgb(74, 192, 153);
-   border-bottom-color:  rgb(125, 226, 226);
-}
-
-.aqua {
-    background-color: rgb(74, 192, 153);
-    border-bottom-color:  rgb(125, 226, 226);
-}
-
 .speechDeleter {
     background-color: crimson;
     color: white;
@@ -111,14 +101,13 @@ a {
     font-size: 13px;
     font-weight: bold;
 }
-.carousel-item {
+/* .carousel-item {
     padding: 30px;
     text-align: center;
     font-size: 14px;
-}
+} */
 
 .visionDiv {
-    /* background: linear-gradient(#ffffff, #71ffe7af); */
     background-color: #de96e7b6;
     padding: 5px;
     border: 5px solid #000000;
