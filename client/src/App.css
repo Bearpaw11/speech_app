@@ -1,3 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+* {
+    font-family: "Lato", sans-serif;
+    color: black;
+}
+
+body {
+    background-image: url('./components/Layouts/keys.jpg');
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .containerDiv {
     min-width: 140px;
     max-width: 1500px;
@@ -66,27 +80,115 @@ a {
     margin: 0 auto;
 }
 
-#carouselExampleControls {
-    height: 240px;
-    background-color: green;
-    border: 1 px;
+
+.carousel-inner {
+    background-color: #de96e7b6;
+    border-radius: 5px;
+    border: 5px solid black;
+    min-width: 100px;
+    margin: 50px 50px 50px 50px;
 }
 
+#carouselExampleControls {
+    height: 240px;
+    border: 1 px;
+}
 .carouselTitle {
     text-align: center !important;
     font-size: 16px;
     font-weight: bold;
 }
-
 .carouselSignature {
     text-align: center;
     font-size: 13px;
     font-weight: bold;
 }
-
 .carousel-item {
     padding: 30px;
     text-align: center;
     font-size: 14px;
 }
 
+.visionDiv {
+    /* background: linear-gradient(#ffffff, #71ffe7af); */
+    background-color: #de96e7b6;
+    
+    padding: 25px;
+    border: 5px solid #000000;
+    margin: 50px;
+    border-radius: 5px;
+}
+
+.teamDiv {
+    background-color: #de96e7b6;
+    padding: 25px;
+    border: 5px solid #000000;
+    margin: 50px;
+    border-radius: 5px;  
+}
+
+.methods {
+    background-color: #de96e7b6;
+    border: 5px solid #000000;
+    margin: 50px;
+    border-radius: 5px;  
+}
+
+
+
+ 
+@media only screen and (width: 768px) { /*iPAD ONLY*/
+    .containerDiv { /*Home Page */
+        margin-left: 250px;
+        padding: 20px;
+        width: 600px;
+    }
+
+    .footer {
+        margin-left: 350px;
+    }
+
+    #lefter {
+        position: relative;
+        left: -280px;
+    }
+    #melAdjust {
+        position: relative;
+        left: -250px;
+        top: -10px;
+    }
+
+    #shaunaAdjust {
+        position: relative;
+        margin-top: -300px;
+        left: 230px;
+    }
+  
+    #chrisAdjust {
+        position: relative;
+        margin-top: -300px;
+        left: 280px;
+    }
+
+    #recordingsPage {
+        text-align: center;
+        margin-left: 300px;
+        margin-top: 50px;
+    }
+
+    .voiceContainer {
+        text-align: center;
+    }
+
+    .boldHR {
+        border: 2px solid black;
+    }
+
+    .footer {
+        margin-left: 10px;
+    }
+
+    
+
+
+}
