@@ -72,11 +72,11 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
       
         if (this.state.loggedIn) {
             return (
-                <div className="containerDiv whiteText vision">
-                    <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
+                <div className="containerDiv vision">
+                    <h4 className="userWelcome whiteText">Welcome, {this.state.userName}!</h4><br/>
                 <div>
                     
-                    <h5 className="recordingListTitle">Past Recordings:</h5>
+                    <h5 className="recordingListTitle whiteText">Past Recordings:</h5>
                         <div className="recordingList">
 
                             {this.state.speech &&
@@ -93,16 +93,18 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
                             )}
                         </div>
                 </div>
-                    <button type="button" className="btn" id="btn-aquaColor" onClick={this.relocation}>Create New Speech</button>
+                    <button type="button" className="btn btn-success" onClick={this.relocation}>Create New Speech</button>
                 </div>  
             )
         } else {
             return ( 
                 <div className="whiteText vision">
-                    <p className="userWelcome">Please sign up in order to use the app.</p>
+                    <br/>
+                    <p className="userWelcome">Please create an account to use the app.</p>
+
                     
                     <div>
-                        <button type="button" onClick={this.relocationSignup}>Signup</button><br/><br/>
+                        <button type="button" className="btn btn-success" onClick={this.relocationSignup}>Sign Up</button><br/><br/>
                     </div>
                 </div>
             )
