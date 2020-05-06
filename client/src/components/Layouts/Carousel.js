@@ -5,6 +5,7 @@ function Carousel() {
     return (
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+            <h1 className="vision">Reviews</h1>
                 <div class="carousel-item active"> 
                     <p className="carouselTitle">"Winning Bigly!"</p>
                     <p className="carouselWords">"I am by far one of the greatest businessmen on Earth, and quite frankly, I am that way because of myself, G-d, and Speech Therapy. Speech Therapy is simplistic, slick, and easy to use. Believe me, I know simplicity! This app helps me win bigly whenever I need to speak to my royal subjects."</p>
