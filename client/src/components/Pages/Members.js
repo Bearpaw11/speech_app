@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
-import { Redirect } from "react-router-dom";
 import Recordings from "../SpeechCreation/membersInfo.js";
 
 class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
@@ -10,93 +9,106 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         ready: false,
         userName: [],
         speech: [],
+        userId: null
     }
         
     componentDidMount() { 
-        this.verify()
-        this.getSpeech()
+        console.log("MOUNT", this.state);
+        this.verify();
     }
-
+ 
     relocation = () => {
+        console.log(this.props.history);
         this.props.history.push("/Recordings");
     }
+
     relocationSignup = () => {
         this.props.history.push("/SignUp");
     }
 
     verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user)
-            if(user.data){
-                console.log("change state")
-                this.setState({loggedIn:true, ready:true, userName: user.data.username, userId: user.data.id})
+            console.log("--->user data>", user);
+
+            if (user.data){
+                console.log("change state");
+                this.setState({loggedIn:true, ready:true, userName: user.data.username, userId: user.data.id});
             } else {
-                this.setState({ready:true})
+                this.setState({ready:true});
             }
+
+            this.getSpeech();
         })
     } 
 
-    getSpeech = () => {
-       let id = this.state.userId;
-        console.log(this.props.userId, id, "id?") //returns null + []
+        getSpeech = () => {
+            console.log("get", this.state.userId, this.props.userId);
        
-        API.getSpeech(
-            this.props.userId
-        ).then(id => {
-            this.setState({ speech: id.data }) //EMPTY ARRAY
-       })
-   }
+            let id = this.state.userId;
+            
+            console.log(this.state.userId, id, "id?");
+       
+            if (this.state.userId){
+                API.getSpeech(
+                    this.state.userId
+                ).then(result => {
+                    this.setState({ speech: result.data,loggedIn:true });
+                })
+            }
+        }
+
+        delete = (id) =>{
+            console.log("delete this id: ", id);
+
+            API.deleteSpeech(
+                id
+            ).then(id => {
+                this.getSpeech();
+            })
+        }
+
 
     render() {
-        console.log(this.state.loggedIn, "USERDATA") //logs True
-        //this.state.speech should console.log the speech
-        // console.log("value of the state: ", this.state.loggedIn)
-        // if(!this.state.ready){
-        //     return <div/>
-        // } else {
-        //     if(this.state.loggedIn){
-        //         console.log("state true")
-        //     } else {
-        //         console.log("state false")
-        //         return <Redirect to="/Signup"/>
-        //     }
-
-if (this.state.loggedIn) {
-    return (
-        <div className="containerDiv vision">
-            <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
+        console.log(this.state, "USERDATA") //logs True
+      
+        if (this.state.loggedIn) {
+            return (
+                <div className="containerDiv vision">
+                    <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
                 <div>
+                    
                     <h5 className="recordingListTitle">Past Recordings:</h5>
                         <div className="recordingList">
-                        {this.state.speech &&
-                        this.state.speech.map((record) => (
-                                <Recordings speechTitle={record.speechTitle} 
-                                            id={this.props.userId}
-                                            analytics={record.analytics}
-                                            length={record.length} 
-                                            id={record.id}/>
+
+                            {this.state.speech &&
+                                this.state.speech.map((record) => (
+                                        <Recordings 
+                                        key={record.id}
+                                        speechTitle={record.speechTitle} 
+                                        delete={this.delete}
+                                                    // userid={this.props.userId}
+                                        analytics={record.analytics}
+                                        length={record.length} 
+                                        id={record.id}/>
                                 )
                             )}
-                        </div><br/>
-
-                    <button type="button" onClick={this.relocation}>Create New Speech</button>
-                  </div>  
-        </div>
-    )}
-    
-
-else {
-    return ( 
-        <div className="vision">
-            <p className="userWelcome">Please signup!</p>
-                <div>
-                    <button type="button" onClick={this.relocationSignup}>Signup</button>
-                <br/><br/>
+                        </div>
                 </div>
-        </div>
-    )
+                    <button type="button" className="btn" id="btn-aquaColor" onClick={this.relocation}>Create New Speech</button>
+                </div>  
+            )
+        } else {
+            return ( 
+                <div className="vision">
+                    <p className="userWelcome">Please sign up in order to use the app.</p>
+                    
+                    <div>
+                        <button type="button" onClick={this.relocationSignup}>Signup</button><br/><br/>
+                    </div>
+                </div>
+            )
+        }
+    }
 }
-}}
-// }
 
 export default Members;

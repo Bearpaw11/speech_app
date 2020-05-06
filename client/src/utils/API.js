@@ -4,45 +4,33 @@ import axios from 'axios'
 // import express from 'express'
 // const app = express()
 
-
 export default {
-
-
-
     signUp: function (userData) {
-        return axios.post("/api/signup", userData)
+        return axios.post("/api/signup", userData);
     },
 
     login: function (loginData) {
-        return axios.post("/api/login",loginData)
+        return axios.post("/api/login",loginData);
     },
 
     verifyLogin: function () {
-        return axios.post("/api/verifylogin") 
+        return axios.post("/api/verifylogin"); 
     },
 
     saveSpeech: function (speechData) {
-        console.log(speechData)
-        return axios.post("/api/savespeech", speechData)
+        console.log(speechData);
+        return axios.post("/api/savespeech", speechData);
     },
 
      logOut: function () {
-        return axios.get("/api/logout/")
+        return axios.get("/api/logout/");
     },
      
     getSpeech: function (id) {
-         return axios.get("/api/members/" + id)
-     }
+         return axios.get("/api/members/" + id);
+     },
 
-
-
-
-
-
-
-
-
-
-
-
+    deleteSpeech: function (id) {
+        return axios.delete("/api/delete/" + id);
+    }
 }

@@ -1,10 +1,12 @@
+require("dotenv").config();
 const path = require("path");
 const db = require("../models");
 const passport = require("../config/passport");
 const nodemailer = require  ("nodemailer");
-require("dotenv").config()
-// const apiRoute = require("./api-routes")
-console.log("email add:", process.env.EMAIL_PASSWORD)
+
+//Console logging the email address first
+console.log("email add:", process.env.EMAIL_PASSWORD);
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -14,7 +16,6 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports = function (app) {
-
     app.get("/", function (req, res) {
         res.sendFile(path.join(__dirname, "./client/build/index.html"));
     });
@@ -29,109 +30,109 @@ module.exports = function (app) {
             email: req.body.email,
             password: req.body.password
         })
-            .then(function () {
-                res.redirect(307, "/");
-            })
-            .catch(function (err) {
-                res.status(401).json(err);
-            });
+        .then(function () {
+            res.redirect(307, "/");
+        })
+        .catch(function (err) {
+            res.status(401).json(err);
+        });
     });
 
     app.post("/api/login/", passport.authenticate("local"), function(req, res) {
-        console.log(res)
+        console.log(res);
         res.json(req.user);
     });
 
     app.post("/api/savespeech", function (req, res) {
-        console.log(req.body)
+        console.log(req.body);
+
         db.SpeechesLists.create({
             speechTitle: req.body.speechTitle,
             length: req.body.length,
             analytics: req.body.analytics,
             UserId: req.body.UserId
         })
-            .then(function () {
-                res.redirect(307, "/");
-            })
-            .catch(function (err) {
-                res.json(err);
-            });
+        .then(function () {
+            res.redirect(307, "/");
+        })
+        .catch(function (err) {
+            res.json(err);
+        });
     });
 
-    
-
     app.post("/api/verifyLogin/", function(req, res) {
-        console.log("---verify backend:", req.user)
+        console.log("---verify backend:", req.user);
         res.json(req.user);
     });
 
     app.get("/api/logout/", function (req, res) {
         req.logout();
-        res.json(true)
-       
+        res.json(true);
     });
 
-    
     app.get("/api/members/:id", function (req, res) {
-        console.log(req)
+        console.log(req);
+
         db.SpeechesLists.findAll({
             where:{
                 userId: req.params.id
-                
             }
-            
         }).then(Users => {
-            res.json(Users)
+            res.json(Users);
         })
-            .catch(function (err) {
-                res.json(err.data + " not working")
-            });
+        .catch(function (err) {
+            res.json(err.data + " not working")
+        });
     })
 
-    
+    app.delete("/api/delete/:id", function (req, res) {
+        console.log(res);
+
+        db.SpeechesLists.destroy({
+            where:{
+                id: req.params.id     
+            } 
+        }).then(Users => {
+            res.json(Users);
+        })
+        .catch(function (err) {
+            res.json(err + " not working");
+        });
+    })
+
     app.post("/api/sendemail", function(req, res){
-        console.log("post email: ", req.body)
+        console.log("post email: ", req.body);
      
-       // sendEmail = () => {
-            // Define message for nodemailer
+        // Define message for nodemailer
         const mailOptions = req.body;
           
-            // Send mail 
+        // Send mail 
         transporter.sendMail(mailOptions, function (err, response) {
-              if (err) {
+            if (err) {
                 console.error('there was an error: ', err);
-              } else {
+            } else {
                 console.log('here is the res: ', response);
-           
-              }
-              res.json(response)
-            });
-          
-          //}
-         
+            }
+              res.json(response);
+            });         
     })
 
    
     app.post("/api/sendemailCustomer", function(req, res){
-        console.log("post email: ", req.body)
+        console.log("post email: ", req.body);
      
-       // sendEmail = () => {
-            // Define message for nodemailer
+        // Define message for nodemailer
         const mailOptions = req.body;
           
-            // Send mail 
+        // Send mail 
         transporter.sendMail(mailOptions, function (err, response) {
-              if (err) {
+            if (err) {
                 console.error('there was an error: ', err);
-              } else {
+            } else {
                 console.log('here is the res: ', response);
-                res.json(response)
-           
-              }
-            });
-          
-          //}
-         
+                res.json(response);
+            }
+        });         
     })
 
     // app.get("/api/user_data", function(req, res) {
