@@ -28,10 +28,6 @@ function Speeches(props) {
         if (SpeechRecognition) {
 
             console.log("Your Browser supports speech Recognition");
-            // searchForm.insertAdjacentHTML("beforeend", '<button type="button" id="input"><i class="fas fa-microphone"></i></button>')
-
-            // const micBtn = searchForm.querySelector("button");
-            // const micIcon = micBtn.querySelector("i");
 
             const recognition = new SpeechRecognition();
             
@@ -45,30 +41,14 @@ function Speeches(props) {
             const save = document.querySelector("#save");
             const time = document.querySelector("#time");
             const timeresult = document.getElementById("timeresult");
-            // micBtn.addEventListener("click", micBtnClick)
-  
-            // function micBtnClick() {
-            //     if (micIcon.classList.contains("fa-microphone")) { //Start speech recognition
-            
-            //         recognition.start();
-
-            //     } else { //Stop Speech recognition
-            //         recognition.stop()
-            //     }
-            // }
-
+       
             recognition.onstart = function startSpeechRecogniton() {
-                
                 //beginning recording
-                // micIcon.classList.remove("fa-microphone")
-                // micIcon.classList.add("fa-microphone-slash")
-                // searchFormInput.focus();
                 console.log("Speech recognition active.");
             }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
-                // micIcon.classList.remove("fa-microphone-slash");
-                // micIcon.classList.add("fa-microphone");
+  
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.");
             }
@@ -84,7 +64,6 @@ function Speeches(props) {
                 textArea.innerHTML = transcript; //returns transcript of speech
                 
                 save.addEventListener("click", function (event) {
-                     //saving
                     event.preventDefault();
                     
                     API.saveSpeech({
@@ -134,7 +113,7 @@ function Speeches(props) {
                         }
                     }
                             if (counter === 0) {
-                                textRegular = `Congratulations you said none of the filler words`
+                                textRegular = `Congratulations! You said none of the filler words.`
                             }
 
                     textResults.innerHTML = textRegular;

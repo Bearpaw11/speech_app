@@ -10,12 +10,10 @@ function Recordings (props) {
 //        console.log(props.id)
 //         // let speechId = this.state.speech.record.id;
          
-        
 //          API.deleteSpeech(
 //             props.id
 //          ).then(id => {
 //              window.location.reload();
-             
 //         })
 //     }
     
