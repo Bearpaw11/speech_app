@@ -1,10 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
-
-* {
-    font-family: "Lato", sans-serif;
-    color: black;
-}
-
 .containerDiv {
     min-width: 140px;
     max-width: 1500px;
@@ -12,11 +5,7 @@
 }
 
 .footer {
-    position: relative;
-    font-size: 15px;
-    height: 48px;
     text-align: center;
-    margin-top: 10px;
 }	
 
 #btn-aquaColor {
@@ -41,11 +30,11 @@
     width: 500px;
     margin: 0 auto;
 }
+
 .speechTitler {
     min-width: 150px;
     max-width: 300px;
     margin: 0 auto; 
-    /* margin: 0 auto centers the info in the div */
 }
 
 .groupPics {
@@ -61,7 +50,7 @@ a {
 
 .groupName {
     font-size: 30px;
-    font-family: "Manrope", sans-serif;
+    font-family: 'Georgia';
 }
 
 .voiceContainer {
@@ -78,111 +67,26 @@ a {
 }
 
 #carouselExampleControls {
-    min-width: 100px;
-    height: 290px;
-    margin-top: 20px;
-   
-}
-
-.carousel-inner {
-    background: linear-gradient(white, #d28847);
-    border-radius: 25px;
-    border-bottom: 5px solid black;
-    min-width: 100px;
-    margin: 50px 50px 50px 50px;
+    height: 240px;
+    background-color: green;
+    border: 1 px;
 }
 
 .carouselTitle {
     text-align: center !important;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
-    margin-top: 5px;
 }
 
 .carouselSignature {
-    text-align: center !important;
-    font-size: 15px;
+    text-align: center;
+    font-size: 13px;
     font-weight: bold;
 }
 
 .carousel-item {
-    padding: 30px
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
 }
 
-.visionDiv {
-    background: linear-gradient(#ffffff, #71ffe7af);
-    padding: 25px;
-    border-bottom: 5px solid #000000;
-    margin: 50px;
-    border-radius: 25px;
-}
-
-.teamDiv {
-    background: linear-gradient(#ffffff, #55aa67);
-    padding: 25px;
-    border-bottom: 5px solid #000000;
-    margin: 50px;
-    border-radius: 25px;  
-}
-
-.methods {
-    background: linear-gradient( white, #724a79);
-    border-bottom: 5px solid #000000;
-    margin: 50px;
-    border-radius: 25px;  
-}
-
-
-
- 
-@media only screen and (width: 768px) { /*iPAD ONLY*/
-    .containerDiv { /*Home Page */
-        margin-left: 250px;
-        padding: 20px;
-        width: 600px;
-    }
-
-    .footer {
-        margin-left: 350px;
-    }
-
-    #lefter {
-        position: relative;
-        left: -280px;
-    }
-    #melAdjust {
-        position: relative;
-        left: -250px;
-        top: -10px;
-    }
-
-    #shaunaAdjust {
-        position: relative;
-        margin-top: -300px;
-        left: 230px;
-    }
-  
-    #chrisAdjust {
-        position: relative;
-        margin-top: -300px;
-        left: 280px;
-    }
-
-    #recordingsPage {
-        text-align: center;
-        margin-left: 300px;
-        margin-top: 50px;
-    }
-
-    .voiceContainer {
-        text-align: center;
-    }
-
-    .footer {
-        margin-left: 10px;
-    }
-
-    
-
-
-}
