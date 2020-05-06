@@ -43,7 +43,7 @@ function SignUp() {
                     <h1 id="contactUs">SIGN UP</h1>
                 </div>
 
-                    <form className="signUpCenter">
+                    <form className="vision">
                         <Input
                             className="vision"
                             onChange={handleInputChange}

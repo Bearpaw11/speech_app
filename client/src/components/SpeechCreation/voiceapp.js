@@ -12,12 +12,6 @@ function Speeches(props) {
     function relocation() {
         history.push("/members");
     }
-
-    // const [isOn, setIsOn] = useState()
-    // function startTimer() {
-        //     setIsOn(true)
-        // }
-        
         
     const [recognition, setRecognition] = useState(false);
     
@@ -26,8 +20,6 @@ function Speeches(props) {
         const searchFormInput = searchForm.querySelector("input");
 
         if (SpeechRecognition) {
-
-            console.log("Your Browser supports speech Recognition");
 
             const recognition = new SpeechRecognition();
             
@@ -44,12 +36,10 @@ function Speeches(props) {
             
        
             recognition.onstart = function startSpeechRecogniton() {
-                //beginning recording
                 console.log("Speech recognition active.");
             }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
-  
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.");
             }
@@ -57,16 +47,12 @@ function Speeches(props) {
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex;
-                
                 const transcript = event.results[currentResultIndex][0].transcript;
-
-                console.log(transcript);
              
                 textArea.innerHTML = transcript; //returns transcript of speech
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
-                    
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
@@ -94,7 +80,6 @@ function Speeches(props) {
 
                     for (let i = 0; i < words.length; i++) {
                         if (textObj[words[i]] !== undefined) {
-                            //  console.log("----", words[i], textObj[words[i]])
                             textObj[words[i]]++;
                         } else if (textObjPersonal[words[i]] !== undefined) {
                             textObjPersonal[words[i]]++;
@@ -109,7 +94,7 @@ function Speeches(props) {
                     for (let key in textObj) {
                         console.log(key, ": ", textObj[key]);
                         if (textObj[key] > 0) {
-                            textRegular += `You said ${key} ${textObj[key]} times! `
+                            textRegular += `You said "${key}" ${textObj[key]} times. `
                             counter ++;
                         }
                     }
@@ -124,13 +109,13 @@ function Speeches(props) {
                     for (let key in textObjPersonal) {
                         if (textObjPersonal[key] > 3) {
                             console.log(key, ": ", textObjPersonal[key]);
-                            textPersonal += `You said ${key} ${textObjPersonal[key]} times! `
+                            textPersonal += `You said "${key}" ${textObjPersonal[key]} times. `
                         }
                     }
 
                     textResultsPersonal.innerHTML = textPersonal;
 
-                    timeresult.innerHTML = `Speech Time:${time.innerHTML}`;
+                    timeresult.innerHTML = `Speech Time: ${time.innerHTML}`;
                 })
             }
             setRecognition(recognition);
@@ -142,9 +127,35 @@ function Speeches(props) {
     },[]);
 
     return (
-        <div id="recordingsPage">
+        <div className="center">
             <p>According to research conducted, the following 5 words are the most common fillers used: 
-            "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
+            "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
+
+            <p>Please follow our steps in order to optimize the way you practice your speeches!</p><br/>
+            <div className="boldHR"></div>
+
+            <ol>
+                <li>
+                    Click 'Start' to begin recording. 
+                </li><br/>
+
+                <li>
+                    Click 'Stop' to stop recording. 
+                </li><br/>
+
+                <li>
+                    Click 'View Results'
+                </li><br/>
+
+                <li>
+                    Click 'Save Recording'
+                </li><br/>
+
+                <li>
+                    Click View Speeches to view all of your speeches. 
+                </li>
+            </ol><br/>
+            
            
             <div className="speechTitler">
                 <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>

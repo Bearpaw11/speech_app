@@ -1,10 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
-* {
+body {
     font-family: "Lato", sans-serif;
     color: black;
 }
 
+.darker {
+    color: black;
+}
 body {
     background-image: url('./components/Layouts/keys.jpg');
     background-size: 200px;
@@ -16,6 +19,11 @@ body {
     min-width: 140px;
     max-width: 1500px;
     padding: 10px 20px 40px 80px;
+}
+
+.methods {
+    min-width: 290px;
+    max-height: 900px;
 }
 
 .footer {
@@ -80,13 +88,12 @@ a {
     margin: 0 auto;
 }
 
-
 .carousel-inner {
     background-color: #de96e7b6;
     border-radius: 5px;
     border: 5px solid black;
-    min-width: 100px;
-    margin: 50px 50px 50px 50px;
+    min-width: 150px;
+    min-height: 250px;
 }
 
 #carouselExampleControls {
@@ -112,18 +119,16 @@ a {
 .visionDiv {
     /* background: linear-gradient(#ffffff, #71ffe7af); */
     background-color: #de96e7b6;
-    
-    padding: 25px;
+    padding: 5px;
     border: 5px solid #000000;
-    margin: 50px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .teamDiv {
     background-color: #de96e7b6;
-    padding: 25px;
+    padding: 5px;
     border: 5px solid #000000;
-    margin: 50px;
     border-radius: 5px;  
 }
 
@@ -134,7 +139,13 @@ a {
     border-radius: 5px;  
 }
 
-
+.center {
+    text-align: center;
+    list-style-position: inside;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
 
  
 @media only screen and (width: 768px) { /*iPAD ONLY*/
@@ -170,10 +181,8 @@ a {
         left: 280px;
     }
 
-    #recordingsPage {
-        text-align: center;
-        margin-left: 300px;
-        margin-top: 50px;
+    #whiteOut {
+        color: white;
     }
 
     .voiceContainer {
@@ -188,7 +197,7 @@ a {
         margin-left: 10px;
     }
 
-    
+   
 
 
 }
