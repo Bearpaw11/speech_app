@@ -13,10 +13,10 @@ return (
 
             <div id={props.id} className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div className="card-body">
-                    <p id="speechtitle"></p>
-                    <p id="textresults"></p>
-                    <p id="textResultsPersonal"></p>
-                    <p id="timeresult"></p>
+                    <p className="darker" id="speechtitle"></p>
+                    <p className="darker" id="textresults"></p>
+                    <p className="darker" id="textResultsPersonal"></p>
+                    <p className="darker" id="timeresult"></p>
                     <button type="button" className="btn btn-danger savers" id="save">Save Recording</button><br /><br />
 
                 </div>
