@@ -39,7 +39,10 @@ function SignUp() {
     return (   
         <div> 
             <div className="container"><br/>
-                <div className="row">
+                <div className="row header">
+                    <h1 id="contactUs">SIGN UP</h1>
+                </div>
+
                     <form className="signUpCenter">
                         <Input
                             className="vision"
@@ -75,7 +78,7 @@ function SignUp() {
                     
                 </div>
             </div>
-      </div>
+     
       )
     }
 

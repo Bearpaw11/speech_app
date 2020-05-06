@@ -1,8 +1,8 @@
 .navi {
-  background: linear-gradient( to right,#ffffff, #ffffff, #5c5858, #00000000);
+  background: linear-gradient( to right,white,white, #5c5858, #00000000);
   /* background-color: white; */
   width: 100%;
-  /* padding: 5px; */
+  border-bottom: 5px solid black;
   word-wrap: normal;
   display: inline-block;
   font-size: 16px;
