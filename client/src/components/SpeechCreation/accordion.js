@@ -17,9 +17,12 @@ return (
                     <p id="textresults"></p>
                     <p id="textResultsPersonal"></p>
                     <p id="timeresult"></p>
+                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button><br /><br />
+
                 </div>
             </div>         
         </div>
+        
     </div>
     )
 }

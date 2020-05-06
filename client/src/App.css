@@ -19,11 +19,7 @@ body {
 }
 
 .footer {
-    position: relative;
-    font-size: 15px;
-    height: 48px;
     text-align: center;
-    margin-top: 10px;
 }	
 
 #btn-aquaColor {
@@ -48,11 +44,11 @@ body {
     width: 500px;
     margin: 0 auto;
 }
+
 .speechTitler {
     min-width: 150px;
     max-width: 300px;
     margin: 0 auto; 
-    /* margin: 0 auto centers the info in the div */
 }
 
 .groupPics {
@@ -68,7 +64,7 @@ a {
 
 .groupName {
     font-size: 30px;
-    font-family: "Manrope", sans-serif;
+    font-family: 'Georgia';
 }
 
 .voiceContainer {

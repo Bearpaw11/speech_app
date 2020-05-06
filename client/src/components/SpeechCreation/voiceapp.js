@@ -41,6 +41,7 @@ function Speeches(props) {
             const save = document.querySelector("#save");
             const time = document.querySelector("#time");
             const timeresult = document.getElementById("timeresult");
+            
        
             recognition.onstart = function startSpeechRecogniton() {
                 //beginning recording
@@ -167,7 +168,6 @@ function Speeches(props) {
                 <div className="mb-3"></div>
                     <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea><br />
 
-                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button><br /><br />
 
                     <Accordion /><br /> 
                 
