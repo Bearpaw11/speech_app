@@ -5,6 +5,13 @@
     color: black;
 }
 
+body {
+    background-image: url('./components/Layouts/keys.jpg');
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .containerDiv {
     min-width: 140px;
     max-width: 1500px;
@@ -77,59 +84,58 @@ a {
     margin: 0 auto;
 }
 
-#carouselExampleControls {
-    min-width: 100px;
-    height: 290px;
-    margin-top: 20px;
-   
-}
 
 .carousel-inner {
-    background: linear-gradient(white, #d28847);
-    border-radius: 25px;
-    border-bottom: 5px solid black;
+    background-color: #de96e7b6;
+    border-radius: 5px;
+    border: 5px solid black;
     min-width: 100px;
     margin: 50px 50px 50px 50px;
 }
 
+#carouselExampleControls {
+    height: 240px;
+    border: 1 px;
+}
 .carouselTitle {
     text-align: center !important;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
-    margin-top: 5px;
 }
-
 .carouselSignature {
-    text-align: center !important;
-    font-size: 15px;
+    text-align: center;
+    font-size: 13px;
     font-weight: bold;
 }
-
 .carousel-item {
-    padding: 30px
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
 }
 
 .visionDiv {
-    background: linear-gradient(#ffffff, #71ffe7af);
+    /* background: linear-gradient(#ffffff, #71ffe7af); */
+    background-color: #de96e7b6;
+    
     padding: 25px;
-    border-bottom: 5px solid #000000;
+    border: 5px solid #000000;
     margin: 50px;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
 .teamDiv {
-    background: linear-gradient(#ffffff, #55aa67);
+    background-color: #de96e7b6;
     padding: 25px;
-    border-bottom: 5px solid #000000;
+    border: 5px solid #000000;
     margin: 50px;
-    border-radius: 25px;  
+    border-radius: 5px;  
 }
 
 .methods {
-    background: linear-gradient( white, #724a79);
-    border-bottom: 5px solid #000000;
+    background-color: #de96e7b6;
+    border: 5px solid #000000;
     margin: 50px;
-    border-radius: 25px;  
+    border-radius: 5px;  
 }
 
 
@@ -176,6 +182,10 @@ a {
 
     .voiceContainer {
         text-align: center;
+    }
+
+    .boldHR {
+        border: 2px solid black;
     }
 
     .footer {
