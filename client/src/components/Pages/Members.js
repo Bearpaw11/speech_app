@@ -69,11 +69,10 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
 
     render() {
-        console.log(this.state, "USERDATA") //logs True
       
         if (this.state.loggedIn) {
             return (
-                <div className="containerDiv vision">
+                <div className="containerDiv whiteText vision">
                     <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
                 <div>
                     
@@ -99,7 +98,7 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
             )
         } else {
             return ( 
-                <div className="vision">
+                <div className="whiteText vision">
                     <p className="userWelcome">Please sign up in order to use the app.</p>
                     
                     <div>
