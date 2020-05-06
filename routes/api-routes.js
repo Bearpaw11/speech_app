@@ -4,7 +4,6 @@ const db = require("./models");
 
 module.exports = function (app) {
 
-
     // app.post("/api/signup", function (req, res) {
     //     db.Users.create({
     //         email: req.body.email,
@@ -18,7 +17,5 @@ module.exports = function (app) {
     //             res.status(401).json(err);
     //         });
     // });
-
-
 
 }

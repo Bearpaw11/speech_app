@@ -39,7 +39,6 @@ function TeamSection(props) {
                 </div>
             </div>
 
-
             <div className="col-md-6" id="chrisAdjust">
                 <div class="avatar mx-auto">
                     <MeetTeam 
@@ -49,7 +48,7 @@ function TeamSection(props) {
                     />            
                 </div>
             </div>
-    </div>
+        </div>
     )
 }
 

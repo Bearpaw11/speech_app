@@ -11,7 +11,6 @@ function Carousel() {
                     <p className="carouselSignature"> - Donald JT, Businessman</p>
                 </div>
 
-
             <div class="carousel-item">
                     <p className="carouselTitle">"VP of Public Speaking -- Make That President!"</p>
                     <p className="carouselWords">"Simply the best app for public speaking. After playing second fiddle to the greatest genius on Earth, I knew I needed to take things up a notch. So, I downloaded Speech Therapy. Absolutely love it. I'm using the skills from this app to become the president of my company."</p>
