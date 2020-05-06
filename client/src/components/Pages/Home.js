@@ -9,7 +9,8 @@ function Home() {
             <MDBCol>
                 <MDBCard className="methods">
                     <MDBCardBody>
-                        <MDBCardTitle className="vision">Why Speech Therapy?</MDBCardTitle><br/>
+                        <h1 className="vision">Why Speech Therapy?    </h1>
+                            <br/>
                             <MDBCardText className="vision">3 out of every 4 people have a fear of public 
                             speaking. This fear can significantly impact things such
                             as earning potential, ability to get promoted and 
