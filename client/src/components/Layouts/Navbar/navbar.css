@@ -1,11 +1,13 @@
 .navi {
-  background: linear-gradient(#ffffff, #ffffff00);
+  background: linear-gradient( to right,#ffffff, #ffffff, #5c5858, #00000000);
+  /* background-color: white; */
   width: 100%;
-  padding: 5px;
+  /* padding: 5px; */
   word-wrap: normal;
   display: inline-block;
   font-size: 16px;
-  /* border-radius: 0px 50px 50px 0px; */
+  border-radius: 0px 50px 50px 0px;
+ 
 }
 
 .navbar-toggler {
@@ -16,10 +18,12 @@
   width: 350px;
  
 }
-.nav-link{
-    color: #fff;
-    font-family: 'Georgia';
-    font-size: 20px;
+
+.nav-links {
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  margin: 0px 20px 0px 0px !important;
 }
 
 :root {

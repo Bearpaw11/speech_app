@@ -6,6 +6,7 @@ import logo from './logorainbow.png';
 
 function NavBar(props) {
   const location = useLocation();
+    
     function logOut() {
         API.logOut().then((logout) => {
             console.log(logout)

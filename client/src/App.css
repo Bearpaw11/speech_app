@@ -1,3 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+* {
+    font-family: "Lato", sans-serif;
+    color: black;
+}
+
 .containerDiv {
     min-width: 140px;
     max-width: 1500px;
@@ -54,7 +61,7 @@ a {
 
 .groupName {
     font-size: 30px;
-    font-family: 'Georgia';
+    font-family: "Manrope", sans-serif;
 }
 
 .voiceContainer {
@@ -74,10 +81,15 @@ a {
     min-width: 100px;
     height: 290px;
     margin-top: 20px;
+   
 }
 
 .carousel-inner {
-    background-color: rgb(47, 175, 192);
+    background: linear-gradient(white, #d28847);
+    border-radius: 25px;
+    border-bottom: 5px solid black;
+    min-width: 100px;
+    margin: 50px 50px 50px 50px;
 }
 
 .carouselTitle {
@@ -95,6 +107,29 @@ a {
 
 .carousel-item {
     padding: 30px
+}
+
+.visionDiv {
+    background: linear-gradient(#ffffff, #71ffe7af);
+    padding: 25px;
+    border-bottom: 5px solid #000000;
+    margin: 50px;
+    border-radius: 25px;
+}
+
+.teamDiv {
+    background: linear-gradient(#ffffff, #55aa67);
+    padding: 25px;
+    border-bottom: 5px solid #000000;
+    margin: 50px;
+    border-radius: 25px;  
+}
+
+.methods {
+    background: linear-gradient( white, #724a79);
+    border-bottom: 5px solid #000000;
+    margin: 50px;
+    border-radius: 25px;  
 }
 
 
@@ -133,8 +168,19 @@ a {
         left: 280px;
     }
 
+    #recordingsPage {
+        text-align: center;
+        margin-left: 300px;
+        margin-top: 50px;
+    }
 
+    .voiceContainer {
+        text-align: center;
+    }
 
+    .footer {
+        margin-left: 10px;
+    }
 
     
 

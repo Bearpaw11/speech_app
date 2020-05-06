@@ -5,9 +5,10 @@ import { useHistory } from "react-router-dom";
 import "./modal.css";
 
 function LoginModal(props) {
+    
     let history = useHistory();
+    
     const [formObject, setFormObject] = useState({
-
         email: "",
         password: ""
     })
@@ -16,8 +17,8 @@ function LoginModal(props) {
         event.preventDefault();
         if (formObject.email && formObject.password) {
             console.log(formObject)
+           
             API.login({
-
                     email: formObject.email,
                     password: formObject.password
                 })
@@ -31,7 +32,6 @@ function LoginModal(props) {
                     })
                     props.onHide()
                     history.push("/members");
-
                 }).catch(err => console.log(err));
         }
     };
@@ -64,7 +64,6 @@ function LoginModal(props) {
                         
                 <FormBtn onClick={handleFormSubmit}>Submit</FormBtn>
             </form>
-
         </div>
     )
 }

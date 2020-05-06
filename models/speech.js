@@ -1,11 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
+    
     const SpeechesLists = sequelize.define("SpeechesLists", {
 
         speechTitle: {
             type: DataTypes.STRING,
             allowNull: false,
-
         },
+
         length: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -15,6 +16,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
+
     });
 
     SpeechesLists.associate = function(models) {
@@ -24,6 +26,5 @@ module.exports = function (sequelize, DataTypes) {
           }
         });
       };
-    
     return SpeechesLists;
 };
