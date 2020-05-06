@@ -28,6 +28,7 @@ body {
 
 .footer {
     text-align: center;
+    color: white;
 }	
 
 #btn-aquaColor {
@@ -147,6 +148,10 @@ a {
     margin-top: 15px;
   }
 
+.whiteText {
+    color: white
+}
+
  
 @media only screen and (width: 768px) { /*iPAD ONLY*/
     .containerDiv { /*Home Page */
@@ -179,10 +184,6 @@ a {
         position: relative;
         margin-top: -300px;
         left: 280px;
-    }
-
-    #whiteOut {
-        color: white;
     }
 
     .voiceContainer {
