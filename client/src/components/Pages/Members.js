@@ -82,7 +82,7 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
                             )}
                         </div>
                 </div>
-                    <button type="button" className="btn btn-success" onClick={this.relocation}>Create New Speech</button>
+                    <button type="button" className="btn btn-success" id="speecherBtn" onClick={this.relocation}>Create New Speech</button>
                 </div>  
             )
         } else {

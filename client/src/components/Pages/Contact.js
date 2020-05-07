@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import '../../../src/components/Layouts/contact.css';
 import axios from "axios";
 import { Redirect} from "react-router-dom"
 import '../../../src/components/Layouts/ContactCSS/contact.css';

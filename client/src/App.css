@@ -209,9 +209,130 @@ a {
     #save {
         margin-left: 4px !important;
     }
-
 }
 
+@media only screen and (width: 411px) {  /* PIXEL 2/2XL ONLY */
 
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
 
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 72px;
+    }
+
+    .btn-success {
+        margin-left: 10px !important;
+    }
+
+    #viewresults {
+        margin-left: 5px !important;
+    }
+
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+}
+
+@media only screen and (width: 320px) { /*iPhone 5/SE ONLY */
+    
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #speecherBtn {
+        margin-left: 10px !important;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 52px;
+    }
+
+    .btn-success {
+        margin-left: 45px !important;
+    }
+    
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+
+    .container {
+        margin-left: 25px;
+        text-align: center;
+        max-height: 700px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        margin-left: 55px;
+        text-align: center;
+        width: 250px;
+    }
+    .darker {
+        width: 365px;
+    }
+
+    .timerCenter {
+        margin-left: 60px;
+    }
+
+    #viewresults {
+        margin-left: 10px !important;
+    }
+    
+    #results {
+        margin-left: 82px !important;
+    }
+
+}
 

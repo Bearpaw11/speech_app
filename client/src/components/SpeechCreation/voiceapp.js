@@ -166,7 +166,7 @@ function Speeches(props) {
                 </div>
             </div>
 
-            <div className="vision"> 
+            <div className="vision timerCenter"> 
                 <Timer recognition={recognition}/>
             </div>
 
