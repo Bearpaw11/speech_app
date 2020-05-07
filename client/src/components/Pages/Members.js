@@ -13,12 +13,10 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     }
         
     componentDidMount() { 
-        console.log("MOUNT", this.state);
         this.verify();
     }
  
     relocation = () => {
-        console.log(this.props.history);
         this.props.history.push("/Recordings");
     }
 
@@ -28,10 +26,7 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
     verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user);
-
             if (user.data){
-                console.log("change state");
                 this.setState({loggedIn:true, ready:true, userName: user.data.username, userId: user.data.id});
             } else {
                 this.setState({ready:true});
@@ -41,13 +36,9 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         })
     } 
 
-        getSpeech = () => {
-            console.log("get", this.state.userId, this.props.userId);
-       
+        getSpeech = () => {       
             let id = this.state.userId;
-            
-            console.log(this.state.userId, id, "id?");
-       
+                   
             if (this.state.userId){
                 API.getSpeech(
                     this.state.userId
@@ -58,8 +49,6 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         }
 
         delete = (id) =>{
-            console.log("delete this id: ", id);
-
             API.deleteSpeech(
                 id
             ).then(id => {

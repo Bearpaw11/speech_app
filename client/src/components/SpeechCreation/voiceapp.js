@@ -65,7 +65,6 @@ function Speeches(props) {
                 
                 viewResults.addEventListener("click", function () {
                     speechTitle.innerHTML = title.value;
-                    console.log(transcript);
                     let words = transcript.split(" ");
                     console.log(words) //console logs words said
                     let textObj = {
@@ -92,7 +91,6 @@ function Speeches(props) {
                     let counter = 0;
 
                     for (let key in textObj) {
-                        console.log(key, ": ", textObj[key]);
                         if (textObj[key] > 0) {
                             textRegular += `You said "${key}" ${textObj[key]} times. `
                             counter ++;
@@ -108,13 +106,11 @@ function Speeches(props) {
 
                     for (let key in textObjPersonal) {
                         if (textObjPersonal[key] > 3) {
-                            console.log(key, ": ", textObjPersonal[key]);
                             textPersonal += `You said "${key}" ${textObjPersonal[key]} times. `
                         }
                     }
 
                     textResultsPersonal.innerHTML = textPersonal;
-
                     timeresult.innerHTML = `Speech Time: ${time.innerHTML}`;
                 })
             }
@@ -129,13 +125,12 @@ function Speeches(props) {
     return (
         <div className="center">
             <br/>
-            <p>According to research conducted, the following 5 words are the most common fillers used: 
-            "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
+            <p class="card darker">According to research conducted, the following 5 words are the most common fillers used: "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
 
-            <p>Please follow our steps in order to optimize the way you practice your speeches!</p><br/>
-            <div className="boldHR"></div>
-
-            <ol>
+            <p class="card darker">Please follow our steps in order to optimize the way you practice your speeches!</p><br/>
+            
+ 
+            <ol className="card darker">
                 <li>
                     Click 'Start' to begin recording. 
                 </li><br/>
@@ -157,7 +152,6 @@ function Speeches(props) {
                 </li>
             </ol><br/>
             
-           
             <div className="speechTitler">
                 <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
             </div>
@@ -180,11 +174,11 @@ function Speeches(props) {
                 <div className="mb-3"></div>
                     <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
 
-                    <Accordion /><br /> 
+                    <Accordion/><br /> 
                 
                     <button type="button" className="btn btn-success" onClick={relocation} id="results">View Speeches</button>
-                </div>
             </div>
+        </div>
     )
 }
 

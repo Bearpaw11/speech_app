@@ -6,7 +6,7 @@ function About() {
     return (
       <div className="containerDiv">
           <div className="visionDiv">
-            <h1 className="vision">Vision</h1>
+            <h1 className="vision headerTitles">Vision</h1>
             <p>
                 Speech Therapy was created by David Coons, Melanie Rogoff,
                 Chris Behrens, and Shauna McGrail in order to address the need of having a single 
@@ -28,7 +28,7 @@ function About() {
             </p>
             </div>
             <div className='teamDiv'>
-            <h1 className="vision">Meet The Team </h1> <br/>
+            <h1 className="vision headerTitles">Meet The Team </h1> <br/>
             <Team />
             </div>
       </div>

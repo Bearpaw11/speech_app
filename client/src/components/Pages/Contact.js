@@ -15,10 +15,6 @@ class Contact extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
-        //this.sendEmail()
-        //this.sendEmailContact()
-        /// we will send the email
         let internalEmail = {
             from: `Speech Therapy`,
             to: `speechtherapyapp2020@gmail.com`,
@@ -78,19 +74,19 @@ class Contact extends Component {
                   
                         <ul>
                             <li>
-                                <p className="left">
+                                <p className="left namers">
                                     <label for="first_name">First Name</label>
                                     <input type="text" name="first_name" placeholder="John" onChange ={this.handleInputChange} value={this.state.first_name}/>
                                 </p>
                         
-                                <p className="left">
+                                <p className="left namers">
                                     <label htmlFor="last_name">Last Name</label>
                                     <input type="text" name="last_name" placeholder="Smith" onChange ={this.handleInputChange} value={this.state.last_name}/>      
                                 </p>
                             </li>
                             
                             <li>
-                                <p>
+                                <p id="emailInputBox">
                                     <label htmlFor="email">Email <span className="req">*</span></label>
                                     <input type="email" name="email" placeholder="john.smith@gmail.com" onChange ={this.handleInputChange} value={this.state.email}/>
                                 </p>

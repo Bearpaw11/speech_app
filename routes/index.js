@@ -4,9 +4,6 @@ const db = require("../models");
 const passport = require("../config/passport");
 const nodemailer = require  ("nodemailer");
 
-//Console logging the email address first
-console.log("email add:", process.env.EMAIL_PASSWORD);
-
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -39,12 +36,10 @@ module.exports = function (app) {
     });
 
     app.post("/api/login/", passport.authenticate("local"), function(req, res) {
-        console.log(res);
         res.json(req.user);
     });
 
     app.post("/api/savespeech", function (req, res) {
-        console.log(req.body);
 
         db.SpeechesLists.create({
             speechTitle: req.body.speechTitle,
@@ -61,7 +56,6 @@ module.exports = function (app) {
     });
 
     app.post("/api/verifyLogin/", function(req, res) {
-        console.log("---verify backend:", req.user);
         res.json(req.user);
     });
 
@@ -71,8 +65,6 @@ module.exports = function (app) {
     });
 
     app.get("/api/members/:id", function (req, res) {
-        console.log(req);
-
         db.SpeechesLists.findAll({
             where:{
                 userId: req.params.id
@@ -86,8 +78,6 @@ module.exports = function (app) {
     })
 
     app.delete("/api/delete/:id", function (req, res) {
-        console.log(res);
-
         db.SpeechesLists.destroy({
             where:{
                 id: req.params.id     
@@ -100,54 +90,35 @@ module.exports = function (app) {
         });
     })
 
-    app.post("/api/sendemail", function(req, res){
-        console.log("post email: ", req.body);
-     
+    app.post("/api/sendemail", function(req, res){     
         // Define message for nodemailer
         const mailOptions = req.body;
           
         // Send mail 
         transporter.sendMail(mailOptions, function (err, response) {
             if (err) {
-                console.error('there was an error: ', err);
+                console.error('There was an error: ', err);
             } else {
-                console.log('here is the res: ', response);
+                console.log('This is the res: ', response);
             }
               res.json(response);
             });         
     })
 
    
-    app.post("/api/sendemailCustomer", function(req, res){
-        console.log("post email: ", req.body);
-     
+    app.post("/api/sendemailCustomer", function(req, res){     
         // Define message for nodemailer
         const mailOptions = req.body;
           
         // Send mail 
         transporter.sendMail(mailOptions, function (err, response) {
             if (err) {
-                console.error('there was an error: ', err);
+                console.error('There was an error: ', err);
             } else {
-                console.log('here is the res: ', response);
+                console.log('Here is the res: ', response);
                 res.json(response);
             }
         });         
     })
-
-    // app.get("/api/user_data", function(req, res) {
-    //     if (!req.user) {
-    //         // The user is not logged in, send back an empty object
-    //         res.json({});
-    //     } else {
-    //         // Otherwise send back the user's email and id
-    //         // Sending back a password, even a hashed password, isn't a good idea
-    //         res.json({
-    //             username: req.user.username,
-    //             email: req.user.email,
-    //             id: req.user.id
-    //         });
-    //     }
-    // });
 };
 

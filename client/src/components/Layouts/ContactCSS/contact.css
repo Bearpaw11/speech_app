@@ -134,44 +134,61 @@ form small {
   margin: 0 0 0 0.5em;
 }
 
-@media only screen and (max-width: 480px) {
-  .pull-right {
-    float: none;
-  }
-
-  input {
-    width: 100%;
-  }
-
-  label {
-    width: 100%;
-    display: inline-block;
-    clear: both;
-  }
-
-  li, p {
-    width: 100%;
-  }
-
-  input.btn {
-    margin: 1.5em 0 0.5em;
-  }
-
-  li small {
-    display: none;
-  }
+.namers {
+    margin: 2px;
 }
 
-@media only screen and (width: 768px) { /*iPAD ONLY*/
-    .container {
-        position: relative;
-        left: 160px;
-        top: 30px;
+@media only screen and (width: 360px) { /*GALAXY S5 ONLY*/
+    #emailInputBox {
+        margin: 0 auto;
     }
+
+    #contactUs {
+        text-align: center;
+    }
+
+    .btn.btn-submit {
+        position: relative;
+        top: 20px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .pull-right {
+      float: none;
+    }
+  
+    input {
+      width: 100%;
+    }
+  
+    label {
+      width: 100%;
+      display: inline-block;
+      clear: both;
+    }
+  
+    li, p {
+      width: 100%;
+    }
+  
+    input.btn {
+      margin: 1.5em 0 0.5em;
+    }
+  
+    li small {
+      display: none;
+    }
+  }
+
+@media only screen and (width: 768px) { /*iPAD ONLY*/
+  
     .footer {
         margin-top: 100px;
     }
 }
+
 
 /*# sourceMappingURL=contact.css.map */
 

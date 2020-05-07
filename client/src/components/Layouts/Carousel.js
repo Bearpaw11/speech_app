@@ -13,14 +13,14 @@ function Carousel() {
 
 
         <div class="carousel-item">
-                <p className="carouselTitle">"VP of Public Speaking -- Make That President!"</p>
+                <p className="carouselTitle">"Future President!"</p>
                 <p className="carouselWords">"After playing second fiddle to the greatest genius on Earth, I knew I needed to take things up a notch. So, I downloaded Speech Therapy. I love it. I'm using the skills from this app to become the president of my company."</p>
                 <p className="carouselSignature"> - Joe B, VP Communications</p>
         </div>
 
         <div class="carousel-item">
                 <p className="carouselTitle">"100% VERSATILE, LOVE IT!"</p>
-                <p className="carouselWords">"I am a famous singer, and I have acted in several films and spoken at gatherings, such as awards shows. I always struggled, though, until I found Speech Therapy. I just really like, the fact that, like, I can count my fillers, and, like, time myself. Thanks, Speech Therapy!"</p>
+                <p className="carouselWords">"I am a famous singer and I have spoken at gatherings, such as awards shows. To be honest, I always struggled, until I found Speech Therapy. I just really like, the fact that, like, I can count my fillers, and, like, time myself. Thanks, Speech Therapy!"</p>
                 <p className="carouselSignature"> - Britney S, Singer</p>
         </div>
     </div>

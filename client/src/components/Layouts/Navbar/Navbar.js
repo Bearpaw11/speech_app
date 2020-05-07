@@ -6,13 +6,13 @@ import logo from './logorainbow.png';
 
 function NavBar(props) {
     const location = useLocation();
-    function logOut() {
-        API.logOut().then((logout) => {
-            console.log(logout)
-            window.location.href = "/";
-            alert("You've been logged out!")
-        })
-    }
+        function logOut() {
+            API.logOut().then((logout) => {
+                console.log(logout);
+                window.location.href = "/";
+                alert("You've been logged out!")
+            })
+        }
 
     return (
         <div className="navi">

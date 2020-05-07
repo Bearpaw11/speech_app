@@ -17,7 +17,7 @@ import './components/Layouts/background.css';
 
 function App(props) {
 
-    console.log("app:", props)
+    console.log("app:", props);
 
     const [isOpen, setIsOpen] = React.useState(false);
 
