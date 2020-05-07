@@ -7,7 +7,7 @@ function Carousel() {
         <div class="carousel-inner">
             <div class="carousel-item active"> 
                 <p className="carouselTitle">"Winning Bigly!"</p>
-                <p className="carouselWords">"I am the greatest businessman on Earth, and frankly, I am that way because of myself, G-d, and Speech Therapy. Speech Therapy is simplistic, and easy to use. Believe me, I know simplicity! This app helps me win bigly whenever I need to speak to my royal subjects."</p>
+                <p className="carouselWords">"I am the greatest businessman on Earth, and frankly, I am that way because of myself, G-d, and Speech Therapy. Speech Therapy is simple to use, and believe me, I know simplicity! This app helps me win bigly whenever I need to speak to my royal subjects."</p>
                 <p className="carouselSignature"> - Donald JT, Businessman</p>
             </div>
 
