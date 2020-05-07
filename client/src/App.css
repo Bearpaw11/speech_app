@@ -413,7 +413,6 @@ a {
 
 
 @media only screen and (width: 414px) { /*iPhone 6/7/8+ ONLY */
-    
     .containerDiv {
         margin-left: -80px;
         width: 500px;
@@ -489,7 +488,12 @@ a {
     .speechTitler {
         margin-left: 40px;
     }
+}
+
+@media only screen and (width: 768px) { /*iPad ONLY */
+
 
 }
+
 
 
