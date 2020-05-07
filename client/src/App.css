@@ -259,6 +259,82 @@ a {
     }
 }
 
+@media only screen and (width: 375px) { /*iPhone 6/7/8 ONLY */
+    
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #speecherBtn {
+        margin-left: 10px !important;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 62px;
+    }
+
+    .btn-success {
+        margin-left: 15px !important;
+    }
+    
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+
+    .container {
+        text-align: center;
+        max-height: 700px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        margin-left: 35px;
+        text-align: center;
+        width: 250px;
+    }
+    .darker {
+        width: 365px;
+    }
+
+    .timerCenter {
+        margin-left: 30px;
+    }
+
+    #viewresults {
+        margin-left: 10px !important;
+    }
+    
+    #results {
+        margin-left: 42px !important;
+    }
+
+}
+
 @media only screen and (width: 320px) { /*iPhone 5/SE ONLY */
     
     .containerDiv {
@@ -335,4 +411,5 @@ a {
     }
 
 }
+
 
