@@ -17,25 +17,18 @@ function Speeches(props) {
 
     const verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user);
+            console.log("--->user data>", user.data);
 
             if (user.data) {
                 console.log("change state");
                 setUsers({ loggedIn: true, ready: true, userName: user.data.username, userId: user.data.id });
+                
             } else {
                 setUsers({ ready: true });
             }
-
-           
         })
     } 
 
-    // const [isOn, setIsOn] = useState()
-    // function startTimer() {
-        //     setIsOn(true)
-        // }
-        
-        
     const [recognition, setRecognition] = useState(false);
     
     const voiceFunctionality = () => {
@@ -76,12 +69,13 @@ function Speeches(props) {
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
+                    console.log(users)
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
                         analytics: textResults.innerHTML + textResultsPersonal.innerHTML,
+                        UserId: users.userId
                         // UserId: props.userId
-                        UserId: users
                     }).then(function (data) {
                         console.log(data);
                     }).catch((err) => console.log(err))
@@ -143,13 +137,16 @@ function Speeches(props) {
     }
     
     useEffect(() => { 
-        voiceFunctionality();
         verify()
-
-    },[]);
+    }, []);
+    
+    useEffect(() => {
+        voiceFunctionality();
+    }, [users])
 
     return (
         <div className="center">
+        { console.log(users) }
             <br/>
             <p class="card darker">According to research conducted, the following 5 words are the most common fillers used: "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
 
