@@ -4,6 +4,7 @@ import API from '../../utils/API'
 import Timer from '../Timer/Timer'
 import { useHistory } from "react-router-dom"
 import Accordion from "./accordion.js";
+
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 function Speeches(props) {
@@ -145,36 +146,10 @@ function Speeches(props) {
     }, [users])
 
     return (
-        <div className="center">
-        { console.log(users) }
+        <div>
             <br/>
-            <p class="card darker">According to research conducted, the following 5 words are the most common fillers used: "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
-
-            <p class="card darker">Please follow our steps in order to optimize the way you practice your speeches!</p><br/>
-            
- 
-            <ol className="card darker">
-                <li>
-                    Click 'Start' to begin recording. 
-                </li><br/>
-
-                <li>
-                    Click 'Stop' to stop recording. 
-                </li><br/>
-
-                <li>
-                    Click 'View Results'
-                </li><br/>
-
-                <li>
-                    Click 'Save Recording'
-                </li><br/>
-
-                <li>
-                    Click View Speeches to view all of your speeches. 
-                </li>
-            </ol><br/>
-            
+            <p className="cardForRecordings">According to research conducted, the following 5 words are the most common fillers used: "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
+            <br/>
             <div className="speechTitler">
                 <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
             </div>
@@ -189,16 +164,16 @@ function Speeches(props) {
                 </div>
             </div>
 
-            <div className="vision timerCenter"> 
+            <div className="vision cardForRecordings timerCenter"> 
                 <Timer recognition={recognition}/>
             </div>
 
-            <div className="voiceContainer">
+            <div className="voiceContainer cardForRecordings">
                 <div className="mb-3"></div>
                     <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
 
                     <Accordion/><br /> 
-                
+
                     <button type="button" className="btn btn-success" onClick={relocation} id="results">View Speeches</button>
             </div>
         </div>
