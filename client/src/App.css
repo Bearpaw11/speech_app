@@ -10,9 +10,7 @@ body {
 }
 
 body {
-    background-image: url('./components/Layouts/keys.jpg');
-    background-size: 200px;
-    background-repeat: no-repeat;
+    background-image: url('./components/Layouts/keys4.jpg');
     background-size: cover;
 }
 
@@ -81,6 +79,15 @@ a {
     margin: 0 auto;
 }
 
+
+.cardForRecordings {
+    background-color: #ffffff7c;
+    width: 540px;
+    margin-left: 190px;
+    border: 5px solid black;
+    padding: 43px;
+}
+
 .carousel-inner {
     background-color: #de96e7b6;
     border-radius: 5px;
@@ -147,9 +154,9 @@ a {
   }
 
 .whiteText {
-    color: white
+    color: white;
+    font-size: 28px;
 }
-
  
 @media only screen and (width: 768px) { /*iPAD ONLY*/
     .footer {
@@ -489,11 +496,5 @@ a {
         margin-left: 40px;
     }
 }
-
-@media only screen and (width: 768px) { /*iPad ONLY */
-
-
-}
-
 
 

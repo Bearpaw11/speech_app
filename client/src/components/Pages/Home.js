@@ -2,14 +2,14 @@ import React from "react";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import App from "../Layouts/Modal/Modal.js";
 import Carousel from "../Layouts/Carousel.js";
-
+import Resources from "./Resources.js";
 function Home() {
     return (
       <div className="containerDiv">
             <MDBCol>
                 <MDBCard className="methods">
                     <MDBCardBody>
-                        <h1 className="vision headerTitles">Why Speech Therapy?    </h1>
+                        <h1 className="vision headerTitles">Why Speech Therapy?</h1>
                         <hr className="boldHR"></hr>
                             <MDBCardText className="vision">3 out of every 4 people have a fear of public 
                             speaking. This fear can significantly impact things such
@@ -31,6 +31,13 @@ function Home() {
                  </MDBCard>
                 </MDBCol>
             <Carousel/>
+
+
+            <p className="whiteText vision">Recommended Public Speaking Resources</p>
+            
+            <br/>
+            <Resources />
+
         <App />
       </div>
     )
