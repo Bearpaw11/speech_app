@@ -1,22 +1,11 @@
 /*HEADER COMPONENT CSS*/
 
-.card--title {
-    text-align: center;
-}
-
-.soundLogo {
-    width: auto;
-    height: 150px;
-}
-
-body {
-  margin: auto;
-  font-family:cormorant infant;
-}
-
 .vision {
     text-align: center;
     margin-top: 15px;
     margin-bottom: -10px;
 }
 
+.headerTitles {
+    font-weight: 400;
+}

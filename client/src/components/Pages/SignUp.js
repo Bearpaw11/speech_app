@@ -15,7 +15,7 @@ function SignUp() {
         event.preventDefault();
 
         if (formObject.username && formObject.email && formObject.password) {
-            console.log(formObject);
+            alert('Thank you for signing up! Please log in to view your account and create a speech.');
             
             API.signUp({
                 username: formObject.username,
@@ -39,8 +39,11 @@ function SignUp() {
     return (   
         <div> 
             <div className="container"><br/>
-                <div className="row">
-                    <form className="signUpCenter">
+                <div className="row header">
+                    <h1 id="contactUs">SIGN UP</h1>
+                </div>
+
+                    <form className="vision">
                         <Input
                             className="vision"
                             onChange={handleInputChange}
@@ -75,7 +78,7 @@ function SignUp() {
                     
                 </div>
             </div>
-      </div>
+     
       )
     }
 

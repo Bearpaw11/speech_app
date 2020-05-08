@@ -16,7 +16,6 @@ function LoginModal(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.email && formObject.password) {
-            console.log(formObject)
            
             API.login({
                     email: formObject.email,

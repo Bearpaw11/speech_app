@@ -1,33 +1,37 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
-* {
+body {
     font-family: "Lato", sans-serif;
     color: black;
+}
+
+.darker {
+    color: black;
+}
+
+body {
+    background-image: url('./components/Layouts/keys.jpg');
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .containerDiv {
     min-width: 140px;
     max-width: 1500px;
     padding: 10px 20px 40px 80px;
+    margin-left: -50px;
+}
+
+.methods {
+    min-width: 290px;
+    max-height: 900px;
 }
 
 .footer {
-    position: relative;
-    font-size: 15px;
-    height: 48px;
     text-align: center;
-    margin-top: 10px;
+    color: white;
 }	
-
-#btn-aquaColor {
-   background-color: rgb(74, 192, 153);
-   border-bottom-color:  rgb(125, 226, 226);
-}
-
-.aqua {
-    background-color: rgb(74, 192, 153);
-    border-bottom-color:  rgb(125, 226, 226);
-}
 
 .speechDeleter {
     background-color: crimson;
@@ -41,11 +45,11 @@
     width: 500px;
     margin: 0 auto;
 }
+
 .speechTitler {
     min-width: 150px;
     max-width: 300px;
     margin: 0 auto; 
-    /* margin: 0 auto centers the info in the div */
 }
 
 .groupPics {
@@ -61,7 +65,7 @@ a {
 
 .groupName {
     font-size: 30px;
-    font-family: "Manrope", sans-serif;
+    font-family: 'Georgia';
 }
 
 .voiceContainer {
@@ -77,112 +81,419 @@ a {
     margin: 0 auto;
 }
 
-#carouselExampleControls {
-    min-width: 100px;
-    height: 290px;
-    margin-top: 20px;
-   
-}
-
 .carousel-inner {
-    background: linear-gradient(white, #d28847);
-    border-radius: 25px;
-    border-bottom: 5px solid black;
-    min-width: 100px;
-    margin: 50px 50px 50px 50px;
+    background-color: #de96e7b6;
+    border-radius: 5px;
+    border: 5px solid black;
+    min-height: 100px;
+    max-height: 230px;
 }
 
+#carouselExampleControls {
+    height: 228px;
+    border: 1 px;
+}
 .carouselTitle {
     text-align: center !important;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
-    margin-top: 5px;
 }
-
 .carouselSignature {
-    text-align: center !important;
-    font-size: 15px;
+    text-align: center;
+    font-size: 13px;
     font-weight: bold;
 }
-
 .carousel-item {
-    padding: 30px
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#emailInputBox {
+    margin-left: 100px;
 }
 
 .visionDiv {
-    background: linear-gradient(#ffffff, #71ffe7af);
-    padding: 25px;
-    border-bottom: 5px solid #000000;
-    margin: 50px;
-    border-radius: 25px;
+    background-color: #de96e7b6;
+    padding: 5px;
+    border: 5px solid #000000;
+    border-radius: 5px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .teamDiv {
-    background: linear-gradient(#ffffff, #55aa67);
-    padding: 25px;
-    border-bottom: 5px solid #000000;
-    margin: 50px;
-    border-radius: 25px;  
+    margin-top: 20px;
+    background-color: #de96e7b6;
+    padding: 5px;
+    border: 5px solid #000000;
+    border-radius: 5px;  
 }
 
 .methods {
-    background: linear-gradient( white, #724a79);
-    border-bottom: 5px solid #000000;
+    background-color: #de96e7b6;
+    border: 5px solid #000000;
     margin: 50px;
-    border-radius: 25px;  
+    border-radius: 5px;  
 }
 
+.center {
+    text-align: center;
+    list-style-position: inside;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
 
+.whiteText {
+    color: white
+}
 
  
 @media only screen and (width: 768px) { /*iPAD ONLY*/
-    .containerDiv { /*Home Page */
-        margin-left: 250px;
-        padding: 20px;
-        width: 600px;
-    }
-
     .footer {
         margin-left: 350px;
     }
-
-    #lefter {
-        position: relative;
-        left: -280px;
-    }
-    #melAdjust {
-        position: relative;
-        left: -250px;
-        top: -10px;
-    }
-
-    #shaunaAdjust {
-        position: relative;
-        margin-top: -300px;
-        left: 230px;
-    }
-  
-    #chrisAdjust {
-        position: relative;
-        margin-top: -300px;
-        left: 280px;
-    }
-
-    #recordingsPage {
-        text-align: center;
-        margin-left: 300px;
-        margin-top: 50px;
-    }
-
     .voiceContainer {
         text-align: center;
     }
-
+    .boldHR {
+        border: 2px solid black;
+    }
     .footer {
         margin-left: 10px;
     }
+}
 
+@media only screen and (width: 360px) { /*GALAXY S5 ONLY*/
+
+    .visionDiv {
+        margin-left: 60px;
+        margin-top: 30px;
+    }
+
+    .containerDiv {
+        margin-left: -100px;
+    }
+
+    .teamDiv {
+        margin-left: 60px;
+    }
+
+    .carousel {
+        margin-left: 60px;
+    }
+
+    #carouselExampleControls {
+        height: 300px;
+    }
+
+    .carousel-inner {
+        max-height: 300px;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 52px;
+    }
+
+    .btn-success {
+        margin-left: 30px !important;
+    }
+
+    #viewresults {
+        margin-left: 5px !important;
+    }
+
+    #save {
+        margin-left: 4px !important;
+    }
+}
+
+@media only screen and (width: 411px) {  /* PIXEL 2/2XL ONLY */
+
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 72px;
+    }
+
+    .btn-success {
+        margin-left: 10px !important;
+    }
+
+    #viewresults {
+        margin-left: 5px !important;
+    }
+
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+}
+
+@media only screen and (width: 375px) { /*iPhone 6/7/8 ONLY */
     
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #speecherBtn {
+        margin-left: 10px !important;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 62px;
+    }
+
+    .btn-success {
+        margin-left: 15px !important;
+    }
+    
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+
+    .container {
+        text-align: center;
+        max-height: 700px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        margin-left: 35px;
+        text-align: center;
+        width: 250px;
+    }
+    .darker {
+        width: 365px;
+    }
+
+    .timerCenter {
+        margin-left: 30px;
+    }
+
+    #viewresults {
+        margin-left: 10px !important;
+    }
+    
+    #results {
+        margin-left: 42px !important;
+    }
+
+}
+
+@media only screen and (width: 320px) { /*iPhone 5/SE ONLY */
+    
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #speecherBtn {
+        margin-left: 10px !important;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 52px;
+    }
+
+    .btn-success {
+        margin-left: 45px !important;
+    }
+    
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+
+    .container {
+        margin-left: 25px;
+        text-align: center;
+        max-height: 700px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        margin-left: 55px;
+        text-align: center;
+        width: 250px;
+    }
+    .darker {
+        width: 365px;
+    }
+
+    .timerCenter {
+        margin-left: 60px;
+    }
+
+    #viewresults {
+        margin-left: 10px !important;
+    }
+    
+    #results {
+        margin-left: 82px !important;
+    }
+}
+
+
+@media only screen and (width: 414px) { /*iPhone 6/7/8+ ONLY */
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #speecherBtn {
+        margin-left: 10px !important;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 72px;
+    }
+
+    .btn-success {
+        margin-left: 5px !important;
+    }
+    
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+
+    .container { /*Contact form*/
+        text-align: center;
+        max-height: 700px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        margin-left: 55px;
+        text-align: center;
+        width: 250px;
+    }
+    .darker {
+        width: 414px;
+    }
+
+    .timerCenter {
+        margin-left: 20px;
+    }
+
+    #viewresults {
+        margin-left: 10px !important;
+    }
+    
+    #results { /*View Speeches Btn*/ 
+        margin-left: 22px !important;
+    }
+
+    .speechTitler {
+        margin-left: 40px;
+    }
+}
+
+@media only screen and (width: 768px) { /*iPad ONLY */
 
 
 }
+
+
+

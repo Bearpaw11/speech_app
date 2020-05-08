@@ -11,8 +11,8 @@ body {
   max-width: 510px;
   min-width: 324px;
   margin-top: 40px;
-  background-color: #fff;
-  border: 1px solid #cfcfcf;
+  background-color: #ffffffab;
+  border: 5px solid black;
 }
 
 .row {
@@ -49,25 +49,31 @@ h3 {
   display: inline-block;
   padding: 0.74em 1.5em;
   margin: 1.5em 0 0;
-  color: #fff;
+  background-color: #5f7db6;
+  background-color: #5f7db6;
   border-width: 0 0 0 0;
   border-bottom: 5px solid;
   text-transform: uppercase;
-  background-color: #b3b3b3;
-  border-bottom-color: #8c8c8c;
   font-family: "Lato", sans-serif;
   font-weight: 300;
 }
 
 .btn:hover {
-  background-color: #bfbfbf;
+    background-color: #22B24C;
 }
 .btn.btn-submit {
-  background-color: #4f6fad;
-  border-bottom-color: #374d78;
+    background-color: #5f7db6;
+    border-bottom-color:  rgb(125, 226, 226);
+    margin-left: 140px;
+    color: white;
 }
 .btn.btn-submit:hover {
-  background-color: #5f7db6;
+    background-color: #22B24C;
+}
+
+.btn.btn-success {
+    background-color: #5f7db6;
+    border-bottom-color:  rgb(125, 226, 226);
 }
 
 form {
@@ -128,45 +134,61 @@ form small {
   margin: 0 0 0 0.5em;
 }
 
-
-@media only screen and (max-width: 480px) {
-  .pull-right {
-    float: none;
-  }
-
-  input {
-    width: 100%;
-  }
-
-  label {
-    width: 100%;
-    display: inline-block;
-    clear: both;
-  }
-
-  li, p {
-    width: 100%;
-  }
-
-  input.btn {
-    margin: 1.5em 0 0.5em;
-  }
-
-  li small {
-    display: none;
-  }
+.namers {
+    margin: 2px;
 }
 
-@media only screen and (width: 768px) { /*iPAD ONLY*/
-    .container {
-        position: relative;
-        left: 160px;
-        top: 30px;
+@media only screen and (width: 360px) { /*GALAXY S5 ONLY*/
+    #emailInputBox {
+        margin: 0 auto;
     }
+
+    #contactUs {
+        text-align: center;
+    }
+
+    .btn.btn-submit {
+        position: relative;
+        top: 20px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .pull-right {
+      float: none;
+    }
+  
+    input {
+      width: 100%;
+    }
+  
+    label {
+      width: 100%;
+      display: inline-block;
+      clear: both;
+    }
+  
+    li, p {
+      width: 100%;
+    }
+  
+    input.btn {
+      margin: 1.5em 0 0.5em;
+    }
+  
+    li small {
+      display: none;
+    }
+  }
+
+@media only screen and (width: 768px) { /*iPAD ONLY*/
+  
     .footer {
         margin-top: 100px;
     }
 }
+
 
 /*# sourceMappingURL=contact.css.map */
 

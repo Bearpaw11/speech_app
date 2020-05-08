@@ -13,12 +13,10 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
     }
         
     componentDidMount() { 
-        console.log("MOUNT", this.state);
         this.verify();
     }
  
     relocation = () => {
-        console.log(this.props.history);
         this.props.history.push("/Recordings");
     }
 
@@ -28,10 +26,7 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
     verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user);
-
             if (user.data){
-                console.log("change state");
                 this.setState({loggedIn:true, ready:true, userName: user.data.username, userId: user.data.id});
             } else {
                 this.setState({ready:true});
@@ -41,13 +36,9 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         })
     } 
 
-        getSpeech = () => {
-            console.log("get", this.state.userId, this.props.userId);
-       
+        getSpeech = () => {       
             let id = this.state.userId;
-            
-            console.log(this.state.userId, id, "id?");
-       
+                   
             if (this.state.userId){
                 API.getSpeech(
                     this.state.userId
@@ -58,8 +49,6 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
         }
 
         delete = (id) =>{
-            console.log("delete this id: ", id);
-
             API.deleteSpeech(
                 id
             ).then(id => {
@@ -69,15 +58,14 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
 
 
     render() {
-        console.log(this.state, "USERDATA") //logs True
       
         if (this.state.loggedIn) {
             return (
                 <div className="containerDiv vision">
-                    <h4 className="userWelcome">Welcome, {this.state.userName}!</h4><br/>
+                    <h4 className="userWelcome whiteText">Welcome, {this.state.userName}!</h4><br/>
                 <div>
                     
-                    <h5 className="recordingListTitle">Past Recordings:</h5>
+                    <h5 className="recordingListTitle whiteText">Past Recordings:</h5>
                         <div className="recordingList">
 
                             {this.state.speech &&
@@ -94,16 +82,18 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
                             )}
                         </div>
                 </div>
-                    <button type="button" className="btn" id="btn-aquaColor" onClick={this.relocation}>Create New Speech</button>
+                    <button type="button" className="btn btn-success" id="speecherBtn" onClick={this.relocation}>Create New Speech</button>
                 </div>  
             )
         } else {
             return ( 
-                <div className="vision">
-                    <p className="userWelcome">Please sign up in order to use the app.</p>
+                <div className="whiteText vision">
+                    <br/>
+                    <p className="userWelcome">Please create an account to use the app.</p>
+
                     
                     <div>
-                        <button type="button" onClick={this.relocationSignup}>Signup</button><br/><br/>
+                        <button type="button" className="btn btn-success" onClick={this.relocationSignup}>Sign Up</button><br/><br/>
                     </div>
                 </div>
             )

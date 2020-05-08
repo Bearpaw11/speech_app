@@ -9,8 +9,8 @@ function Home() {
             <MDBCol>
                 <MDBCard className="methods">
                     <MDBCardBody>
-                        <h1 className="vision">Why Speech Therapy?    </h1>
-                            <br/>
+                        <h1 className="vision headerTitles">Why Speech Therapy?    </h1>
+                        <hr className="boldHR"></hr>
                             <MDBCardText className="vision">3 out of every 4 people have a fear of public 
                             speaking. This fear can significantly impact things such
                             as earning potential, ability to get promoted and 
@@ -18,7 +18,7 @@ function Home() {
                             tool that could help you earn 10% more annually, 
                             get promoted faster, or even graduate college at 
                             the top of your class?
-                            </MDBCardText><br/>
+                            </MDBCardText>
                                 
                             <MDBCardText className="vision">                
                             That's exactly what Speech 
@@ -27,11 +27,9 @@ function Home() {
                             application that will show you real time results
                             and provide instant feedback.
                             </MDBCardText>
-                            
                     </MDBCardBody>
                  </MDBCard>
                 </MDBCol>
-                <br/>
             <Carousel/>
         <App />
       </div>

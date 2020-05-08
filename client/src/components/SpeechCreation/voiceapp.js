@@ -44,8 +44,6 @@ function Speeches(props) {
 
         if (SpeechRecognition) {
 
-            console.log("Your Browser supports speech Recognition");
-
             const recognition = new SpeechRecognition();
             
             recognition.continuous = true;
@@ -58,14 +56,13 @@ function Speeches(props) {
             const save = document.querySelector("#save");
             const time = document.querySelector("#time");
             const timeresult = document.getElementById("timeresult");
+            
        
             recognition.onstart = function startSpeechRecogniton() {
-                //beginning recording
                 console.log("Speech recognition active.");
             }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
-  
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.");
             }
@@ -73,16 +70,12 @@ function Speeches(props) {
 
             recognition.onresult = function (event) {
                 const currentResultIndex = event.resultIndex;
-                
                 const transcript = event.results[currentResultIndex][0].transcript;
-
-                console.log(transcript);
              
                 textArea.innerHTML = transcript; //returns transcript of speech
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
-                    
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
@@ -96,7 +89,6 @@ function Speeches(props) {
                 
                 viewResults.addEventListener("click", function () {
                     speechTitle.innerHTML = title.value;
-                    console.log(transcript);
                     let words = transcript.split(" ");
                     console.log(words) //console logs words said
                     let textObj = {
@@ -111,7 +103,6 @@ function Speeches(props) {
 
                     for (let i = 0; i < words.length; i++) {
                         if (textObj[words[i]] !== undefined) {
-                            //  console.log("----", words[i], textObj[words[i]])
                             textObj[words[i]]++;
                         } else if (textObjPersonal[words[i]] !== undefined) {
                             textObjPersonal[words[i]]++;
@@ -124,9 +115,8 @@ function Speeches(props) {
                     let counter = 0;
 
                     for (let key in textObj) {
-                        console.log(key, ": ", textObj[key]);
                         if (textObj[key] > 0) {
-                            textRegular += `You said ${key} ${textObj[key]} times! `
+                            textRegular += `You said "${key}" ${textObj[key]} times. `
                             counter ++;
                         }
                     }
@@ -140,14 +130,12 @@ function Speeches(props) {
 
                     for (let key in textObjPersonal) {
                         if (textObjPersonal[key] > 3) {
-                            console.log(key, ": ", textObjPersonal[key]);
-                            textPersonal += `You said ${key} ${textObjPersonal[key]} times! `
+                            textPersonal += `You said "${key}" ${textObjPersonal[key]} times. `
                         }
                     }
 
                     textResultsPersonal.innerHTML = textPersonal;
-
-                    timeresult.innerHTML = `Speech Time:${time.innerHTML}`;
+                    timeresult.innerHTML = `Speech Time: ${time.innerHTML}`;
                 })
             }
             setRecognition(recognition);
@@ -161,10 +149,35 @@ function Speeches(props) {
     },[]);
 
     return (
-        <div id="recordingsPage">
-            <p>According to research conducted, the following 5 words are the most common fillers used: 
-            "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
-           
+        <div className="center">
+            <br/>
+            <p class="card darker">According to research conducted, the following 5 words are the most common fillers used: "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
+
+            <p class="card darker">Please follow our steps in order to optimize the way you practice your speeches!</p><br/>
+            
+ 
+            <ol className="card darker">
+                <li>
+                    Click 'Start' to begin recording. 
+                </li><br/>
+
+                <li>
+                    Click 'Stop' to stop recording. 
+                </li><br/>
+
+                <li>
+                    Click 'View Results'
+                </li><br/>
+
+                <li>
+                    Click 'Save Recording'
+                </li><br/>
+
+                <li>
+                    Click View Speeches to view all of your speeches. 
+                </li>
+            </ol><br/>
+            
             <div className="speechTitler">
                 <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
             </div>
@@ -179,21 +192,19 @@ function Speeches(props) {
                 </div>
             </div>
 
-            <div className="vision"> 
+            <div className="vision timerCenter"> 
                 <Timer recognition={recognition}/>
             </div>
 
             <div className="voiceContainer">
                 <div className="mb-3"></div>
-                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea><br />
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
 
-                    <button type="button" className="btn btn-danger savers" id="save">Save Recording</button><br /><br />
-
-                    <Accordion /><br /> 
+                    <Accordion/><br /> 
                 
-                    <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
-                </div>
+                    <button type="button" className="btn btn-success" onClick={relocation} id="results">View Speeches</button>
             </div>
+        </div>
     )
 }
 
