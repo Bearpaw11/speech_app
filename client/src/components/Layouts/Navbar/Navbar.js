@@ -12,6 +12,8 @@ function NavBar(props) {
             console.log(logout)
             window.location.href = "/";
             alert("You've been logged out!")
+            window.localStorage.setItem('user', null)
+
         })
     }
     

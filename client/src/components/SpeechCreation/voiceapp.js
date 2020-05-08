@@ -13,6 +13,23 @@ function Speeches(props) {
         history.push("/members");
     }
 
+    const [users, setUsers] = useState({})
+
+    const verify = () => {
+        API.verifyLogin().then(user => {
+            console.log("--->user data>", user);
+
+            if (user.data) {
+                console.log("change state");
+                setUsers({ loggedIn: true, ready: true, userName: user.data.username, userId: user.data.id });
+            } else {
+                setUsers({ ready: true });
+            }
+
+           
+        })
+    } 
+
     // const [isOn, setIsOn] = useState()
     // function startTimer() {
         //     setIsOn(true)
@@ -70,7 +87,8 @@ function Speeches(props) {
                         speechTitle: title.value,
                         length: time.innerHTML,
                         analytics: textResults.innerHTML + textResultsPersonal.innerHTML,
-                        UserId: props.userId
+                        // UserId: props.userId
+                        UserId: users
                     }).then(function (data) {
                         console.log(data);
                     }).catch((err) => console.log(err))
@@ -138,6 +156,8 @@ function Speeches(props) {
     
     useEffect(() => { 
         voiceFunctionality();
+        verify()
+
     },[]);
 
     return (

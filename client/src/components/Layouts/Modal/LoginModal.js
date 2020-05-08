@@ -25,6 +25,7 @@ function LoginModal(props) {
                 .then((userInfo) => {
                     console.log("user info: ", userInfo.data)
                     props.setUserId(userInfo.data.id)
+                    window.localStorage.setItem('userId', userInfo.data.id)
                     // go to the home
                     setFormObject({
                         email: "",
