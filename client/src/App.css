@@ -3,17 +3,13 @@
 body {
     font-family: "Lato", sans-serif;
     color: black;
+    background-image: url('./components/Layouts/keys4.jpg');
+    background-size: cover;
+
 }
 
 .darker {
     color: black;
-}
-
-body {
-    background-image: url('./components/Layouts/keys.jpg');
-    background-size: 200px;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .containerDiv {
@@ -23,9 +19,10 @@ body {
     margin-left: -50px;
 }
 
-.methods {
-    min-width: 290px;
-    max-height: 900px;
+.resourcesCards {
+    height: 378px;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .footer {
@@ -50,6 +47,7 @@ body {
     min-width: 150px;
     max-width: 300px;
     margin: 0 auto; 
+    text-align: center;
 }
 
 .groupPics {
@@ -78,6 +76,14 @@ a {
 }
 
 .signUpCenter {
+    margin: 0 auto;
+}
+
+.cardForRecordings {
+    background-color: #ffffff7c;
+    width: 540px;
+    border: 5px solid black;
+    padding: 43px;
     margin: 0 auto;
 }
 
@@ -136,6 +142,8 @@ a {
     border: 5px solid #000000;
     margin: 50px;
     border-radius: 5px;  
+    min-width: 290px;
+    max-height: 900px;
 }
 
 .center {
@@ -147,9 +155,9 @@ a {
   }
 
 .whiteText {
-    color: white
+    color: white;
+    font-size: 28px;
 }
-
  
 @media only screen and (width: 768px) { /*iPAD ONLY*/
     .footer {
@@ -197,22 +205,13 @@ a {
         width: 280px;
         margin-left: 52px;
     }
-
-    .btn-success {
-        margin-left: 30px !important;
+    .speechTitler {
+        margin-left: 60px;
     }
 
-    #viewresults {
-        margin-left: 5px !important;
-    }
-
-    #save {
-        margin-left: 4px !important;
-    }
 }
 
 @media only screen and (width: 411px) {  /* PIXEL 2/2XL ONLY */
-
     .containerDiv {
         margin-left: -80px;
         width: 500px;
@@ -256,6 +255,71 @@ a {
 
     .btn-submit {
         margin-left: 2px !important;
+    }
+    .speechTitler {
+        margin-left: 55px;
+    }
+}
+
+@media only screen and (width: 375px) { /*iPhone 6/7/8 ONLY */
+    
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #speecherBtn {
+        margin-left: 10px !important;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 62px;
+    }
+    
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+
+    .container {
+        text-align: center;
+        max-height: 700px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        margin-left: 35px;
+        text-align: center;
+        width: 250px;
+    }
+    .darker {
+        width: 365px;
+    }
+    .speechTitler {
+        margin-left: 120px;
     }
 }
 
@@ -322,17 +386,88 @@ a {
         width: 365px;
     }
 
-    .timerCenter {
-        margin-left: 60px;
+    #viewresults {
+        margin-left: 10px !important;
+    }
+    
+    #results {
+        margin-left: 12px !important;
+    }
+    .speechTitler {
+        margin-left: 80px;
+    }
+}
+
+
+@media only screen and (width: 414px) { /*iPhone 6/7/8+ ONLY */
+    .containerDiv {
+        margin-left: -80px;
+        width: 500px;
+    }
+
+    .carousel-inner {
+        margin-left: 10px;
+        max-width: 420px;
+    }
+
+    .visionDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .teamDiv {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #speecherBtn {
+        margin-left: 10px !important;
+    }
+
+    .accordCard {
+        width: 280px;
+        margin-left: 72px;
+    }
+
+    .btn-success {
+        margin-left: 5px !important;
+    }
+    
+    #save {
+        margin-left: 4px !important;
+    }
+
+    #emailInputBox {
+        margin-left: 3px;
+    }
+
+    .btn-submit {
+        margin-left: 2px !important;
+    }
+
+    .container { /*Contact form*/
+        text-align: center;
+        max-height: 700px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        margin-left: 55px;
+        text-align: center;
+        width: 250px;
+    }
+    .darker {
+        width: 414px;
     }
 
     #viewresults {
         margin-left: 10px !important;
     }
     
-    #results {
-        margin-left: 82px !important;
+    #results { /*View Speeches Btn*/ 
+        margin-left: 22px !important;
     }
 
 }
+
 
