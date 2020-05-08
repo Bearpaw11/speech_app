@@ -4,7 +4,7 @@ function Accordion (props) {
 
 return ( 
     <div id="accordion recordingList">
-        <div className="card accordCard">
+        <div>
             <div className="card-header recordingListItem">
                 <h5 className="mb-0">
                     <button id="viewresults" data-toggle="collapse" data-target= {`#${props.id}`} aria-expanded="false" aria-controls={props.id} type="button" className="btn btn-success">View Results</button>
@@ -18,7 +18,6 @@ return (
                     <p className="darker" id="textResultsPersonal"></p>
                     <p className="darker" id="timeresult"></p>
                     <button type="button" className="btn btn-success savers" id="save">Save Recording</button><br /><br />
-
                 </div>
             </div>         
         </div>

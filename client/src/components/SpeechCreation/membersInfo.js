@@ -2,6 +2,11 @@ import React from 'react';
 import API from "../../utils/API"
 
 function Recordings (props) {
+
+    function updater () {
+        //update title
+    }
+    
 return ( 
     <div>
         <div id="accordion recordingList"><br/>
@@ -10,6 +15,7 @@ return (
                     <h5 className="mb-0">
                         <a data-toggle="collapse" data-target= {`#${props.id}`} aria-expanded="false" aria-controls={props.id}>
                             Title: {props.speechTitle}
+                            {/* <p onClick={updater}>✏️</p> */}
                         </a>
                     </h5>
                 </div>
