@@ -1,7 +1,7 @@
 .navi {
   background: linear-gradient( to right,white,white, #5c5858, #00000000);
   width: 100%;
-  border-bottom: 5px solid black;
+  border-bottom: 2px solid black;
   word-wrap: normal;
   display: inline-block;
   font-size: 16px;
@@ -49,7 +49,7 @@ a::after {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 1.5px;
+  height: 1px;
   transform: scaleX(0);
   background-image: linear-gradient(to right, #7486eb, #74cfeb, #97dd5e, #f5a05a, #d87fa4, #b867dd, #f0c26d);
   transition: all 0.3s linear;

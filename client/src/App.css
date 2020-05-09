@@ -3,9 +3,16 @@
 body {
     font-family: "Lato", sans-serif;
     color: black;
-    background-image: url('./components/Layouts/keys4.jpg');
-    background-size: cover;
+    background-image: url('./components/Layouts/keys.jpg');
+    background-size: 2000px;
 
+}
+
+.soundwave {
+    top:10px;
+    right: 5px;
+    max-width: 1150px;
+    position: fixed;
 }
 
 .darker {
@@ -18,6 +25,12 @@ body {
     padding: 10px 20px 40px 80px;
     margin-left: -50px;
 }
+
+.visionHeader {
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+  }
 
 .resourcesCards {
     height: 378px;
@@ -101,12 +114,13 @@ a {
     border: 5px solid black;
     padding: 43px;
     margin: 0 auto;
+    z-index: 5;
 }
 
 .carousel-inner {
-    background-color: #de96e7b6;
+    background-color: #ffffffb6;
     border-radius: 5px;
-    border: 5px solid black;
+    border: 2px solid black;
     min-height: 100px;
     max-height: 230px;
 }
@@ -136,9 +150,10 @@ a {
 }
 
 .visionDiv {
-    background-color: #de96e7b6;
-    padding: 5px;
-    border: 5px solid #000000;
+    position: relative;
+    background-color: #ffffffb6;
+    padding: 30px;
+    border: 2px solid #000000;
     border-radius: 5px;
     max-width: 900px;
     margin: 0 auto;
@@ -146,16 +161,17 @@ a {
 }
 
 .teamDiv {
+    position: relative;
     margin-top: 20px;
-    background-color: #de96e7b6;
+    background-color: #ffffffb6;
     padding: 5px;
-    border: 5px solid #000000;
+    border: 2px solid #000000;
     border-radius: 5px;  
 }
 
 .methods {
     background-color: #ffffffb6;
-    border: 5px solid #000000;
+    border: 2px solid #000000;
     margin: 50px;
     border-radius: 5px;  
     min-width: 290px;
