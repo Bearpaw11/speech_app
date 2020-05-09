@@ -35,7 +35,7 @@ function Home() {
             <Carousel/>
 
 
-            <p className="whiteText vision">Recommended Public Speaking Resources</p>
+            <p className="resourceText vision">Recommended Public Speaking Resources</p>
             
             <br/>
             <Resources />
