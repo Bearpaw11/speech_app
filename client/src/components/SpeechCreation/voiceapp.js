@@ -61,12 +61,14 @@ function Speeches(props) {
                 console.log("Speech recognition is not active.");
             }
             
-
+            let transcript = ''
             recognition.onresult = function (event) {
+
                 const currentResultIndex = event.resultIndex;
                 const transcript = event.results[currentResultIndex][0].transcript;
-             
+
                 textArea.innerHTML = transcript; //returns transcript of speech
+             
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
