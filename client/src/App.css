@@ -7,9 +7,8 @@
 
 body {
     background-image: url('./components/Layouts/keys.jpg');
-    background-size: 200px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .containerDiv {
@@ -22,9 +21,15 @@ body {
     text-align: center;
 }	
 
+.boldHR {
+    background: linear-gradient(to right, #7486eb, #74cfeb, #97dd5e, #f5a05a, #d87fa4, #b867dd, #f0c26d);
+    height: 1px;
+}
+
+
 #btn-aquaColor {
    background-color: rgb(74, 192, 153);
-   border-bottom-color:  rgb(125, 226, 226);
+   border-bottom-color:  linear-gradient(to right, #7486eb, #74cfeb, #97dd5e, #f5a05a, #d87fa4, #b867dd, #f0c26d);
 }
 
 .aqua {
@@ -128,7 +133,7 @@ a {
 }
 
 .methods {
-    background-color: #de96e7b6;
+    background-color: #ffffffb6;
     border: 5px solid #000000;
     margin: 50px;
     border-radius: 5px;  
@@ -180,10 +185,7 @@ a {
         text-align: center;
     }
 
-    .boldHR {
-        border: 2px solid black;
-    }
-
+   
     .footer {
         margin-left: 10px;
     }

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../Form";
+import signupgraphic from "../Layouts/ContactCSS/signupwave.png"
 
 
 function SignUp() {
@@ -39,8 +40,9 @@ function SignUp() {
     return (   
         <div> 
             <div className="container"><br/>
-                <div className="row header">
-                    <h1 id="contactUs">SIGN UP</h1>
+                <div className="row header signUpHeader">
+                <img className="signupHeader" src={signupgraphic} alt="Sign Up"></img>
+                    
                 </div>
 
                     <form className="signUpCenter">
