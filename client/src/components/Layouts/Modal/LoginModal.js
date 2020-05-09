@@ -16,7 +16,6 @@ function LoginModal(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.email && formObject.password) {
-            console.log(formObject)
            
             API.login({
                     email: formObject.email,
@@ -25,6 +24,7 @@ function LoginModal(props) {
                 .then((userInfo) => {
                     console.log("user info: ", userInfo.data)
                     props.setUserId(userInfo.data.id)
+                    window.localStorage.setItem('userId', userInfo.data.id)
                     // go to the home
                     setFormObject({
                         email: "",

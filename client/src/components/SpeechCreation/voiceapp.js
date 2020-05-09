@@ -4,6 +4,7 @@ import API from '../../utils/API'
 import Timer from '../Timer/Timer'
 import { useHistory } from "react-router-dom"
 import Accordion from "./accordion.js";
+
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 function Speeches(props) {
@@ -13,12 +14,22 @@ function Speeches(props) {
         history.push("/members");
     }
 
-    // const [isOn, setIsOn] = useState()
-    // function startTimer() {
-        //     setIsOn(true)
-        // }
-        
-        
+    const [users, setUsers] = useState({})
+
+    const verify = () => {
+        API.verifyLogin().then(user => {
+            console.log("--->user data>", user.data);
+
+            if (user.data) {
+                console.log("change state");
+                setUsers({ loggedIn: true, ready: true, userName: user.data.username, userId: user.data.id });
+                
+            } else {
+                setUsers({ ready: true });
+            }
+        })
+    } 
+
     const [recognition, setRecognition] = useState(false);
     
     const voiceFunctionality = () => {
@@ -26,8 +37,6 @@ function Speeches(props) {
         const searchFormInput = searchForm.querySelector("input");
 
         if (SpeechRecognition) {
-
-            console.log("Your Browser supports speech Recognition");
 
             const recognition = new SpeechRecognition();
             
@@ -44,34 +53,32 @@ function Speeches(props) {
             
        
             recognition.onstart = function startSpeechRecogniton() {
-                //beginning recording
                 console.log("Speech recognition active.");
             }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
-  
                 searchFormInput.focus();
                 console.log("Speech recognition is not active.");
             }
             
-
+            let transcript = ''
             recognition.onresult = function (event) {
+
                 const currentResultIndex = event.resultIndex;
-                
                 const transcript = event.results[currentResultIndex][0].transcript;
 
-                console.log(transcript);
-             
                 textArea.innerHTML = transcript; //returns transcript of speech
+             
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
-                    
+                    console.log(users)
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
                         analytics: textResults.innerHTML + textResultsPersonal.innerHTML,
-                        UserId: props.userId
+                        UserId: users.userId
+                        // UserId: props.userId
                     }).then(function (data) {
                         console.log(data);
                     }).catch((err) => console.log(err))
@@ -79,7 +86,6 @@ function Speeches(props) {
                 
                 viewResults.addEventListener("click", function () {
                     speechTitle.innerHTML = title.value;
-                    console.log(transcript);
                     let words = transcript.split(" ");
                     console.log(words) //console logs words said
                     let textObj = {
@@ -94,7 +100,6 @@ function Speeches(props) {
 
                     for (let i = 0; i < words.length; i++) {
                         if (textObj[words[i]] !== undefined) {
-                            //  console.log("----", words[i], textObj[words[i]])
                             textObj[words[i]]++;
                         } else if (textObjPersonal[words[i]] !== undefined) {
                             textObjPersonal[words[i]]++;
@@ -107,9 +112,8 @@ function Speeches(props) {
                     let counter = 0;
 
                     for (let key in textObj) {
-                        console.log(key, ": ", textObj[key]);
                         if (textObj[key] > 0) {
-                            textRegular += `You said ${key} ${textObj[key]} times! `
+                            textRegular += `You said "${key}" ${textObj[key]} times. `
                             counter ++;
                         }
                     }
@@ -123,14 +127,12 @@ function Speeches(props) {
 
                     for (let key in textObjPersonal) {
                         if (textObjPersonal[key] > 3) {
-                            console.log(key, ": ", textObjPersonal[key]);
-                            textPersonal += `You said ${key} ${textObjPersonal[key]} times! `
+                            textPersonal += `You said "${key}" ${textObjPersonal[key]} times. `
                         }
                     }
 
                     textResultsPersonal.innerHTML = textPersonal;
-
-                    timeresult.innerHTML = `Speech Time:${time.innerHTML}`;
+                    timeresult.innerHTML = `Speech Time: ${time.innerHTML}`;
                 })
             }
             setRecognition(recognition);
@@ -138,14 +140,18 @@ function Speeches(props) {
     }
     
     useEffect(() => { 
+        verify()
+    }, []);
+    
+    useEffect(() => {
         voiceFunctionality();
-    },[]);
+    }, [users])
 
     return (
-        <div id="recordingsPage">
-            <p>According to research conducted, the following 5 words are the most common fillers used: 
-            "like", "and", "so", "sorry", "right". When you finish recording, save your speech, and click 'View Results', you will be able to view how many times you said these 5 filler words, along with any other word you said 4+ times, and how long your speech was. </p>            <br />
-           
+        <div>
+            <br/>
+            <p className="cardForRecordings">According to research conducted, the following 5 words are the most common fillers used: "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
+            <br/>
             <div className="speechTitler">
                 <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
             </div>
@@ -160,20 +166,19 @@ function Speeches(props) {
                 </div>
             </div>
 
-            <div className="vision"> 
+            <div className="vision cardForRecordings timerCenter"> 
                 <Timer recognition={recognition}/>
             </div>
 
-            <div className="voiceContainer">
+            <div className="voiceContainer cardForRecordings">
                 <div className="mb-3"></div>
-                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea><br />
+                    <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
 
+                    <Accordion/><br /> 
 
-                    <Accordion /><br /> 
-                
-                    <button type="button" className="btn btn-info" onClick={relocation} id="results">View Speeches</button>
-                </div>
+                    <button type="button" className="btn btn-success" onClick={relocation} id="results">View Speeches</button>
             </div>
+        </div>
     )
 }
 
