@@ -22,6 +22,8 @@ function App(props) {
     const [isOpen, setIsOpen] = React.useState(false);
 
     const [userId, setUserId] = React.useState(null);
+    
+    const [id, setId] = React.useState(null);
 
     const showModal = () => {
         setIsOpen(true);
