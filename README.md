@@ -13,7 +13,7 @@ Speech Therapy enables users to improve upon and gain confidence in their public
 ![About](screenshots/About.png)
 ![Contact](screenshots/Contact.png)
 ![Home](screenshots/Home.png)
-![Recordings](screenshots/Recording.png)
+![Recordings](screenshots/Recordings.png)
 ![Signup](screenshots/Signup.png)
 ![Members](screenshots/Members.png)
 
