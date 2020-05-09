@@ -13,7 +13,23 @@ function Speeches(props) {
     function relocation() {
         history.push("/members");
     }
-        
+
+    const [users, setUsers] = useState({})
+
+    const verify = () => {
+        API.verifyLogin().then(user => {
+            console.log("--->user data>", user.data);
+
+            if (user.data) {
+                console.log("change state");
+                setUsers({ loggedIn: true, ready: true, userName: user.data.username, userId: user.data.id });
+                
+            } else {
+                setUsers({ ready: true });
+            }
+        })
+    } 
+
     const [recognition, setRecognition] = useState(false);
     
     const voiceFunctionality = () => {
@@ -45,20 +61,24 @@ function Speeches(props) {
                 console.log("Speech recognition is not active.");
             }
             
-
+            let transcript = ''
             recognition.onresult = function (event) {
+
                 const currentResultIndex = event.resultIndex;
                 const transcript = event.results[currentResultIndex][0].transcript;
-             
+
                 textArea.innerHTML = transcript; //returns transcript of speech
+             
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
+                    console.log(users)
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
                         analytics: textResults.innerHTML + textResultsPersonal.innerHTML,
-                        UserId: props.userId
+                        UserId: users.userId
+                        // UserId: props.userId
                     }).then(function (data) {
                         console.log(data);
                     }).catch((err) => console.log(err))
@@ -120,8 +140,12 @@ function Speeches(props) {
     }
     
     useEffect(() => { 
+        verify()
+    }, []);
+    
+    useEffect(() => {
         voiceFunctionality();
-    },[]);
+    }, [users])
 
     return (
         <div>
