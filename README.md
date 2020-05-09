@@ -10,12 +10,10 @@ Speech Therapy enables users to improve upon and gain confidence in their public
 
 **Screenshots**:
 
-![About](About.png)
-![Contact](Contact.png)
-![Home](Home.png)
-![Login](Login.png)
-![Recordings](Recordings.png)
-![Signup](Signup.png)
-![Speech](Speech.png)
-
+![About](screenshots/About.png)
+![Contact](screenshots/Contact.png)
+![Home](screenshots/Home.png)
+![Recordings](screenshots/Recording.png)
+![Signup](screenshots/Signup.png)
+![Members](screenshots/Members.png)
 
