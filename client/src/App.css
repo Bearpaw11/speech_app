@@ -20,10 +20,13 @@ body {
 }
 
 .containerDiv {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.575);
     min-width: 140px;
-    max-width: 1500px;
+    max-width: 700px;
     padding: 10px 20px 40px 80px;
-    margin-left: -50px;
+    margin-left: 300px;
+    border: 2px solid black;
 }
 
 .visionHeader {
@@ -109,7 +112,8 @@ a {
 }
 
 .cardForRecordings {
-    background-color: #ffffff7c;
+    position: relative;
+    background-color: #ffffffa8;
     width: 540px;
     border: 5px solid black;
     padding: 43px;
@@ -187,7 +191,7 @@ a {
   }
 
 .whiteText {
-    color: white;
+    color: black;
     font-size: 28px;
 }
  
@@ -214,6 +218,8 @@ a {
     }
 
     .containerDiv {
+    
+        max-width: 400px;
         margin-left: -100px;
     }
 
