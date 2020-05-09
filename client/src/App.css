@@ -20,6 +20,13 @@ body {
 }
 
 .containerDiv {
+    min-width: 140px;
+    max-width: 1500px;
+    padding: 10px 20px 40px 80px;
+    margin-left: -50px;
+}
+
+.recDiv {
     position: relative;
     background-color: rgba(255, 255, 255, 0.575);
     min-width: 140px;
