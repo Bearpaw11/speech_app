@@ -42,6 +42,12 @@ body {
     height: auto;
   }
 
+  .resourceText {
+      position: relative;
+      color: white;
+      font-size: 28px;
+  }
+
 .resourcesCards {
     height: 378px;
     max-width: 300px;
