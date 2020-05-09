@@ -27,7 +27,7 @@ function NavBar(props) {
                             <Link to="/" className={location.pathname === "/" ? "nav-links active" : "nav-links"}>Home</Link>
                         </li>
                         <li className="nav-li">
-                            <Link to="/About" className={location.pathname === "/" ? "nav-links active" : "nav-links"}>About</Link>
+                            <Link to="/About" className={location.pathname === "/" ? "nav-links active" : "nav-links"}>Vision</Link>
                         </li>
                         <li className="nav-li">
                             <Link to="/Contact" className={location.pathname === "/" ? "nav-links active" : "nav-links"}>Contact</Link>

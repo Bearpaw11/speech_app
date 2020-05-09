@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Redirect} from "react-router-dom"
 import '../../../src/components/Layouts/ContactCSS/contact.css';
+import contactgraphic from "../Layouts/ContactCSS/contactwave.png"
 
 class Contact extends Component {
     state = {
@@ -65,7 +66,7 @@ class Contact extends Component {
         <div> 
             <div className="container">
                 <div className="row header">
-                    <h1 id="contactUs">CONTACT US</h1>
+                <img className="contactHeader" src={contactgraphic} alt="Contact Us"></img>
                 </div>
               
                 <div className="row body">

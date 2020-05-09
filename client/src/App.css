@@ -3,9 +3,16 @@
 body {
     font-family: "Lato", sans-serif;
     color: black;
-    background-image: url('./components/Layouts/keys4.jpg');
-    background-size: cover;
+    background-image: url('./components/Layouts/keys.jpg');
+    background-size: 2000px;
 
+}
+
+.soundwave {
+    top:10px;
+    right: 5px;
+    max-width: 1150px;
+    position: fixed;
 }
 
 .darker {
@@ -19,6 +26,22 @@ body {
     margin-left: -50px;
 }
 
+.recDiv {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.575);
+    min-width: 140px;
+    max-width: 700px;
+    padding: 10px 20px 40px 80px;
+    margin-left: 300px;
+    border: 2px solid black;
+}
+
+.visionHeader {
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+  }
+
 .resourcesCards {
     height: 378px;
     max-width: 300px;
@@ -29,6 +52,22 @@ body {
     text-align: center;
     color: white;
 }	
+
+.boldHR {
+    background: linear-gradient(to right, #7486eb, #74cfeb, #97dd5e, #f5a05a, #d87fa4, #b867dd, #f0c26d);
+    height: 1px;
+}
+
+
+#btn-aquaColor {
+   background-color: rgb(74, 192, 153);
+   border-bottom-color:  rgb(125, 226, 226);
+}
+
+.aqua {
+    background-color: rgb(74, 192, 153);
+    border-bottom-color:  rgb(125, 226, 226);
+}
 
 .speechDeleter {
     background-color: crimson;
@@ -80,17 +119,19 @@ a {
 }
 
 .cardForRecordings {
-    background-color: #ffffff7c;
+    position: relative;
+    background-color: #ffffffa8;
     width: 540px;
     border: 5px solid black;
     padding: 43px;
     margin: 0 auto;
+    z-index: 5;
 }
 
 .carousel-inner {
-    background-color: #de96e7b6;
+    background-color: #ffffffb6;
     border-radius: 5px;
-    border: 5px solid black;
+    border: 2px solid black;
     min-height: 100px;
     max-height: 230px;
 }
@@ -120,9 +161,10 @@ a {
 }
 
 .visionDiv {
-    background-color: #de96e7b6;
-    padding: 5px;
-    border: 5px solid #000000;
+    position: relative;
+    background-color: #ffffffb6;
+    padding: 30px;
+    border: 2px solid #000000;
     border-radius: 5px;
     max-width: 900px;
     margin: 0 auto;
@@ -130,16 +172,17 @@ a {
 }
 
 .teamDiv {
+    position: relative;
     margin-top: 20px;
-    background-color: #de96e7b6;
+    background-color: #ffffffb6;
     padding: 5px;
-    border: 5px solid #000000;
+    border: 2px solid #000000;
     border-radius: 5px;  
 }
 
 .methods {
-    background-color: #de96e7b6;
-    border: 5px solid #000000;
+    background-color: #ffffffb6;
+    border: 2px solid #000000;
     margin: 50px;
     border-radius: 5px;  
     min-width: 290px;
@@ -155,7 +198,7 @@ a {
   }
 
 .whiteText {
-    color: white;
+    color: black;
     font-size: 28px;
 }
  
@@ -182,6 +225,8 @@ a {
     }
 
     .containerDiv {
+    
+        max-width: 400px;
         margin-left: -100px;
     }
 
@@ -323,7 +368,9 @@ a {
     }
 }
 
-@media only screen and (width: 320px) { /*iPhone 5/SE ONLY */
+   
+
+     @media only screen and (width: 320px) { /*iPhone 5/SE ONLY */
     
     .containerDiv {
         margin-left: -80px;
@@ -469,5 +516,4 @@ a {
     }
 
 }
-
-
+    
