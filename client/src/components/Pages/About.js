@@ -15,7 +15,7 @@ function About() {
 
             <p>
                 Speech Therapy provides a fun, user-friendly platform that 
-                allows for the seamless recording of speeches, access to in-depth analyses
+                allows for the seamless recording of speeches, access to in-depth analysis
                 containing information about speech timing and filler word counts, as well as an
                 audio playback/annotation feature. 
             </p>
