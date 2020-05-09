@@ -3,15 +3,13 @@
 body {
     font-family: "Lato", sans-serif;
     color: black;
+    background-image: url('./components/Layouts/keys4.jpg');
+    background-size: cover;
+
 }
 
 .darker {
     color: black;
-}
-
-body {
-    background-image: url('./components/Layouts/keys4.jpg');
-    background-size: cover;
 }
 
 .containerDiv {
@@ -21,9 +19,10 @@ body {
     margin-left: -50px;
 }
 
-.methods {
-    min-width: 290px;
-    max-height: 900px;
+.resourcesCards {
+    height: 378px;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .footer {
@@ -48,6 +47,7 @@ body {
     min-width: 150px;
     max-width: 300px;
     margin: 0 auto; 
+    text-align: center;
 }
 
 .groupPics {
@@ -79,13 +79,12 @@ a {
     margin: 0 auto;
 }
 
-
 .cardForRecordings {
     background-color: #ffffff7c;
     width: 540px;
-    margin-left: 190px;
     border: 5px solid black;
     padding: 43px;
+    margin: 0 auto;
 }
 
 .carousel-inner {
@@ -143,6 +142,8 @@ a {
     border: 5px solid #000000;
     margin: 50px;
     border-radius: 5px;  
+    min-width: 290px;
+    max-height: 900px;
 }
 
 .center {
@@ -204,22 +205,13 @@ a {
         width: 280px;
         margin-left: 52px;
     }
-
-    .btn-success {
-        margin-left: 30px !important;
+    .speechTitler {
+        margin-left: 60px;
     }
 
-    #viewresults {
-        margin-left: 5px !important;
-    }
-
-    #save {
-        margin-left: 4px !important;
-    }
 }
 
 @media only screen and (width: 411px) {  /* PIXEL 2/2XL ONLY */
-
     .containerDiv {
         margin-left: -80px;
         width: 500px;
@@ -264,6 +256,9 @@ a {
     .btn-submit {
         margin-left: 2px !important;
     }
+    .speechTitler {
+        margin-left: 55px;
+    }
 }
 
 @media only screen and (width: 375px) { /*iPhone 6/7/8 ONLY */
@@ -296,10 +291,6 @@ a {
         width: 280px;
         margin-left: 62px;
     }
-
-    .btn-success {
-        margin-left: 15px !important;
-    }
     
     #save {
         margin-left: 4px !important;
@@ -327,19 +318,9 @@ a {
     .darker {
         width: 365px;
     }
-
-    .timerCenter {
-        margin-left: 30px;
+    .speechTitler {
+        margin-left: 120px;
     }
-
-    #viewresults {
-        margin-left: 10px !important;
-    }
-    
-    #results {
-        margin-left: 42px !important;
-    }
-
 }
 
 @media only screen and (width: 320px) { /*iPhone 5/SE ONLY */
@@ -405,16 +386,15 @@ a {
         width: 365px;
     }
 
-    .timerCenter {
-        margin-left: 60px;
-    }
-
     #viewresults {
         margin-left: 10px !important;
     }
     
     #results {
-        margin-left: 82px !important;
+        margin-left: 12px !important;
+    }
+    .speechTitler {
+        margin-left: 80px;
     }
 }
 
@@ -480,10 +460,6 @@ a {
         width: 414px;
     }
 
-    .timerCenter {
-        margin-left: 20px;
-    }
-
     #viewresults {
         margin-left: 10px !important;
     }
@@ -492,9 +468,6 @@ a {
         margin-left: 22px !important;
     }
 
-    .speechTitler {
-        margin-left: 40px;
-    }
 }
 
 

@@ -4,7 +4,7 @@ import { MDBCard, MDBCardTitle, MDBBtn, MDBCardGroup, MDBCardImage, MDBCardText,
 const Resources = () => {
   return (
     <MDBCardGroup className="text-center">
-      <MDBCard>
+      <MDBCard className="resourcesCards">
         <MDBCardImage src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fiese%2Ffiles%2F2016%2F04%2Fmicrophone-704255_1280-1200x800.jpg" alt="MDBCard image cap" top hover
           overlay="white-slight" />
         <MDBCardBody>
@@ -15,7 +15,7 @@ const Resources = () => {
         </MDBCardBody>
       </MDBCard>
 
-      <MDBCard>
+      <MDBCard className="resourcesCards">
         <MDBCardImage src="https://publicrelationssydney.com.au/wp-content/uploads/2012/07/Microphone-at-conference.jpg" alt="MDBCard image cap" top hover
           overlay="white-slight" />
         <MDBCardBody>
@@ -26,7 +26,7 @@ const Resources = () => {
         </MDBCardBody>
       </MDBCard>
 
-      <MDBCard>
+      <MDBCard className="resourcesCards">
         <MDBCardImage src="https://warwickcareers.files.wordpress.com/2017/06/public-speaking-image.jpg" alt="MDBCard image cap" top hover
           overlay="white-slight" />
         <MDBCardBody>
