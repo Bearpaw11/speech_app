@@ -1,12 +1,14 @@
 
 import React from "react";
 import Team from "../Team/index.js";
+import visiongraphic from "../Layouts/ContactCSS/visionwave.png"
 
 function About() {
     return (
       <div className="containerDiv">
           <div className="visionDiv">
-            <h1 className="vision headerTitles">Vision</h1>
+          <img className="visionHeader" src={visiongraphic} alt="Vision"></img>
+            
             <p>
                 Speech Therapy was created by David Coons, Melanie Rogoff,
                 Chris Behrens, and Shauna McGrail in order to address the need of having a single 
@@ -15,7 +17,7 @@ function About() {
 
             <p>
                 Speech Therapy provides a fun, user-friendly platform that 
-                allows for the seamless recording of speeches, access to in-depth analyses
+                allows for the seamless recording of speeches, access to in-depth analysis
                 containing information about speech timing and filler word counts, as well as an
                 audio playback/annotation feature. 
             </p>

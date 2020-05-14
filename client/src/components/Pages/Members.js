@@ -61,7 +61,7 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
       
         if (this.state.loggedIn) {
             return (
-                <div className="containerDiv vision">
+                <div className="containerDiv vision recDiv">
                     <h4 className="userWelcome whiteText">Welcome, {this.state.userName}!</h4><br/>
                 <div>
                     

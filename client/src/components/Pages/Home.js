@@ -3,9 +3,11 @@ import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreac
 import App from "../Layouts/Modal/Modal.js";
 import Carousel from "../Layouts/Carousel.js";
 import Resources from "./Resources.js";
+import wavegraphic from "../Layouts/ContactCSS/soundwave.png"
 function Home() {
     return (
       <div className="containerDiv">
+          {/* <img className="soundwave" src={wavegraphic} alt="soundwave"></img> */}
             <MDBCol>
                 <MDBCard className="methods">
                     <MDBCardBody>
@@ -33,7 +35,7 @@ function Home() {
             <Carousel/>
 
 
-            <p className="whiteText vision">Recommended Public Speaking Resources</p>
+            <p className="resourceText vision">Recommended Public Speaking Resources</p>
             
             <br/>
             <Resources />

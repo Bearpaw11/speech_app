@@ -13,6 +13,7 @@ import Footer from "../src/components/Layouts/Footer";
 import CreateSpeech from "./components/Pages/CreateSpeech.js";
 //import API from "./utils/API"
 import './components/Layouts/background.css';
+import wavegraphic from "./components/Layouts/ContactCSS/soundwave.png"
 
 
 function App(props) {
@@ -35,6 +36,7 @@ function App(props) {
 
     return (
         <div>
+            <img className="soundwave" src={wavegraphic} alt="soundwave"></img>
 
             <NavBar showModal={showModal} />
             <Header />
