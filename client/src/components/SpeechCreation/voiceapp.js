@@ -67,21 +67,16 @@ function Speeches(props) {
                 console.log(event)
                 const currentResultIndex = event.resultIndex;
                 if(event){
-                    
-                        if(event.results[currentResultIndex][0]) {
+                    if(event.results[currentResultIndex][0]) {
                     let transcript1 = event.results[currentResultIndex][0].transcript;
-                    
-                   if (transcript1[0] === " ") {
+                        if (transcript1[0] === " ") {
                         transcript1= transcript1.substring(1);
                         }                    
-                  console.log(transcript1)
+                    console.log(transcript1)
                     transcript.push(transcript1)
                         }
                    }
                    console.log(transcript)
-                
-                // console.log(event.results.length)
-                // console.log(event.results[currentResultIndex][0].length)
                 textArea.innerHTML = transcript; //returns transcript of speech
              
                 
