@@ -53,6 +53,7 @@ function Speeches(props) {
             
        
             recognition.onstart = function startSpeechRecogniton() {
+                empty()
                 console.log("Speech recognition active.");
             }
 
@@ -61,8 +62,11 @@ function Speeches(props) {
                 console.log("Speech recognition is not active.");
             }
             
+            function empty(){
+                transcript.length = 0;
+            }
             let transcript = []
-           
+            
             recognition.onresult = function (event) {
                 console.log(event)
                 const currentResultIndex = event.resultIndex;

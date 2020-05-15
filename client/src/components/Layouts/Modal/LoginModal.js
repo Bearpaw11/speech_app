@@ -57,6 +57,7 @@ function LoginModal(props) {
                     
                     <Input
                         onChange={handleInputChange}
+                        type="password"
                         name="password"
                         placeholder="Password"
                         value={formObject.password} 
