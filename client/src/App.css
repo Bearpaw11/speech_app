@@ -8,6 +8,10 @@ body {
 
 }
 
+.none{
+    display:none;
+}
+
 .soundwave {
     top:10px;
     right: 5px;

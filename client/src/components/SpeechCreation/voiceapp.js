@@ -50,12 +50,18 @@ function Speeches(props) {
             const save = document.querySelector("#save");
             const time = document.querySelector("#time");
             const timeresult = document.getElementById("timeresult");
-            
+            const timeLength = document.querySelector(".none")
+            const wpmValue = document.querySelector("#wpm")
        
             recognition.onstart = function startSpeechRecogniton() {
                 empty()
                 console.log("Speech recognition active.");
             }
+
+            // function wpm(){
+            //     let seconds = timeLength.value / 1000
+            //     let totalWords = 
+            // }
 
             recognition.onend = function endSpeechRecognition() { //ending recording
                 searchFormInput.focus();
@@ -65,10 +71,11 @@ function Speeches(props) {
             function empty(){
                 transcript.length = 0;
             }
-            let transcript = []
             
+            let transcript = []
             recognition.onresult = function (event) {
                 console.log(event)
+                console.log(time)
                 const currentResultIndex = event.resultIndex;
                 if(event){
                     if(event.results[currentResultIndex][0]) {
@@ -87,15 +94,20 @@ function Speeches(props) {
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
+                    console.log("------------------------------>")
                     console.log(users)
+                    console.log("------------------------------>")
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
                         analytics: textResults.innerHTML + textResultsPersonal.innerHTML,
-                        UserId: users.userId
+                        UserId: users.userId,
+                        wpm: wpmValue.innerHTML
                         // UserId: props.userId
                     }).then(function (data) {
+                        console.log("******************>")
                         console.log(data);
+                        console.log("*******************>")
                     }).catch((err) => console.log(err))
                 })
                 
@@ -103,6 +115,10 @@ function Speeches(props) {
                     speechTitle.innerHTML = title.value;
                     let words = transcript.join(' ').split(" ");
                     console.log(words) //console logs words said
+                    let seconds = parseInt(timeLength.innerHTML) / 1000
+                    let wpm = parseInt((words.length / seconds) * 60)
+                    wpmValue.innerHTML= wpm
+                    console.log(wpm)
                     let textObj = {
                         "like": 0,
                         "and": 0,
@@ -190,7 +206,7 @@ function Speeches(props) {
                     <textarea name="hide" style={{ display: 'none' }} className="form-control is-invalid" id="textarea" placeholder="Your message will appear here" required></textarea>
 
                     <Accordion/><br /> 
-
+                    
                     <button type="button" className="btn btn-success" onClick={relocation} id="results">View Speeches</button>
             </div>
         </div>
