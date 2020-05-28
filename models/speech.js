@@ -17,6 +17,11 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         },
 
+        wpm:{
+            type: DataTypes.STRING,
+            allowNull: true
+        }
+
     });
 
     SpeechesLists.associate = function(models) {
