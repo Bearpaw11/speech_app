@@ -45,7 +45,8 @@ module.exports = function (app) {
             speechTitle: req.body.speechTitle,
             length: req.body.length,
             analytics: req.body.analytics,
-            UserId: req.body.UserId
+            UserId: req.body.UserId,
+            wpm: req.body.wpm
         })
         .then(function () {
             res.redirect(307, "/");

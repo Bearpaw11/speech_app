@@ -17,6 +17,7 @@ return (
                     <p className="darker" id="textresults"></p>
                     <p className="darker" id="textResultsPersonal"></p>
                     <p className="darker" id="timeresult"></p>
+                    <p className="darker" id="wpm"></p>
                     <button type="button" className="btn btn-success savers" id="save">Save Recording</button><br /><br />
                 </div>
             </div>         

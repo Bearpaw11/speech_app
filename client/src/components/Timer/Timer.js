@@ -74,6 +74,7 @@ class Timer extends React.Component {
                         {/* {resume} */}
                         {stop}
                         {reset}
+                    <p className="none">{this.state.time}</p>
             </div>
         )
     }
