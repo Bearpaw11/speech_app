@@ -120,7 +120,7 @@ function Speeches(props) {
                     console.log(words) //console logs words said
                     let seconds = parseInt(timeLength.innerHTML) / 1000
                     let wpm = parseInt((words.length / seconds) * 60)
-                    wpmValue.innerHTML= wpm
+                    wpmValue.innerHTML= 'Words per minute: ' + wpm
                     console.log(wpm)
                     let textObj = {
                         "like": 0,
@@ -147,7 +147,7 @@ function Speeches(props) {
 
                     for (let key in textObj) {
                         if (textObj[key] > 0) {
-                            textRegular += `You said "${key}" ${textObj[key]} times. `
+                            textRegular += `You said "${key}" ${textObj[key]} time(s). `
                             counter ++;
                         }
                     }
