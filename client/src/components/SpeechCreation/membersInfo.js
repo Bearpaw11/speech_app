@@ -23,8 +23,9 @@ function Recordings(props) {
                     <div id={props.id} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             Analysis: {props.analytics} <br />
-                    Speech Length: {props.length}<br /><br />
-
+                    Speech Length: {props.length}<br />
+                     {props.wpm}
+                    <br></br><br></br>
                             <button onClick={() => props.delete(props.id)} className="speechDeleter">Delete</button><br />
                         </div>
                     </div>
