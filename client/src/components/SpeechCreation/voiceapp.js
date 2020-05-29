@@ -91,7 +91,7 @@ function Speeches(props) {
                    }
                    console.log(transcript)
                 textArea.innerHTML = transcript; //returns transcript of speech
-                
+            } 
                 
                 
                 save.addEventListener("click", function (event) {
@@ -166,7 +166,7 @@ function Speeches(props) {
                     timeresult.innerHTML = `Speech Time: ${time.innerHTML}`;
                 })
             
-            }
+            
             setRecognition(recognition);
         }
     }
