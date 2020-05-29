@@ -95,6 +95,10 @@ function Speeches(props) {
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
                     console.log(users)
+
+                    if (users.userId) {
+                    alert("Your Speech has been saved. Click view speeches to see all your saved speeches")
+                    
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
@@ -105,9 +109,8 @@ function Speeches(props) {
                     }).then(function (data) {
                         console.log("******************>")
                         console.log(data);
-                        console.log("*******************>")
                     }).catch((err) => console.log(err))
-                })
+                }})
                 
                 viewResults.addEventListener("click", function () {
                     speechTitle.innerHTML = title.value;
