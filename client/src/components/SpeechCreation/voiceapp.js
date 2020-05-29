@@ -54,7 +54,7 @@ function Speeches(props) {
             const wpmValue = document.querySelector("#wpm")
        
             recognition.onstart = function startSpeechRecogniton() {
-                // empty()
+                empty()
                 console.log("Speech recognition active.");
             }
 
@@ -68,13 +68,12 @@ function Speeches(props) {
                 console.log("Speech recognition is not active.");
             }
             
-            // function empty(){
-            //     transcript.length = 0;
-            // }
+            function empty(){
+                transcript.length = 0;
+            }
             
             let transcript = []
             recognition.onresult = function (event) {
-                console.log("HERE IS THE PROBLEM")
                 console.log(event)
                 console.log(time)
                 const currentResultIndex = event.resultIndex;
@@ -95,9 +94,7 @@ function Speeches(props) {
                 
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
-                    console.log("------------------------------>")
                     console.log(users)
-                    console.log("------------------------------>")
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
