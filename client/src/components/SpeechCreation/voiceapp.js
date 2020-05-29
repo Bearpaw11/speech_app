@@ -68,9 +68,11 @@ function Speeches(props) {
                 console.log("Speech recognition is not active.");
             }
             
-            function empty(){
+
+            function empty() {
                 transcript.length = 0;
             }
+
             
             let transcript = []
             recognition.onresult = function (event) {
@@ -89,7 +91,7 @@ function Speeches(props) {
                    }
                    console.log(transcript)
                 textArea.innerHTML = transcript; //returns transcript of speech
-                }
+                
                 
                 
                 save.addEventListener("click", function (event) {
@@ -164,7 +166,7 @@ function Speeches(props) {
                     timeresult.innerHTML = `Speech Time: ${time.innerHTML}`;
                 })
             
-            
+            }
             setRecognition(recognition);
         }
     }
