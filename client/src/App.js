@@ -36,7 +36,7 @@ function App(props) {
 
     return (
         <div>
-            <img className="soundwave" src={wavegraphic} alt="soundwave"></img>
+            {/* <img className="soundwave" src={wavegraphic} alt="soundwave"></img> */}
 
             <NavBar showModal={showModal} />
             <Header />
