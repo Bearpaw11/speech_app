@@ -149,6 +149,7 @@ function Speeches(props) {
                             counter ++;
                         }
                     }
+                    
                             if (counter === 0) {
                                 textRegular = `Congratulations! You said none of the filler words.`
                             }

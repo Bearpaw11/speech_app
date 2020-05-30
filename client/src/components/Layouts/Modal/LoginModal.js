@@ -39,7 +39,7 @@ function LoginModal(props) {
                     // if(!API.login) {
                     //     alert("Please enter correct credentials")
                     // }
-                }).catch(err => console.log(err), alert("Please enter correct credentials"));
+                }).catch(err => alert("Please enter correct credentials"));
         }
     };
 
