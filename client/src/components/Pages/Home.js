@@ -3,7 +3,7 @@ import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreac
 import App from "../Layouts/Modal/Modal.js";
 import Carousel from "../Layouts/Carousel.js";
 import Resources from "./Resources.js";
-import wavegraphic from "../Layouts/ContactCSS/soundwave.png"
+// import wavegraphic from "../Layouts/ContactCSS/soundwave.png"
 function Home() {
     return (
       <div className="containerDiv">
