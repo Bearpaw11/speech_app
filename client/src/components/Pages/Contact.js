@@ -43,7 +43,7 @@ class Contact extends Component {
             from: `speechterapyapp2020@gmail.com`,
             to:  `${this.state.email}`,
             subject: `Message from Speech Therapy Team`,
-            text: `Thank you for your message. A member from our team will contact you shortly.`
+            text: `Thank you for contacting Speech Therapy. A member from our team will contact you shortly.`
          }
 
         axios.post("/api/sendemail", customerEmail).then(
