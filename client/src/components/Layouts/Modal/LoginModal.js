@@ -30,9 +30,16 @@ function LoginModal(props) {
                         email: "",
                         password: ""
                     })
+
+                    if (API.login) {
+                    console.log("working")
                     props.onHide()
                     history.push("/members");
-                }).catch(err => console.log(err));
+                    }
+                    // if(!API.login) {
+                    //     alert("Please enter correct credentials")
+                    // }
+                }).catch(err => console.log(err), alert("Please enter correct credentials"));
         }
     };
 
