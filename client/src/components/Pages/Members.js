@@ -74,7 +74,7 @@ class Members extends Component { //NEED ARROW FUNCTIONS WITHIN CLASS COMPONENT
                                         key={record.id}
                                         speechTitle={record.speechTitle} 
                                         delete={this.delete}
-                                                    // userid={this.props.userId}
+                                        wpm= {record.wpm}
                                         analytics={record.analytics}
                                         length={record.length} 
                                         id={record.id}/>

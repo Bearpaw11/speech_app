@@ -97,6 +97,10 @@ function Speeches(props) {
                 save.addEventListener("click", function (event) {
                     event.preventDefault();
                     console.log(users)
+
+                    if (users.userId) {
+                    alert("Your Speech has been saved. Click view speeches to see all your saved speeches")
+                    
                     API.saveSpeech({
                         speechTitle: title.value,
                         length: time.innerHTML,
@@ -107,9 +111,8 @@ function Speeches(props) {
                     }).then(function (data) {
                         console.log("******************>")
                         console.log(data);
-                        console.log("*******************>")
                     }).catch((err) => console.log(err))
-                })
+                }})
                 
                 viewResults.addEventListener("click", function () {
                     speechTitle.innerHTML = title.value;
@@ -117,7 +120,7 @@ function Speeches(props) {
                     console.log(words) //console logs words said
                     let seconds = parseInt(timeLength.innerHTML) / 1000
                     let wpm = parseInt((words.length / seconds) * 60)
-                    wpmValue.innerHTML= wpm
+                    wpmValue.innerHTML= 'Words per minute: ' + wpm
                     console.log(wpm)
                     let textObj = {
                         "like": 0,
@@ -144,7 +147,7 @@ function Speeches(props) {
 
                     for (let key in textObj) {
                         if (textObj[key] > 0) {
-                            textRegular += `You said "${key}" ${textObj[key]} times. `
+                            textRegular += `You said "${key}" ${textObj[key]} time(s). `
                             counter ++;
                         }
                     }
