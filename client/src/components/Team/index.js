@@ -22,9 +22,9 @@ function TeamSection(props) {
             <div className="col-sm-2 col-md-6">
                 <div className="avatar mx-auto">
                     <MeetTeam 
-                        image={Mel}
-                        name={Team[1].name}
-                        bio={Team[1].bio}
+                        image={Chris}
+                        name={Team[3].name}
+                        bio={Team[3].bio}
                     />
                 </div>
             </div>
@@ -42,9 +42,9 @@ function TeamSection(props) {
             <div className="col-sm-2 col-md-6">
                 <div class="avatar mx-auto">
                     <MeetTeam 
-                        image={Chris}
-                        name={Team[3].name}
-                        bio={Team[3].bio}
+                        image={Mel}
+                        name={Team[1].name}
+                        bio={Team[1].bio}
                     />            
                 </div>
             </div>
