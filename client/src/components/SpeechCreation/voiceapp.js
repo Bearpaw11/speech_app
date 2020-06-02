@@ -142,15 +142,12 @@ function Speeches(props) {
                         }
                     }
 
-                    let textRegular = "";
+                    let textRegular = "";git 
                     let counter = 0;
+
                     for (let key in textObj) {
                         if (textObj[key] > 0) {
-                            textObj.forEach(item => console.log(item));
-                            function whatever(item, index) {
-                                item = `You said "${key}" ${textObj[key]} time(s).`
-                                 textRegular += index + item 
-                            }
+                            textRegular += `You said "${key}" ${textObj[key]} time(s). `
                             counter ++;
                         }
                     }
