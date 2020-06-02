@@ -35,8 +35,8 @@ body {
     background-color: rgba(255, 255, 255, 0.575);
     min-width: 140px;
     max-width: 700px;
-    padding: 10px 20px 40px 80px;
-    margin-left: 300px;
+    padding: 10px 20px 80px 20px;
+    margin: auto;
     border: 2px solid black;
 }
 
@@ -62,6 +62,7 @@ body {
     text-align: center;
     color: white;
 }	
+
 
 .boldHR {
     background: linear-gradient(to right, #7486eb, #74cfeb, #97dd5e, #f5a05a, #d87fa4, #b867dd, #f0c26d);
