@@ -18,10 +18,7 @@ function Speeches(props) {
 
     const verify = () => {
         API.verifyLogin().then(user => {
-            console.log("--->user data>", user.data);
-
             if (user.data) {
-                console.log("change state");
                 setUsers({ loggedIn: true, ready: true, userName: user.data.username, userId: user.data.id });
                 
             } else {
@@ -77,7 +74,6 @@ function Speeches(props) {
             let transcript = []
             recognition.onresult = function (event) {
                 console.log(event)
-                console.log(time)
                 const currentResultIndex = event.resultIndex;
                 if(event){
                     if(event.results[currentResultIndex][0]) {
@@ -109,7 +105,6 @@ function Speeches(props) {
                         wpm: wpmValue.innerHTML
                         // UserId: props.userId
                     }).then(function (data) {
-                        console.log("******************>")
                         console.log(data);
                     }).catch((err) => console.log(err))
                 }})
@@ -121,7 +116,6 @@ function Speeches(props) {
                     let seconds = parseInt(timeLength.innerHTML) / 1000
                     let wpm = parseInt((words.length / seconds) * 60)
                     wpmValue.innerHTML= 'Words per minute: ' + wpm
-                    console.log(wpm)
                     let textObj = {
                         "like": 0,
                         "and": 0,
@@ -186,7 +180,10 @@ function Speeches(props) {
     return (
         <div>
             <br/>
-            <p className="cardForRecordings">According to research conducted, the following 5 words are the most common fillers used: "like", "and", "so", "sorry", "right". Our app analyzes how many times users say these common words, along with words spoken more than 4 times, and displays the length of the user's speeches. </p>
+            <p className="cardForRecordings">According to research conducted, the following 5 words are the most common fillers used in a speech: "like", "and", "so", "sorry", "right". Additionally, we found that successful speakers will speak between 125-150 words per minute.
+            <br></br>
+            <br></br>
+            Our app analyzes how many times you say these common filler words, along with any word spoken more than 4 times. We will also show you how long your speech was and how fast you were speaking (wpm). Good luck and have fun!</p>
             <br/>
             <div className="speechTitler">
                 <input id="title" type="text" className="form-control speechTitler" placeholder="Name your speech..."/>
