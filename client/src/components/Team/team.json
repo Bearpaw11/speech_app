@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "David Coons",
-        "bio": "David Coons is a Full-Stack Developer with specialties in Back-End Development. He is passionate about tech, a team player, and enthusiastic about sales."
+        "bio": "David is a Full-Stack Developer with a passion for working with back-end technologies. His experience in Sr. Level management and public speaking has helped inspire some of the features in this application! As a solution oriented thinker he continues to push the boundaries of what is expected of developers so he can \"fail forward.\""
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
     {
         "id": 4,
         "name": "Chris Behrens",
-        "bio": "Chris Behrens is a Full Stack Web Developer who is a critical thinker, team player and loves a challenge. Proficient with Front-end languages such as HTML, CSS, JavaScript, Bootstrap, and ReactJs. Back-end experience with Node.js, JavaScript, MongoDB and MySQL"
+        "bio": "Chris Behrens is a Full Stack Web Developer who is a critical thinker, team player and loves a challenge. Proficient with Front-end languages such as HTML, CSS, JavaScript, Bootstrap, and ReactJs. Back-end experience with Node.js, JavaScript, MongoDB and MySQL."
         
     }
 ]
