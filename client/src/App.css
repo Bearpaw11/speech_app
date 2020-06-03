@@ -61,14 +61,19 @@ body {
 .footer {
     text-align: center;
     color: white;
+    height: 50px;
 }	
-
 
 .boldHR {
     background: linear-gradient(to right, #7486eb, #74cfeb, #97dd5e, #f5a05a, #d87fa4, #b867dd, #f0c26d);
     height: 1px;
 }
-
+.container{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
 
 #btn-aquaColor {
    background-color: rgb(74, 192, 153);
