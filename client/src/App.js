@@ -56,8 +56,7 @@ function App(props) {
             }
 
             {/* CONDITIONAL RENDERING: if the state of isOpen is true, then render AppModal component with the isOpen boolean value equal to the passed in isOpen, and the hideModal value equal to the passed in hideModal */}
-
-
+            
             <Footer />
 
         </div>
