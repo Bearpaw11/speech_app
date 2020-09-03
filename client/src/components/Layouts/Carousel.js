@@ -6,22 +6,22 @@ function Carousel() {
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active"> 
-                <p className="carouselTitle">"Winning Bigly!"</p>
-                <p className="carouselWords">"I am the greatest businessman on Earth, and frankly, I am that way because of myself, G-d, and Speech Therapy. Speech Therapy is simple to use, and believe me, I know simplicity! This app helps me win bigly whenever I need to speak to my royal subjects."</p>
-                <p className="carouselSignature"> - Donald JT, Businessman</p>
+                <p className="carouselTitle">"5 Stars!"</p>
+                <p className="carouselWords">"It is not often that one comes across a free app of this caliber. Speech Therapy is fun and very easy to use."</p>
+                <p className="carouselSignature"> - John C, CEO</p>
             </div>
 
 
         <div class="carousel-item">
-                <p className="carouselTitle">"Future President!"</p>
-                <p className="carouselWords">"After playing second fiddle to the greatest genius on Earth, I knew I needed to take things up a notch. So, I downloaded Speech Therapy. I love it. I'm using the skills from this app to become the president of my company."</p>
-                <p className="carouselSignature"> - Joe B, VP Communications</p>
+                <p className="carouselTitle">"A New Classic"</p>
+                <p className="carouselWords">"After a recent presentation, I knew I needed to take things up a notch. So, I downloaded Speech Therapy. I love it. I'm using the skills from this app to become the president of my company."</p>
+                <p className="carouselSignature"> - Carina M, VP Communications</p>
         </div>
 
         <div class="carousel-item">
-                <p className="carouselTitle">"100% VERSATILE, LOVE IT!"</p>
-                <p className="carouselWords">"I am a famous singer and I have spoken at gatherings, such as awards shows. To be honest, I always struggled, until I found Speech Therapy. I just really like, the fact that, like, I can count my fillers, and, like, time myself. Thanks, Speech Therapy!"</p>
-                <p className="carouselSignature"> - Britney S, Singer</p>
+                <p className="carouselTitle">"A GAMECHANGER!"</p>
+                <p className="carouselWords">"I speak at numerous gatherings, and I am always seeking to improve. Everything changed once I found Speech Therapy. I appreciate that I can count my fillers and time myself. Thanks, Speech Therapy!"</p>
+                <p className="carouselSignature"> - Britney S, Singer/Speaker</p>
         </div>
     </div>
 
