@@ -7,13 +7,13 @@
     "node": "v18.0.0"
   },
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev --openssl-legacy-provider",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "build": "cd client && npm run build --openssl-legacy-provider",
     "heroku-postbuild": "npm run build"
   },
   "author": "",
